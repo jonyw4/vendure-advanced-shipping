@@ -5,7 +5,7 @@ import {
 } from '@vendure/core';
 
 /**
- * Inject custom fileds in a Vendure Runtime Configure.
+ * Inject custom fields in a Vendure Runtime Configure.
  */
 export default function injectCustomFields(
   config: RuntimeVendureConfig,
