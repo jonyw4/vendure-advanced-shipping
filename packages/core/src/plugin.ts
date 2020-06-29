@@ -1,10 +1,12 @@
+import injectCustomFields from '@vendure-advanced-shipping/common/lib/injectCustomFields';
+import customFields from './config/customFields';
 import { PluginCommonModule, VendurePlugin } from '@vendure/core';
 import { PluginInitOptions } from './types';
 
 @VendurePlugin({
   imports: [PluginCommonModule],
   configuration: (config) => {
-    return config;
+    return injectCustomFields(config, customFields);
   }
   // entities: [ExampleEntity],
   // shopApiExtensions: {

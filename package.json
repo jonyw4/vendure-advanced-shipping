@@ -11,6 +11,10 @@
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix"
   },
+  "dependencies": {
+    "@vendure-advanced-shipping/core": "file:packages/core",
+    "@vendure-advanced-shipping/common": "file:packages/common"
+  },
   "devDependencies": {
     "@commitlint/config-conventional": "8.3.4",
     "@semantic-release/commit-analyzer": "8.0.1",
