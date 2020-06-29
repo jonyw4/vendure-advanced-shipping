@@ -1608,9 +1608,9 @@
   resolved "https://registry.npmjs.org/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
   integrity sha512-te5lMAWii1uEJ4FwLjzdlbw3+n0FZNOvFXHxQDKeT0dilh7HOzdMzV2TrJVUzq8ep7J4Na8OUYPRLSQkJHAlrg==
 
-"@vendure/admin-ui@^0.13.0":
+"@vendure/admin-ui@0.13.0", "@vendure/admin-ui@^0.13.0":
   version "0.13.0"
-  resolved "https://registry.npmjs.org/@vendure/admin-ui/-/admin-ui-0.13.0.tgz#bdfb9db970f646dae1d97a38cd2715ff991bcf75"
+  resolved "https://registry.yarnpkg.com/@vendure/admin-ui/-/admin-ui-0.13.0.tgz#bdfb9db970f646dae1d97a38cd2715ff991bcf75"
   integrity sha512-Kj8k8EehMw+QrIsnYOclU4ApN/GjaHEQdcfqZ27/HI34Lpu258cHIKuqqobNIto2iYI7ah/yeNKPHBJ3ILSnWw==
   dependencies:
     "@angular/animations" "9.1.7"
@@ -1659,9 +1659,9 @@
     tslib "^1.10.0"
     zone.js "~0.10.2"
 
-"@vendure/asset-server-plugin@^0.13.0":
+"@vendure/asset-server-plugin@0.13.0":
   version "0.13.0"
-  resolved "https://registry.npmjs.org/@vendure/asset-server-plugin/-/asset-server-plugin-0.13.0.tgz#b95357bf5aacf3225017c4482f07b79e097fb2ec"
+  resolved "https://registry.yarnpkg.com/@vendure/asset-server-plugin/-/asset-server-plugin-0.13.0.tgz#b95357bf5aacf3225017c4482f07b79e097fb2ec"
   integrity sha512-fzUpcANPtVTPU4IVxoA6CJQ7vPWOTQFLpyPbuzvtiqSM2pAgZqqg2cIaPA6xElolR9tKsqdbCVinnXtgc4T0zQ==
   dependencies:
     file-type "^14.3.0"
@@ -1673,9 +1673,9 @@
   resolved "https://registry.npmjs.org/@vendure/common/-/common-0.13.0.tgz#a49108d21db227bcb5429c24bc3de71d46bcf3d2"
   integrity sha512-mdG0baJCIqFQ+JpZkNFhaLRzPD9JsggCMFAdi4E8R3PEowtXCxJazXut0pjY9/Ak9LxWt3/iHUTDUiFP285wCg==
 
-"@vendure/core@^0.13.0":
+"@vendure/core@0.13.0":
   version "0.13.0"
-  resolved "https://registry.npmjs.org/@vendure/core/-/core-0.13.0.tgz#5ef5c80dbc79805828d3b3bc235ac5430bbd1bc2"
+  resolved "https://registry.yarnpkg.com/@vendure/core/-/core-0.13.0.tgz#5ef5c80dbc79805828d3b3bc235ac5430bbd1bc2"
   integrity sha512-/Dqs0Y9zDQFTKHA7f1u4gEuvpLhy/feldLvpt78YHQe0lQdeB7xANoVGffcSb1QU6eZznhm9nMOvfsLhEFN0qg==
   dependencies:
     "@nestjs/common" "7.0.5"
@@ -1716,9 +1716,9 @@
     rxjs "^6.3.3"
     typeorm "0.2.24"
 
-"@vendure/ui-devkit@^0.13.0":
+"@vendure/ui-devkit@0.13.0":
   version "0.13.0"
-  resolved "https://registry.npmjs.org/@vendure/ui-devkit/-/ui-devkit-0.13.0.tgz#1f9b4dd400940ebead61981347f9a875cc47e324"
+  resolved "https://registry.yarnpkg.com/@vendure/ui-devkit/-/ui-devkit-0.13.0.tgz#1f9b4dd400940ebead61981347f9a875cc47e324"
   integrity sha512-rfE+ZJyj/LklzDRP8yCKwLM3KL+HP5uGBz27kEg5/m6VdGKViBNSYr6nOcVSTYH9mhbBYBVe7y9MKQCNjIWecA==
   dependencies:
     "@angular-devkit/build-angular" "~0.900.5"
@@ -8666,7 +8666,7 @@ rimraf@3.0.0:
   dependencies:
     glob "^7.1.3"
 
-rimraf@3.0.2, rimraf@^3.0.2:
+rimraf@3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
   integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
@@ -9874,7 +9874,7 @@ typescript@3.6.4:
   resolved "https://registry.npmjs.org/typescript/-/typescript-3.6.4.tgz#b18752bb3792bc1a0281335f7f6ebf1bbfc5b91d"
   integrity sha512-unoCll1+l+YK4i4F8f22TaNVPRHcD9PA3yCuZ8g5e0qGqlVlJ/8FSateOLLSagn+Yg5+ZwuPkL8LFUc0Jcvksg==
 
-typescript@^3.9.5, typescript@~3.9.2:
+typescript@3.9.5, typescript@~3.9.2:
   version "3.9.5"
   resolved "https://registry.npmjs.org/typescript/-/typescript-3.9.5.tgz#586f0dba300cde8be52dd1ac4f7e1009c1b13f36"
   integrity sha512-hSAifV3k+i6lEoCJ2k6R2Z/rp/H3+8sdmcn5NrS3/3kE7+RyZXm9aqvxWqjEXHAd8b0pShatpcdMTvEdvAJltQ==

@@ -15,11 +15,11 @@
     "build": "rimraf lib && tsc"
   },
   "devDependencies": {
-    "@vendure/admin-ui": "^0.13.0",
-    "@vendure/asset-server-plugin": "^0.13.0",
-    "@vendure/core": "^0.13.0",
-    "@vendure/ui-devkit": "^0.13.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^3.9.5"
+    "@vendure/admin-ui": "0.13.0",
+    "@vendure/asset-server-plugin": "0.13.0",
+    "@vendure/core": "0.13.0",
+    "@vendure/ui-devkit": "0.13.0",
+    "rimraf": "3.0.2",
+    "typescript": "3.9.5"
   }
 }
