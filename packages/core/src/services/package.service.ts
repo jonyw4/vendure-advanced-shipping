@@ -27,6 +27,14 @@ export class PackageService {
         };
       });
   }
+
+  async create(
+    ctx: RequestContext,
+    input: CreatePackageInput
+  ): Promise<Package> {
+    const newPackage = new Package(input);
+    return newPackage;
+  }
 }
 
 export default PackageService;

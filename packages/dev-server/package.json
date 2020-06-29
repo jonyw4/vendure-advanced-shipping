@@ -1,0 +1,13 @@
+{
+  "name": "dev-server",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "populate": "node -r ts-node/register populate-dev-server.ts",
+    "run:server": "node -r ts-node/register index.ts",
+    "run:worker": "node -r ts-node/register index-worker.ts",
+    "start": "concurrently npm:run*"
+  }
+}

@@ -1,0 +1,29 @@
+overwrite: true
+generates:
+  ./packages/common/generated-admin-schema.graphql:
+    schema: "http://localhost:3000/admin-api"
+    plugins:
+      - schema-ast
+  ./packages/common/generated-admin-introspectionResult.ts:
+    schema: "http://localhost:3000/admin-api"
+    plugins:
+      - fragment-matcher
+  ./packages/common/generated-admin-schema.ts:
+    schema: "http://localhost:3000/admin-api"
+    plugins:
+      - typescript
+  ./packages/common/generated-shop-schema.graphql:
+    schema: "http://localhost:3000/shop-api"
+    plugins:
+      - schema-ast
+  ./packages/common/generated-shop-introspectionResult.ts:
+    schema: "http://localhost:3000/shop-api"
+    plugins:
+      - fragment-matcher
+  ./packages/common/generated-shop-schema.ts:
+    schema: "http://localhost:3000/shop-api"
+    plugins:
+      - typescript
+hooks:
+  afterAllFileWrite:
+    - npx eslint --fix
