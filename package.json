@@ -5,6 +5,9 @@
   "license": "MIT",
   "scripts": {
     "bootstrap": "lerna link && lerna exec npm install",
+    "watch": "lerna run watch --parallel",
+    "build": "lerna run build",
+    "test": "lerna run test",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix"
   },
@@ -30,7 +33,13 @@
     "@vendure/admin-ui": "0.13.0",
     "@vendure/asset-server-plugin": "0.13.0",
     "@vendure/core": "0.13.0",
-    "@vendure/ui-devkit": "0.13.0"
+    "jest": "25.2.1",
+    "@vendure/testing": "0.13.0",
+    "@vendure/ui-devkit": "0.13.0",
+    "rimraf": "3.0.0",
+    "ts-jest": "25.2.1",
+    "@types/jest": "25.1.4",
+    "@types/node": "12.12.0"
   },
   "release": {
     "branches": [
