@@ -8,11 +8,12 @@ import { PluginInitOptions } from '../types';
 
 @Injectable()
 export class ExampleService {
+  constructor(
+    @InjectConnection() private connection: Connection,
+    @Inject(PLUGIN_INIT_OPTIONS) private options: PluginInitOptions
+  ) {}
 
-    constructor(@InjectConnection() private connection: Connection,
-                @Inject(PLUGIN_INIT_OPTIONS) private options: PluginInitOptions) {}
-
-    getAllItems() {
-        return this.connection.getRepository(ExampleEntity).find();
-    }
+  getAllItems() {
+    return this.connection.getRepository(ExampleEntity).find();
+  }
 }

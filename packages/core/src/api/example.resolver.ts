@@ -4,11 +4,10 @@ import { RequestContext, Ctx } from '@vendure/core';
 
 @Resolver()
 export class ExampleResolver {
-    constructor(private exampleService: ExampleService) {
-    }
+  constructor(private exampleService: ExampleService) {}
 
-    @Query()
-    examples(@Ctx() ctx: RequestContext, @Args() args: any) {
-        return this.exampleService.getAllItems();
-    }
+  @Query()
+  examples(@Ctx() ctx: RequestContext, @Args() args: any) {
+    return this.exampleService.getAllItems();
+  }
 }
