@@ -1,8 +1,12 @@
 {
   "name": "vendure-advanced-shipping",
+  "description": "📦 A series of plugin for Vendure to add features to shipping using boxes, and shipping based on product dimensions.",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
-    "bootstrap": "lerna link && lerna exec npm install"
+    "bootstrap": "lerna link && lerna exec npm install",
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "8.3.4",
@@ -22,7 +26,11 @@
     "semantic-release": "17.0.8",
     "semantic-release-monorepo": "7.0.2",
     "eslint-plugin-prettier": "3.1.4",
-    "eslint-config-prettier": "6.11.0"
+    "eslint-config-prettier": "6.11.0",
+    "@vendure/admin-ui": "0.13.0",
+    "@vendure/asset-server-plugin": "0.13.0",
+    "@vendure/core": "0.13.0",
+    "@vendure/ui-devkit": "0.13.0"
   },
   "release": {
     "branches": [
