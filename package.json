@@ -1,25 +1,58 @@
 {
-  "name": "vendure-plugin-template",
-  "version": "0.0.1",
-  "description": "A Vendure plugin template",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "files": [
-     "lib/**/*"
-   ],
-  "author": "Michael Bromley <michael@michaelbromley.co.uk>",
-  "license": "MIT",
-  "private": false,
+  "name": "vendure-advanced-shipping",
+  "version": "0.0.0",
   "scripts": {
-    "watch": "tsc --watch",
-    "build": "rimraf lib && tsc"
+    "bootstrap": "lerna link && lerna exec npm install"
   },
   "devDependencies": {
-    "@vendure/admin-ui": "0.13.0",
-    "@vendure/asset-server-plugin": "0.13.0",
-    "@vendure/core": "0.13.0",
-    "@vendure/ui-devkit": "0.13.0",
-    "rimraf": "3.0.2",
-    "typescript": "3.9.5"
+    "@commitlint/config-conventional": "8.3.4",
+    "@semantic-release/commit-analyzer": "8.0.1",
+    "@semantic-release/github": "7.0.7",
+    "@semantic-release/npm": "7.0.5",
+    "@semantic-release/release-notes-generator": "9.0.1",
+    "@typescript-eslint/eslint-plugin": "3.2.0",
+    "@typescript-eslint/parser": "3.2.0",
+    "codecov": "3.7.0",
+    "commitlint": "8.3.5",
+    "eslint": "7.2.0",
+    "lerna": "3.22.1",
+    "husky": "4.2.5",
+    "prettier": "2.0.5",
+    "typescript": "3.9.5",
+    "semantic-release": "17.0.8",
+    "semantic-release-monorepo": "7.0.2",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-config-prettier": "6.11.0"
+  },
+  "release": {
+    "branches": [
+      "master",
+      "next"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/github",
+      "@semantic-release/release-notes-generator"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E  HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "subject-case": [
+        2,
+        "never",
+        [
+          "start-case",
+          "pascal-case"
+        ]
+      ]
+    }
   }
 }

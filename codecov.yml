@@ -1,0 +1,13 @@
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+      core:
+        target: auto
+        flags:
+          - core
+flags:
+  core:
+    paths:
+      - packages/core
