@@ -28,10 +28,7 @@ export class PackageService {
       });
   }
 
-  async create(
-    ctx: RequestContext,
-    input: CreatePackageInput
-  ): Promise<Package> {
+  async create(ctx: RequestContext, input: any): Promise<Package> {
     const newPackage = new Package(input);
     return newPackage;
   }

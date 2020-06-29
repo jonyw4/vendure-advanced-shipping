@@ -7,17 +7,14 @@ export class PackageResolver {
   constructor(private packageService: PackageService) {}
 
   @Query()
-  @Allow(Permission.ReadSettings)
+  // @Allow(Permission.ReadSettings)
   async packages(@Ctx() ctx: RequestContext, @Args() args: any) {
     return this.packageService.findAll(ctx, args.options || undefined);
   }
 
   @Mutation()
-  @Allow(Permission.CreateSettings)
-  async createPackage(
-    @Ctx() ctx: RequestContext,
-    @Args() args: MutationCreatePackageArgs
-  ): Promise<Package> {
+  // @Allow(Permission.CreateSettings)
+  async createPackage(@Ctx() ctx: RequestContext, @Args() args: any) {
     return this.packageService.create(ctx, args.input);
   }
 }

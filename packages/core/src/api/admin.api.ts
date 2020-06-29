@@ -1,7 +1,7 @@
 import { gql } from 'apollo-server-core';
 
 const adminApiExtensions = gql`
-  type Query {
+  extend type Query {
     packages(options: PackageListOptions): PackageList!
   }
   input PackageListOptions

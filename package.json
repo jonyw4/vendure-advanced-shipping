@@ -39,6 +39,7 @@
     "@vendure/core": "0.13.0",
     "@vendure/testing": "0.13.0",
     "@vendure/ui-devkit": "0.13.0",
+    "@vendure/create": "0.13.0",
     "codecov": "3.7.0",
     "commitlint": "8.3.5",
     "concurrently": "5.2.0",
@@ -52,14 +53,14 @@
     "rimraf": "3.0.0",
     "semantic-release": "17.0.8",
     "semantic-release-monorepo": "7.0.2",
+    "sqlite3": "^4.2.0",
     "ts-jest": "25.2.1",
     "ts-node": "8.4.1",
     "typescript": "3.9.5"
   },
   "release": {
     "branches": [
-      "master",
-      "next"
+      "master"
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",
