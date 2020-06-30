@@ -1941,6 +1941,7 @@ export type Mutation = {
   /** Remove members from a Zone */
   removeMembersFromZone: Zone;
   createPackage: Package;
+  updatePackage: Package;
 };
 
 export type MutationCreateAdministratorArgs = {
@@ -2292,6 +2293,10 @@ export type MutationRemoveMembersFromZoneArgs = {
 
 export type MutationCreatePackageArgs = {
   input: CreatePackageInput;
+};
+
+export type MutationUpdatePackageArgs = {
+  input: UpdatePackageInput;
 };
 
 export type Node = {
@@ -3597,6 +3602,18 @@ export type UpdateOrderNoteInput = {
   noteId: Scalars['ID'];
   note?: Maybe<Scalars['String']>;
   isPublic?: Maybe<Scalars['Boolean']>;
+};
+
+export type UpdatePackageInput = {
+  id: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  massUnit?: Maybe<MassUnit>;
+  distanceUnit?: Maybe<DistanceUnit>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  length?: Maybe<Scalars['Int']>;
+  weight?: Maybe<Scalars['Int']>;
+  isEnabled?: Maybe<Scalars['Boolean']>;
 };
 
 export type UpdatePaymentMethodInput = {

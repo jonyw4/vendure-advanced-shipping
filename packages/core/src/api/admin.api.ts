@@ -34,6 +34,18 @@ const adminApiExtensions = gql`
     weight: Int!
     isEnabled: Boolean!
   }
+
+  input UpdatePackageInput {
+    id: ID!
+    name: String
+    massUnit: MassUnit
+    distanceUnit: DistanceUnit
+    width: Int
+    height: Int
+    length: Int
+    weight: Int
+    isEnabled: Boolean
+  }
   type PackageList implements PaginatedList {
     items: [Package!]!
     totalItems: Int!
@@ -41,11 +53,11 @@ const adminApiExtensions = gql`
   extend type Query {
     packages(options: PackageListOptions): PackageList!
   }
-  input PackageListOptions
-
   extend type Mutation {
     createPackage(input: CreatePackageInput!): Package!
+    updatePackage(input: UpdatePackageInput!): Package!
   }
+  input PackageListOptions
 `;
 
 export default adminApiExtensions;

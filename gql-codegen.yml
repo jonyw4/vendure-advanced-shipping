@@ -1,18 +1,18 @@
 overwrite: true
 generates:
-  ./packages/common/generated-admin-introspectionResult.ts:
+  ./packages/common/src/generated-admin-introspectionResult.ts:
     schema: "http://localhost:3000/admin-api"
     plugins:
       - fragment-matcher
-  ./packages/common/generated-admin-schema.ts:
+  ./packages/common/src/generated-admin-schema.ts:
     schema: "http://localhost:3000/admin-api"
     plugins:
       - typescript
-  ./packages/common/generated-shop-introspectionResult.ts:
+  ./packages/common/src/generated-shop-introspectionResult.ts:
     schema: "http://localhost:3000/shop-api"
     plugins:
       - fragment-matcher
-  ./packages/common/generated-shop-schema.ts:
+  ./packages/common/src/generated-shop-schema.ts:
     schema: "http://localhost:3000/shop-api"
     plugins:
       - typescript
