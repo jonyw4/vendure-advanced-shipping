@@ -133,7 +133,7 @@ export default class PackageDetailComponent
           } as UpdatePackageMutationVariables['input'];
           return this.dataService.mutate<UpdatePackageMutation>(
             UPDATE_PACKAGE,
-            input
+            { input }
           );
         })
       )
