@@ -10,6 +10,6 @@ export const PACKAGE_FRAGMENT = gql`
     height
     length
     weight
-    isEnabled
+    enabled
   }
 `;

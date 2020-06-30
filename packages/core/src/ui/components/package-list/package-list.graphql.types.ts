@@ -1,6 +1,6 @@
-import * as Types from '../../../../../common/src/generated-admin-schema';
+import * as Types from '../../shared-types';
 
-import { PackageFragment } from '../../common/fragment.graphql.d';
+import { PackageFragment } from '../../common/fragment.graphql.types';
 export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
 
 export type GetPackageListQueryVariables = Exact<{

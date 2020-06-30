@@ -7,6 +7,7 @@ import {
 import { AssetServerPlugin } from '@vendure/asset-server-plugin';
 import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
 import { AdvancedShippingCorePlugin } from '@vendure-advanced-shipping/core';
+import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
 import path from 'path';
 
 const PORT = Number(process.env.PORT) || 3000;
@@ -51,7 +52,14 @@ export const config: VendureConfig = {
     }),
     DefaultJobQueuePlugin,
     DefaultSearchPlugin,
-    AdminUiPlugin.init({ port: 3002 }),
+    AdminUiPlugin.init({
+      port: 3002,
+      app: compileUiExtensions({
+        outputPath: path.join(__dirname, 'admin-ui'),
+        extensions: [AdvancedShippingCorePlugin.uiExtensions],
+        devMode: true
+      })
+    }),
     AdvancedShippingCorePlugin
   ]
 };

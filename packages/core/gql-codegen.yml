@@ -5,8 +5,8 @@ generates:
     schema: "http://localhost:3000/admin-api"
     preset: near-operation-file
     presetConfig:
-      extension: .d.ts
-      baseTypesPath: "./../../../common/src/generated-admin-schema.ts"
+      extension: .types.ts
+      baseTypesPath: "shared-types.ts"
     plugins:
       - typescript-operations
 hooks:

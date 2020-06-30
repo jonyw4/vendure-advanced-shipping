@@ -5,6 +5,8 @@ import { PackageService } from './services';
 import { PackageResolver } from './resolvers';
 import { adminApiExtensions } from './api';
 import customFields from './config/customFields';
+import { AdminUiExtension } from '@vendure/ui-devkit/compiler';
+import path from 'path';
 
 @VendurePlugin({
   imports: [PluginCommonModule],
@@ -18,4 +20,21 @@ import customFields from './config/customFields';
   },
   providers: [PackageService]
 })
-export class AdvancedShippingCorePlugin {}
+export class AdvancedShippingCorePlugin {
+  static uiExtensions: AdminUiExtension = {
+    extensionPath: path.join(__dirname, 'ui'),
+    ngModules: [
+      {
+        type: 'shared',
+        ngModuleFileName: 'shared-module.ts',
+        ngModuleName: 'AdvancedShippingCoreUiSharedModule'
+      },
+      {
+        type: 'lazy',
+        route: 'packages',
+        ngModuleFileName: 'module.ts',
+        ngModuleName: 'AdvancedShippingCoreUiModule'
+      }
+    ]
+  };
+}

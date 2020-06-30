@@ -1,4 +1,4 @@
-import * as Types from '../../../../common/src/generated-admin-schema';
+import * as Types from '../shared-types';
 
 export type PackageFragment = { __typename?: 'Package' } & Pick<
   Types.Package,
@@ -10,5 +10,5 @@ export type PackageFragment = { __typename?: 'Package' } & Pick<
   | 'height'
   | 'length'
   | 'weight'
-  | 'isEnabled'
+  | 'enabled'
 >;

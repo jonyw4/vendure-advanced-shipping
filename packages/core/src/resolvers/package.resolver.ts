@@ -4,12 +4,19 @@ import PackageService from '../services/package.service';
 import {
   MutationUpdatePackageArgs,
   MutationCreatePackageArgs,
-  QueryPackagesArgs
+  QueryPackagesArgs,
+  QueryPackageArgs
 } from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
 
 @Resolver()
 export class PackageResolver {
   constructor(private packageService: PackageService) {}
+
+  @Query()
+  @Allow(Permission.ReadSettings)
+  async package(@Ctx() ctx: RequestContext, @Args() { id }: QueryPackageArgs) {
+    return this.packageService.findById(ctx, id);
+  }
 
   @Query()
   @Allow(Permission.ReadSettings)

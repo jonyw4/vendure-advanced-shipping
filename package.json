@@ -54,10 +54,10 @@
     "rimraf": "3.0.0",
     "semantic-release": "17.0.8",
     "semantic-release-monorepo": "7.0.2",
-    "sqlite3": "^4.2.0",
+    "sqlite3": "4.2.0",
     "ts-jest": "25.2.1",
     "ts-node": "8.4.1",
-    "typescript": "3.9.5"
+    "typescript": "3.8.3"
   },
   "release": {
     "branches": [

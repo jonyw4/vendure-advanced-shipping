@@ -7,16 +7,16 @@ import {
   GetPackageListQuery,
   GetPackageListQueryVariables
 } from './package-list.graphql.types';
-import { Package } from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
+import { PackageFragment } from '../../common/fragment.graphql.types';
 
 @Component({
-  selector: 'vdr-tax-rate-list',
-  templateUrl: './tax-rate-list.component.html',
+  selector: 'vdr-as-package-list',
+  templateUrl: './package-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TaxRateListComponent extends BaseListComponent<
+export default class PackageListComponent extends BaseListComponent<
   GetPackageListQuery,
-  Package,
+  PackageFragment,
   GetPackageListQueryVariables
 > {
   constructor(

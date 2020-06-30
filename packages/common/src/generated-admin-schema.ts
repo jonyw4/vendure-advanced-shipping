@@ -513,7 +513,7 @@ export type CreatePackageInput = {
   height: Scalars['Int'];
   length: Scalars['Int'];
   weight: Scalars['Int'];
-  isEnabled: Scalars['Boolean'];
+  enabled: Scalars['Boolean'];
 };
 
 export type CreateProductCustomFieldsInput = {
@@ -2458,7 +2458,7 @@ export type Package = Node & {
   height: Scalars['Int'];
   length: Scalars['Int'];
   weight: Scalars['Int'];
-  isEnabled: Scalars['Boolean'];
+  enabled: Scalars['Boolean'];
 };
 
 export type PackageFilterParameter = {
@@ -2469,7 +2469,7 @@ export type PackageFilterParameter = {
   height?: Maybe<NumberOperators>;
   length?: Maybe<NumberOperators>;
   weight?: Maybe<NumberOperators>;
-  isEnabled?: Maybe<BooleanOperators>;
+  enabled?: Maybe<BooleanOperators>;
 };
 
 export type PackageList = PaginatedList & {
@@ -2948,6 +2948,7 @@ export type Query = {
   zones: Array<Zone>;
   zone?: Maybe<Zone>;
   packages: PackageList;
+  package: Package;
 };
 
 export type QueryAdministratorsArgs = {
@@ -3110,6 +3111,10 @@ export type QueryZoneArgs = {
 
 export type QueryPackagesArgs = {
   options?: Maybe<PackageListOptions>;
+};
+
+export type QueryPackageArgs = {
+  id: Scalars['ID'];
 };
 
 export type Refund = Node & {
@@ -3613,7 +3618,7 @@ export type UpdatePackageInput = {
   height?: Maybe<Scalars['Int']>;
   length?: Maybe<Scalars['Int']>;
   weight?: Maybe<Scalars['Int']>;
-  isEnabled?: Maybe<Scalars['Boolean']>;
+  enabled?: Maybe<Scalars['Boolean']>;
 };
 
 export type UpdatePaymentMethodInput = {

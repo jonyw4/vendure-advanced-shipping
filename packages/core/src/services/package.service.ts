@@ -2,7 +2,8 @@ import {
   RequestContext,
   ListQueryBuilder,
   getEntityOrThrow,
-  patchEntity
+  patchEntity,
+  ID
 } from '@vendure/core';
 import { ListQueryOptions } from '@vendure/core/dist/common/types/common-types';
 import { Injectable } from '@nestjs/common';
@@ -34,9 +35,13 @@ export class PackageService {
       });
   }
 
+  findById(ctx: RequestContext, id: ID) {
+    return getEntityOrThrow(this.connection, Package, id);
+  }
+
   create(ctx: RequestContext, input: CreatePackageInput) {
     const newPackage = new Package(input);
-    return newPackage;
+    return this.connection.manager.save(newPackage);
   }
 
   async update(ctx: RequestContext, input: UpdatePackageInput) {

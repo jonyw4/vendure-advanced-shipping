@@ -29,7 +29,7 @@ export class PackageEntity extends VendureEntity {
   weight: number;
 
   @Column()
-  isEnabled: boolean;
+  enabled: boolean;
 }
 
 export default PackageEntity;
