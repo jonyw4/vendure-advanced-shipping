@@ -1,10 +1,11 @@
 import { RequestContext, PaginatedList, ListQueryBuilder } from '@vendure/core';
+import { ListQueryOptions } from '@vendure/core/dist/common/types/common-types';
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 
 import Package from '../entities/package.entity';
-import { ListQueryOptions } from '@vendure/core/dist/common/types/common-types';
+import { CreatePackageInput } from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
 
 @Injectable()
 export class PackageService {
@@ -28,7 +29,10 @@ export class PackageService {
       });
   }
 
-  async create(ctx: RequestContext, input: any): Promise<Package> {
+  async create(
+    ctx: RequestContext,
+    input: CreatePackageInput
+  ): Promise<Package> {
     const newPackage = new Package(input);
     return newPackage;
   }
