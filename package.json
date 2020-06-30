@@ -11,7 +11,7 @@
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "dev-server:start": "cd packages/dev-server && npm start",
-    "codegen": "graphql-codegen --config gql-codegen.yml"
+    "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen"
   },
   "dependencies": {
     "@vendure-advanced-shipping/core": "file:packages/core",

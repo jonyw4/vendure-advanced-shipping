@@ -6,7 +6,8 @@
     "watch": "tsc -p ./tsconfig.build.json --watch",
     "build": "rimraf lib && tsc -p ./tsconfig.build.json",
     "lint": "eslint ./src --ext .ts,.tsx",
-    "lint:fix": "eslint ./src --ext .ts,.tsx --fix"
+    "lint:fix": "eslint ./src --ext .ts,.tsx --fix",
+    "codegen": "graphql-codegen --config gql-codegen.yml"
   },
   "publishConfig": {
     "access": "public"

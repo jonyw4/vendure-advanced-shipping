@@ -1,0 +1,14 @@
+overwrite: true
+documents: "./**/*.graphql.ts"
+generates:
+  ./src/ui:
+    schema: "http://localhost:3000/admin-api"
+    preset: near-operation-file
+    presetConfig:
+      extension: .d.ts
+      baseTypesPath: "./../../../common/src/generated-admin-schema.ts"
+    plugins:
+      - typescript-operations
+hooks:
+  afterAllFileWrite:
+    - npx eslint --fix
