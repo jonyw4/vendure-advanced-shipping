@@ -8,6 +8,6 @@
     "populate": "node -r ts-node/register populate.ts",
     "run:server": "node -r ts-node/register index.ts",
     "run:worker": "node -r ts-node/register index-worker.ts",
-    "start": "concurrently npm:run*"
+    "start": "rimraf admin-ui && concurrently npm:run*"
   }
 }

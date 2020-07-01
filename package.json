@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "lerna:bootstrap": "lerna link && lerna exec npm install",
     "bootstrap": "lerna link && lerna exec npm install",
     "watch": "lerna run watch --parallel",
     "build": "lerna run build",
@@ -11,7 +12,8 @@
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "dev-server:start": "cd packages/dev-server && npm start",
-    "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen"
+    "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen",
+    "publish": "lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo"
   },
   "dependencies": {
     "@vendure-advanced-shipping/core": "file:packages/core",
@@ -66,7 +68,8 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/github",
-      "@semantic-release/release-notes-generator"
+      "@semantic-release/release-notes-generator",
+       "@semantic-release/npm"
     ]
   },
   "husky": {

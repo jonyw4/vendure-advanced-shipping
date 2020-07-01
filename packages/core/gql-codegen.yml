@@ -9,6 +9,14 @@ generates:
       baseTypesPath: "shared-types.ts"
     plugins:
       - typescript-operations
+  ./e2e/graphql:
+    schema: "http://localhost:3000/admin-api"
+    preset: near-operation-file
+    presetConfig:
+      extension: .types.ts
+      baseTypesPath: "shared-types.ts"
+    plugins:
+      - typescript-operations
 hooks:
   afterAllFileWrite:
     - npx eslint --fix

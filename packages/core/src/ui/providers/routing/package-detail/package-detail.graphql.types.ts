@@ -1,4 +1,4 @@
-import * as Types from '../../../shared-types';
+import * as Types from '../../../../../e2e/graphql/shared-types';
 
 import { PackageFragment } from '../../../common/fragment.graphql.types';
 export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
