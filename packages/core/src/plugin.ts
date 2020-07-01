@@ -1,51 +1,40 @@
 import { PluginCommonModule, VendurePlugin } from '@vendure/core';
-import { PluginInitOptions } from './types';
-import { PLUGIN_INIT_OPTIONS } from './constants';
-import { ExampleEntity } from './entities/example.entity';
-import { ExampleService } from './service/example.service';
-import { shopApiExtensions } from './api/api-extensions';
-import { ExampleResolver } from './api/example.resolver';
+import injectCustomFields from '@vendure-advanced-shipping/common/src/injectCustomFields';
+import { PackageEntity } from './entities';
+import { PackageService } from './services';
+import { PackageResolver } from './resolvers';
+import { adminApiExtensions } from './api';
+import customFields from './config/customFields';
+import { AdminUiExtension } from '@vendure/ui-devkit/compiler';
+import path from 'path';
 
-/**
- * An example Vendure plugin.
- *
- * @example
- * ```TypeScript
- * export const config: VendureConfig = {
- *   //...
- *   plugins: [
- *     ExamplePlugin.init({
- *       // options
- *     }),
- *   ]
- * }
- * ```
- */
 @VendurePlugin({
-  // Importing the PluginCommonModule gives all of our plugin's injectables (services, resolvers)
-  // access to the Vendure core providers. See https://www.vendure.io/docs/typescript-api/plugin/plugin-common-module/
   imports: [PluginCommonModule],
-  entities: [ExampleEntity],
-  shopApiExtensions: {
-    schema: shopApiExtensions,
-    resolvers: [ExampleResolver]
+  configuration: (config) => {
+    return injectCustomFields(config, customFields);
   },
-  providers: [
-    ExampleService,
-    // By definiting the `PLUGIN_INIT_OPTIONS` symbol as a provider, we can then inject the
-    // user-defined options into other classes, such as the {@link ExampleService}.
-    { provide: PLUGIN_INIT_OPTIONS, useFactory: () => ExamplePlugin.options }
-  ]
+  entities: [PackageEntity],
+  adminApiExtensions: {
+    schema: adminApiExtensions,
+    resolvers: [PackageResolver]
+  },
+  providers: [PackageService]
 })
-export class ExamplePlugin {
-  static options: PluginInitOptions;
-
-  /**
-   * The static `init()` method is a convention used by Vendure plugins which allows options
-   * to be configured by the user.
-   */
-  static init(options: PluginInitOptions) {
-    this.options = options;
-    return ExamplePlugin;
-  }
+export class AdvancedShippingCorePlugin {
+  static uiExtensions: AdminUiExtension = {
+    extensionPath: path.join(__dirname, 'ui'),
+    ngModules: [
+      {
+        type: 'shared',
+        ngModuleFileName: 'shared-module.ts',
+        ngModuleName: 'AdvancedShippingCoreUiSharedModule'
+      },
+      {
+        type: 'lazy',
+        route: 'packages',
+        ngModuleFileName: 'module.ts',
+        ngModuleName: 'AdvancedShippingCoreUiModule'
+      }
+    ]
+  };
 }

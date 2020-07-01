@@ -1,0 +1,21 @@
+overwrite: true
+generates:
+  ./packages/common/src/generated-admin-introspectionResult.ts:
+    schema: "http://localhost:3000/admin-api"
+    plugins:
+      - fragment-matcher
+  ./packages/common/src/generated-admin-schema.ts:
+    schema: "http://localhost:3000/admin-api"
+    plugins:
+      - typescript
+  ./packages/common/src/generated-shop-introspectionResult.ts:
+    schema: "http://localhost:3000/shop-api"
+    plugins:
+      - fragment-matcher
+  ./packages/common/src/generated-shop-schema.ts:
+    schema: "http://localhost:3000/shop-api"
+    plugins:
+      - typescript
+hooks:
+  afterAllFileWrite:
+    - npx eslint --fix

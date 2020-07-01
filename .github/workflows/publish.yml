@@ -1,0 +1,35 @@
+name: Publish
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+env:
+  CI: true
+  node: 12.x
+jobs:
+  publish:
+    needs: [tests]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.node }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.node }}
+    - name: Cache Node.js modules
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - name: Install & build
+      run: |
+        npm install
+        npm run lerna:bootstrap
+        npm run build
+        npm run publish

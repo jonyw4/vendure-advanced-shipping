@@ -1,0 +1,16 @@
+{
+  "name": "@vendure-advanced-shipping/common",
+  "version": "0.0.0",
+  "main": "lib",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "lint:fix": "eslint ./src --ext .ts,.tsx --fix",
+    "test": "jest --config ./jest.config.js",
+    "watch": "tsc -p ./tsconfig.build.json -w",
+    "build": "rimraf lib && tsc -p ./tsconfig.build.json"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
