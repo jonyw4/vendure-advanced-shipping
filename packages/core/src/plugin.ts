@@ -1,5 +1,5 @@
 import { PluginCommonModule, VendurePlugin } from '@vendure/core';
-import injectCustomFields from '@vendure-advanced-shipping/common/lib/injectCustomFields';
+import injectCustomFields from '@vendure-advanced-shipping/common/src/injectCustomFields';
 import { PackageEntity } from './entities';
 import { PackageService } from './services';
 import { PackageResolver } from './resolvers';

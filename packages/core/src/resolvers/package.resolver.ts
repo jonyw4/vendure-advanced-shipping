@@ -6,7 +6,7 @@ import {
   MutationCreatePackageArgs,
   QueryPackagesArgs,
   QueryPackageArgs
-} from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
+} from '@vendure-advanced-shipping/common/src/generated-admin-schema';
 
 @Resolver()
 export class PackageResolver {
