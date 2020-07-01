@@ -60,7 +60,8 @@ describe('package resolver', () => {
       length: 20,
       enabled: true,
       massUnit: 'g',
-      distanceUnit: 'cm'
+      distanceUnit: 'cm',
+      volume: 20 * 20 * 20
     });
   });
 });

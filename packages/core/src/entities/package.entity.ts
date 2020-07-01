@@ -30,6 +30,10 @@ export class PackageEntity extends VendureEntity {
 
   @Column()
   enabled: boolean;
+
+  volume() {
+    return this.width * this.height * this.length;
+  }
 }
 
 export default PackageEntity;

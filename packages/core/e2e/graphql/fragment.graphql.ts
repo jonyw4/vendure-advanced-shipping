@@ -11,5 +11,6 @@ export const PACKAGE_FRAGMENT = gql`
     length
     weight
     enabled
+    volume
   }
 `;

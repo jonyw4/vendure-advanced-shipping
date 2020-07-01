@@ -8,7 +8,7 @@ import {
   QueryPackageArgs
 } from '@vendure-advanced-shipping/common/src/generated-admin-schema';
 
-@Resolver()
+@Resolver('Package')
 export class PackageResolver {
   constructor(private packageService: PackageService) {}
 
