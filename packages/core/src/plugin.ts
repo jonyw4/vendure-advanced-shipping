@@ -35,6 +35,9 @@ export class AdvancedShippingCorePlugin {
         ngModuleFileName: 'module.ts',
         ngModuleName: 'AdvancedShippingCoreUiModule'
       }
-    ]
+    ],
+    translations: {
+      en: path.join(__dirname, 'i18n/en.json')
+    }
   };
 }

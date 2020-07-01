@@ -28,24 +28,24 @@
         [vdrDisabled]="!('UpdateSettings' | hasPermission)" />
     </clr-toggle-wrapper>
   </vdr-form-field>
-  <vdr-form-field [label]="'package.width' | translate" for="width">
+  <vdr-form-field [label]="'common.width' | translate" for="width">
     <input id="width" type="number" formControlName="width" [readonly]="!('UpdateSettings' | hasPermission)" />
   </vdr-form-field>
-  <vdr-form-field [label]="'package.height' | translate" for="height">
+  <vdr-form-field [label]="'common.height' | translate" for="height">
     <input id="height" type="number" formControlName="height" [readonly]="!('UpdateSettings' | hasPermission)" />
   </vdr-form-field>
-  <vdr-form-field [label]="'package.length' | translate" for="length">
+  <vdr-form-field [label]="'common.length' | translate" for="length">
     <input id="length" type="number" formControlName="length" [readonly]="!('UpdateSettings' | hasPermission)" />
   </vdr-form-field>
-  <vdr-form-field [label]="'package.weight' | translate" for="weight">
+  <vdr-form-field [label]="'common.weight' | translate" for="weight">
     <input id="weight" type="number" formControlName="weight" [readonly]="!('UpdateSettings' | hasPermission)" />
   </vdr-form-field>
-  <vdr-form-field [label]="'package.distanceUnit' | translate" for="distanceUnit">
+  <vdr-form-field [label]="'vdr-advanced-shipping-plugin.distance-unit' | translate" for="distanceUnit">
     <select clrSelect name="distanceUnit" formControlName="distanceUnit" [vdrDisabled]="!('UpdateSettings' | hasPermission)">
       <option *ngFor="let unit of distanceUnits" [value]="unit">{{ unit }}</option>
     </select>
   </vdr-form-field>
-  <vdr-form-field [label]="'package.massUnit' | translate" for="massUnit">
+  <vdr-form-field [label]="'vdr-advanced-shipping-plugin.mass-unit' | translate" for="massUnit">
     <select clrSelect name="massUnit" formControlName="massUnit"
       [vdrDisabled]="!('UpdateSettings' | hasPermission)">
       <option *ngFor="let unit of massUnits" [value]="unit">{{ unit }}</option>
