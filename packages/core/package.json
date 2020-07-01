@@ -8,7 +8,7 @@
     "lint": "eslint ./src --ext .ts,.tsx",
     "lint:fix": "eslint ./src --ext .ts,.tsx --fix",
     "codegen": "graphql-codegen --config gql-codegen.yml",
-    "test": "npm run e2e",
+    "test": "npm run test:e2e",
     "test:e2e": "rimraf e2e/__data__ && jest --config e2e/config/jest-config.js"
   },
   "publishConfig": {
