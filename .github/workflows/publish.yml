@@ -11,7 +11,6 @@ env:
   node: 12.x
 jobs:
   publish:
-    needs: [tests]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
