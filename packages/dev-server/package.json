@@ -1,5 +1,5 @@
 {
-  "name": "dev-server",
+  "name": "@vendure-advanced-shipping/dev-server",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,5 +8,10 @@
     "run:server": "node -r ts-node/register index.ts",
     "run:worker": "node -r ts-node/register index-worker.ts",
     "start": "rimraf admin-ui && concurrently npm:run*"
-  }
+  },
+  "plugins": [
+    "@semantic-release/npm", {
+      "npmPublish": false
+    }
+  ]
 }
