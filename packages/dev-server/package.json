@@ -11,9 +11,9 @@
   },
   "release": {
     "plugins": [
-      "@semantic-release/npm", {
+      ["@semantic-release/npm", {
         "npmPublish": false
-      }
+      }]
     ]
   }
 }
