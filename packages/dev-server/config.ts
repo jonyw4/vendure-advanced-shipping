@@ -7,12 +7,16 @@ import {
 import { AssetServerPlugin } from '@vendure/asset-server-plugin';
 import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
 import { AdvancedShippingCorePlugin } from '@vendure-advanced-shipping/core';
+import { RodonavesShippingCalculator } from '@vendure-advanced-shipping/rodonaves';
 import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
 import path from 'path';
 
 const PORT = Number(process.env.PORT) || 3000;
 
 export const config: VendureConfig = {
+  shippingOptions: {
+    shippingCalculators: [RodonavesShippingCalculator]
+  },
   apiOptions: {
     hostname: '0.0.0.0',
     port: PORT,
@@ -37,9 +41,14 @@ export const config: VendureConfig = {
     requireVerification: true
   },
   dbConnectionOptions: {
-    synchronize: false,
-    type: 'sqlite',
-    database: path.join(__dirname, 'vendure.sqlite')
+    type: 'mysql',
+    synchronize: true,
+    host: 'localhost',
+    port: 3306,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    logging: false
   },
   paymentOptions: {
     paymentMethodHandlers: [examplePaymentHandler]
@@ -47,7 +56,7 @@ export const config: VendureConfig = {
   plugins: [
     AssetServerPlugin.init({
       route: 'assets',
-      assetUploadDir: path.join(__dirname, '../static/assets'),
+      assetUploadDir: path.join(__dirname, 'static/assets'),
       port: 3001
     }),
     DefaultJobQueuePlugin,

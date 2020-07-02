@@ -11,7 +11,7 @@ import {
   CreatePackageMutation,
   CreatePackageMutationVariables
 } from './graphql/admin.graphql.types';
-import { MassUnit, DistanceUnit } from '../src/ui/shared-types';
+import { MassUnit, DistanceUnit } from '../src/shared-types';
 
 registerInitializer(
   'sqljs',

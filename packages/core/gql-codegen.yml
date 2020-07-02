@@ -6,7 +6,7 @@ generates:
     preset: near-operation-file
     presetConfig:
       extension: .types.ts
-      baseTypesPath: "shared-types.ts"
+      baseTypesPath: "../shared-types.ts"
     plugins:
       - typescript-operations
   ./e2e/graphql:
@@ -14,7 +14,7 @@ generates:
     preset: near-operation-file
     presetConfig:
       extension: .types.ts
-      baseTypesPath: "shared-types.ts"
+      baseTypesPath: "../../src/shared-types.ts"
     plugins:
       - typescript-operations
 hooks:

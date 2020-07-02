@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const PACKAGE_FRAGMENT = gql`
-  fragment Package on Package {
+  fragment PackageTest on Package {
     id
     name
     massUnit
@@ -11,6 +11,5 @@ export const PACKAGE_FRAGMENT = gql`
     length
     weight
     enabled
-    volume
   }
 `;

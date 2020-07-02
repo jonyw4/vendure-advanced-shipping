@@ -1,6 +1,6 @@
-import * as Types from './shared-types';
+import * as Types from '../../src/shared-types';
 
-export type PackageFragment = { __typename?: 'Package' } & Pick<
+export type PackageTestFragment = { __typename?: 'Package' } & Pick<
   Types.Package,
   | 'id'
   | 'name'

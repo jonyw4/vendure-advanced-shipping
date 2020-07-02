@@ -16,8 +16,11 @@
     "publish": "lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo"
   },
   "dependencies": {
+    "@types/convert-units": "2.3.2",
+    "@vendure-advanced-shipping/common": "file:packages/common",
     "@vendure-advanced-shipping/core": "file:packages/core",
-    "@vendure-advanced-shipping/common": "file:packages/common"
+    "@vendure-advanced-shipping/rodonaves": "file:packages/rodonaves",
+    "convert-units": "2.3.4"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "8.3.4",
@@ -40,9 +43,9 @@
     "@vendure/admin-ui-plugin": "0.13.0",
     "@vendure/asset-server-plugin": "0.13.0",
     "@vendure/core": "0.13.0",
+    "@vendure/create": "0.13.0",
     "@vendure/testing": "0.13.0",
     "@vendure/ui-devkit": "0.13.0",
-    "@vendure/create": "0.13.0",
     "codecov": "3.7.0",
     "commitlint": "8.3.5",
     "concurrently": "5.2.0",
@@ -52,6 +55,7 @@
     "husky": "4.2.5",
     "jest": "25.2.1",
     "lerna": "3.22.1",
+    "mysql": "^2.18.1",
     "prettier": "2.0.5",
     "rimraf": "3.0.0",
     "semantic-release": "17.0.8",
@@ -69,7 +73,7 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/github",
       "@semantic-release/release-notes-generator",
-       "@semantic-release/npm"
+      "@semantic-release/npm"
     ]
   },
   "husky": {

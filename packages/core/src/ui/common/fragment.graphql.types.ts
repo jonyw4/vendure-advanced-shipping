@@ -1,4 +1,4 @@
-import * as Types from '../../../e2e/graphql/shared-types';
+import * as Types from '../../shared-types';
 
 export type PackageFragment = { __typename?: 'Package' } & Pick<
   Types.Package,

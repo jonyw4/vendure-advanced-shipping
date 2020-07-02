@@ -1,7 +1,7 @@
 import { PluginCommonModule, VendurePlugin } from '@vendure/core';
 import injectCustomFields from '@vendure-advanced-shipping/common/src/injectCustomFields';
-import { PackageEntity } from './entities';
-import { PackageService } from './services';
+import { PackageEntity, ShippingPackagesEntity } from './entities';
+import { PackageService, ShippingPackagesService } from './services';
 import { PackageResolver } from './resolvers';
 import { adminApiExtensions } from './api';
 import customFields from './config/customFields';
@@ -13,12 +13,12 @@ import path from 'path';
   configuration: (config) => {
     return injectCustomFields(config, customFields);
   },
-  entities: [PackageEntity],
+  entities: [ShippingPackagesEntity, PackageEntity],
   adminApiExtensions: {
     schema: adminApiExtensions,
     resolvers: [PackageResolver]
   },
-  providers: [PackageService]
+  providers: [PackageService, ShippingPackagesService]
 })
 export class AdvancedShippingCorePlugin {
   static uiExtensions: AdminUiExtension = {

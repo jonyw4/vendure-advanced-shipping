@@ -15,7 +15,7 @@ export class PackageResolver {
   @Query()
   @Allow(Permission.ReadSettings)
   async package(@Ctx() ctx: RequestContext, @Args() { id }: QueryPackageArgs) {
-    return this.packageService.findById(ctx, id);
+    return this.packageService.findById(id);
   }
 
   @Query()
@@ -24,7 +24,7 @@ export class PackageResolver {
     @Ctx() ctx: RequestContext,
     @Args() { options }: QueryPackagesArgs
   ) {
-    return this.packageService.findAll(ctx, options || undefined);
+    return this.packageService.findAll(options || undefined);
   }
 
   @Mutation()
@@ -33,7 +33,7 @@ export class PackageResolver {
     @Ctx() ctx: RequestContext,
     @Args() { input }: MutationCreatePackageArgs
   ) {
-    return this.packageService.create(ctx, input);
+    return this.packageService.create(input);
   }
 
   @Mutation()
@@ -42,7 +42,7 @@ export class PackageResolver {
     @Ctx() ctx: RequestContext,
     @Args() { input }: MutationUpdatePackageArgs
   ) {
-    return this.packageService.update(ctx, input);
+    return this.packageService.update(input);
   }
 }
 

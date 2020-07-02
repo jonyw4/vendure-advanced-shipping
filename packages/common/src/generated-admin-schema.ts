@@ -2458,6 +2458,7 @@ export type Package = Node & {
   height: Scalars['Int'];
   length: Scalars['Int'];
   weight: Scalars['Int'];
+  volume: Scalars['Int'];
   enabled: Scalars['Boolean'];
 };
 
@@ -2469,6 +2470,7 @@ export type PackageFilterParameter = {
   height?: Maybe<NumberOperators>;
   length?: Maybe<NumberOperators>;
   weight?: Maybe<NumberOperators>;
+  volume?: Maybe<NumberOperators>;
   enabled?: Maybe<BooleanOperators>;
 };
 
@@ -2492,6 +2494,7 @@ export type PackageSortParameter = {
   height?: Maybe<SortOrder>;
   length?: Maybe<SortOrder>;
   weight?: Maybe<SortOrder>;
+  volume?: Maybe<SortOrder>;
 };
 
 export type PaginatedList = {

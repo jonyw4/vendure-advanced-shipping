@@ -1,6 +1,6 @@
-import * as Types from './shared-types';
+import * as Types from '../../src/shared-types';
 
-import { PackageFragment } from '../../src/ui/common/fragment.graphql.types';
+import { PackageTestFragment } from './fragment.graphql.types';
 export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
 
 export type CreatePackageMutationVariables = Exact<{
@@ -8,7 +8,7 @@ export type CreatePackageMutationVariables = Exact<{
 }>;
 
 export type CreatePackageMutation = { __typename?: 'Mutation' } & {
-  createPackage: { __typename?: 'Package' } & PackageFragment;
+  createPackage: { __typename?: 'Package' } & PackageTestFragment;
 };
 
 export type UpdatePackageMutationVariables = Exact<{
@@ -16,7 +16,7 @@ export type UpdatePackageMutationVariables = Exact<{
 }>;
 
 export type UpdatePackageMutation = { __typename?: 'Mutation' } & {
-  updatePackage: { __typename?: 'Package' } & PackageFragment;
+  updatePackage: { __typename?: 'Package' } & PackageTestFragment;
 };
 
 export type GetPackageListQueryVariables = Exact<{
@@ -27,7 +27,7 @@ export type GetPackageListQuery = { __typename?: 'Query' } & {
   packages: { __typename?: 'PackageList' } & Pick<
     Types.PackageList,
     'totalItems'
-  > & { items: Array<{ __typename?: 'Package' } & PackageFragment> };
+  > & { items: Array<{ __typename?: 'Package' } & PackageTestFragment> };
 };
 
 export type GetPackageQueryVariables = Exact<{
@@ -35,5 +35,5 @@ export type GetPackageQueryVariables = Exact<{
 }>;
 
 export type GetPackageQuery = { __typename?: 'Query' } & {
-  package: { __typename?: 'Package' } & PackageFragment;
+  package: { __typename?: 'Package' } & PackageTestFragment;
 };

@@ -1,5 +1,4 @@
 import {
-  RequestContext,
   ListQueryBuilder,
   getEntityOrThrow,
   patchEntity,
@@ -23,7 +22,7 @@ export class PackageService {
     private listQueryBuilder: ListQueryBuilder
   ) {}
 
-  findAll(ctx: RequestContext, options?: ListQueryOptions<Package>) {
+  findAll(options?: ListQueryOptions<Package>) {
     return this.listQueryBuilder
       .build(Package, options)
       .getManyAndCount()
@@ -35,16 +34,16 @@ export class PackageService {
       });
   }
 
-  findById(ctx: RequestContext, id: ID) {
+  findById(id: ID) {
     return getEntityOrThrow(this.connection, Package, id);
   }
 
-  create(ctx: RequestContext, input: CreatePackageInput) {
+  create(input: CreatePackageInput) {
     const newPackage = new Package(input);
     return this.connection.manager.save(newPackage);
   }
 
-  async update(ctx: RequestContext, input: UpdatePackageInput) {
+  async update(input: UpdatePackageInput) {
     const packageBox = await getEntityOrThrow(
       this.connection,
       Package,
