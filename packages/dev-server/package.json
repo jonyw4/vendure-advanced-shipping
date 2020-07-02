@@ -9,9 +9,11 @@
     "run:worker": "node -r ts-node/register index-worker.ts",
     "start": "rimraf admin-ui && concurrently npm:run*"
   },
-  "plugins": [
-    "@semantic-release/npm", {
-      "npmPublish": false
-    }
-  ]
+  "release": {
+    "plugins": [
+      "@semantic-release/npm", {
+        "npmPublish": false
+      }
+    ]
+  }
 }
