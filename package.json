@@ -12,9 +12,23 @@
     "test": "lerna run test",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
-    "dev-server:start": "cd packages/dev-server && npm start",
     "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen",
-    "publish": "lerna publish --yes --conventional-commits --create-release github"
+    "publish": "lerna publish --yes --conventional-commits --create-release github",
+    "dev-server:populate": "node -r ts-node/register dev-server/populate.ts",
+    "dev-server:start": "rimraf dev-server/admin-ui && concurrently npm:dev-server:run*",
+    "dev-server:run:server": "node -r ts-node/register dev-server/index.ts",
+    "dev-server:run:worker": "node -r ts-node/register dev-server/index-worker.ts"
+  },
+  "resolutions": {
+    "tslib": "2.0.0"
+  },
+  "dependencies": {
+    "@vendure/create": "0.13.0",
+    "@vendure/core": "0.13.0",
+    "@vendure/asset-server-plugin": "0.13.0",
+    "@vendure/admin-ui-plugin": "0.13.0",
+    "@vendure/ui-devkit": "0.13.0",
+    "@vendure/testing": "0.13.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "8.3.4",
@@ -35,7 +49,6 @@
     "eslint": "7.2.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
-    "graphql": "15.2.0",
     "husky": "4.2.5",
     "jest": "25.2.1",
     "lerna": "3.22.1",
@@ -44,9 +57,8 @@
     "rimraf": "3.0.0",
     "sqlite3": "4.2.0",
     "ts-jest": "25.2.1",
-    "ts-node": "8.4.1",
+    "ts-node": "8.10.2",
     "typescript": "3.8.3",
-    "@vendure/core": "0.13.0",
     "@vendure/admin-ui": "0.13.0",
     "@vendure-advanced-shipping/common": "file:packages/common",
     "@vendure-advanced-shipping/core": "file:packages/core",
