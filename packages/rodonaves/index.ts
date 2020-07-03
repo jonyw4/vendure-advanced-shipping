@@ -18,10 +18,9 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
     }
   ],
   args: {
-    // TODO: Customize fields
     username: { type: 'string' },
     password: { type: 'string' },
-    timeout: { type: 'int' },
+    timeout: { type: 'int', value: 10000 },
     postalCode: { type: 'string' },
     taxId: { type: 'string' }
   },
@@ -38,7 +37,7 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
     const rodonaves = new Rodonaves(username, password, 'prod', timeout);
 
     try {
-      const response = await rodonaves.simulateQuote(
+      const { Value, DeliveryTime } = await rodonaves.simulateQuote(
         postalCode,
         order.shippingAddress.postalCode,
         shippingPackages.map((packageData) => ({
@@ -59,10 +58,10 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
         taxId
       );
       return {
-        price: response.Value * 100,
-        priceWithTax: response.Value * 100,
+        price: Value * 100,
+        priceWithTax: Value * 100,
         metadata: {
-          deliveryTime: response.DeliveryTime
+          deliveryTime: DeliveryTime
         }
       };
     } catch (error) {
