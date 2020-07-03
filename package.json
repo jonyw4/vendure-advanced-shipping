@@ -8,12 +8,12 @@
     "bootstrap": "lerna link && lerna exec npm install",
     "watch": "lerna run watch --parallel",
     "build": "lerna run build",
+    "publish": "npx semantic-release && lerna publish",
     "test": "lerna run test",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "dev-server:start": "cd packages/dev-server && npm start",
-    "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen",
-    "publish": "lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo"
+    "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen"
   },
   "dependencies": {
     "@types/convert-units": "2.3.2",
@@ -59,21 +59,22 @@
     "prettier": "2.0.5",
     "rimraf": "3.0.0",
     "semantic-release": "17.0.8",
-    "semantic-release-monorepo": "7.0.2",
     "sqlite3": "4.2.0",
     "ts-jest": "25.2.1",
     "ts-node": "8.4.1",
     "typescript": "3.8.3"
   },
   "release": {
-    "branches": [
-      "master"
-    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/github",
       "@semantic-release/release-notes-generator",
-      "@semantic-release/npm"
+      ["@semantic-release/npm", {
+        "npmPublish": false
+      }]
+    ],
+    "branches": [
+      "master"
     ]
   },
   "husky": {
