@@ -51,7 +51,8 @@
     "@vendure-advanced-shipping/common": "file:packages/common",
     "@vendure-advanced-shipping/core": "file:packages/core",
     "@vendure-advanced-shipping/rodonaves": "file:packages/rodonaves",
-    "@vendure-advanced-shipping/ups-brazil": "file:packages/ups-brazil"
+    "@vendure-advanced-shipping/ups-brazil": "file:packages/ups-brazil",
+    "@vendure-advanced-shipping/melhor-envio": "file:packages/melhor-envio"
   },
   "husky": {
     "hooks": {
