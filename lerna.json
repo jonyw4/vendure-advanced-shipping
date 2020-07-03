@@ -1,12 +1,15 @@
 {
-  "packages": [
-    "packages/*"
-  ],
-  "version": "1.0.1",
+  "packages": ["packages/*"],
+  "version": "1.0.0",
   "stream": true,
   "parallel": true,
+  "npmClient": "npm",
   "command": {
     "version": {
+      "message": "chore(release): publish %s [skip ci]"
+    },
+    "publish": {
+      "verifyAccess": false,
       "message": "chore(release): publish %s [skip ci]"
     }
   }

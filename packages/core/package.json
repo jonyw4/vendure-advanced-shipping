@@ -1,6 +1,6 @@
 {
   "name": "@vendure-advanced-shipping/core",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "files": [
     "lib/**/*"
