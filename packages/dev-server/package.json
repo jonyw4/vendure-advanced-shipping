@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "populate": "node -r ts-node/register populate.ts",
     "run:server": "node -r ts-node/register index.ts",

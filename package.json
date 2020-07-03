@@ -13,7 +13,7 @@
     "lint:fix": "lerna run lint:fix",
     "dev-server:start": "cd packages/dev-server && npm start",
     "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen",
-    "publish": "lerna publish"
+    "publish": "lerna publish --yes"
   },
   "dependencies": {
     "@types/convert-units": "2.3.2",
