@@ -2,45 +2,54 @@ import { ShippingCalculator, LanguageCode } from '@vendure/core';
 import convertUnit from '@vendure-advanced-shipping/common/lib/convertUnit';
 import { ShippingPackagesService } from '@vendure-advanced-shipping/core';
 // @ts-ignore
-import Rodonaves from 'rodonaves-js';
+import MelhorEnvio from 'menv-js';
 
 let shippingPackagesService: ShippingPackagesService;
-export const RodonavesShippingCalculator = new ShippingCalculator({
+export const MelhorEnvioShippingCalculator = new ShippingCalculator({
   code: 'rodonaves',
   description: [
     {
       languageCode: LanguageCode.en,
-      value: 'Rodonaves Shipping Calculator'
+      value: 'Melhor Envio Shipping Calculator'
     },
     {
       languageCode: LanguageCode.en,
-      value: 'Calculadora da Rodonaves'
+      value: 'Calculadora da Melhor Envio'
     }
   ],
   args: {
-    username: { type: 'string' },
-    password: { type: 'string' },
-    timeout: { type: 'int', value: 10000 },
+    isSandbox: { type: 'boolean', value: false },
+    token: { type: 'string', value: 10000 },
     postalCode: { type: 'string' },
-    taxId: { type: 'string' }
+    timeout: { type: 'int', value: 10000 },
+    service: { type: 'string', value: '1' },
+    receipt: { type: 'boolean', value: true },
+    ownHand: { type: 'boolean', value: true }
   },
   init: (injector) => {
     shippingPackagesService = injector.get(ShippingPackagesService);
   },
   calculate: async (
     order,
-    { username, password, timeout, postalCode, taxId }
+    { timeout, token, isSandbox, postalCode, service, receipt, ownHand }
   ) => {
     const { packages: shippingPackages } = await shippingPackagesService.create(
       order
     );
-    const rodonaves = new Rodonaves(username, password, 'prod', timeout);
+    // Returns empty when have more than one package
+    if (shippingPackages.length > 1) {
+      // TODO: Handle error
+      console.log('More than one package');
+      throw new Error();
+    }
+    const packageData = shippingPackages[0];
 
+    const melhorEnvio = new MelhorEnvio(token, isSandbox, timeout);
     try {
-      const { Value, DeliveryTime } = await rodonaves.simulateQuote(
+      const { items } = melhorEnvio.calculateShipment(
         postalCode,
         order.shippingAddress.postalCode,
-        shippingPackages.map((packageData) => ({
+        {
           weight: convertUnit(packageData.totalWeight)
             .from(packageData.massUnit)
             .to('kg'),
@@ -53,15 +62,19 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
           width: convertUnit(packageData.width)
             .from(packageData.distanceUnit)
             .to('cm')
-        })),
-        order.subTotal / 100,
-        taxId
+        },
+        null,
+        [service],
+        receipt,
+        ownHand,
+        order.subTotal / 100
       );
+      const { price, delivery_time: deliveryTime } = items[0];
       return {
-        price: Value * 100,
-        priceWithTax: Value * 100,
+        price: price * 100,
+        priceWithTax: price * 100,
         metadata: {
-          deliveryTime: DeliveryTime
+          deliveryTime: deliveryTime
         }
       };
     } catch (error) {
