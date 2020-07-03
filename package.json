@@ -8,12 +8,12 @@
     "bootstrap": "lerna link && lerna exec npm install",
     "watch": "lerna run watch --parallel",
     "build": "lerna run build",
-    "publish": "npx semantic-release && lerna publish",
     "test": "lerna run test",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "dev-server:start": "cd packages/dev-server && npm start",
-    "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen"
+    "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen",
+    "publish": "lerna publish"
   },
   "dependencies": {
     "@types/convert-units": "2.3.2",
@@ -31,10 +31,6 @@
     "@graphql-codegen/schema-ast": "1.15.3",
     "@graphql-codegen/typescript": "1.15.3",
     "@graphql-codegen/typescript-operations": "1.15.3",
-    "@semantic-release/commit-analyzer": "8.0.1",
-    "@semantic-release/github": "7.0.7",
-    "@semantic-release/npm": "7.0.5",
-    "@semantic-release/release-notes-generator": "9.0.1",
     "@types/jest": "25.1.4",
     "@types/node": "12.12.0",
     "@typescript-eslint/eslint-plugin": "3.2.0",
@@ -58,24 +54,10 @@
     "mysql": "^2.18.1",
     "prettier": "2.0.5",
     "rimraf": "3.0.0",
-    "semantic-release": "17.0.8",
     "sqlite3": "4.2.0",
     "ts-jest": "25.2.1",
     "ts-node": "8.4.1",
     "typescript": "3.8.3"
-  },
-  "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/github",
-      "@semantic-release/release-notes-generator",
-      ["@semantic-release/npm", {
-        "npmPublish": false
-      }]
-    ],
-    "branches": [
-      "master"
-    ]
   },
   "husky": {
     "hooks": {

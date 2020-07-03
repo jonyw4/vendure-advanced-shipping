@@ -2,6 +2,10 @@
   "name": "@vendure-advanced-shipping/rodonaves",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "watch": "tsc -p ./tsconfig.build.json --watch",
     "build": "rimraf lib && tsc -p ./tsconfig.build.json",
