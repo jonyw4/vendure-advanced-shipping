@@ -9,7 +9,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 
-import Package from '../entities/package.entity';
+import { PackageEntity as Package } from '../entities/package.entity';
 import {
   CreatePackageInput,
   UpdatePackageInput

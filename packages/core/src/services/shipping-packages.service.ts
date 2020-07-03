@@ -8,7 +8,7 @@ import {
   ProductCustomFields
 } from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
 import convertUnit from '@vendure-advanced-shipping/common/lib/convertUnit';
-import ShippingPackages from '../entities/shipping-packages.entity';
+import { ShippingPackagesEntity as ShippingPackages } from '../entities/shipping-packages.entity';
 import PackageService from './package.service';
 
 type ProductWithCustomFields = Product & {

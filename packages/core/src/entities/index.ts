@@ -1,2 +1,2 @@
-export { default as PackageEntity } from './package.entity';
-export { default as ShippingPackagesEntity } from './shipping-packages.entity';
+export * from './package.entity';
+export * from './shipping-packages.entity';

@@ -55,5 +55,3 @@ export class PackageEntity extends VendureEntity {
     return height * width * length;
   }
 }
-
-export default PackageEntity;

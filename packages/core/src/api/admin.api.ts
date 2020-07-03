@@ -21,7 +21,6 @@ const adminApiExtensions = gql`
     height: Int!
     length: Int!
     weight: Int!
-    volume: Int!
     enabled: Boolean!
   }
 

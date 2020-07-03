@@ -1,6 +1,6 @@
 import { Entity, Column, OneToOne, JoinColumn } from 'typeorm';
 import { VendureEntity, DeepPartial, Order } from '@vendure/core';
-import Package from './package.entity';
+import { PackageEntity } from './package.entity';
 
 @Entity()
 export class ShippingPackagesEntity extends VendureEntity {
@@ -8,17 +8,15 @@ export class ShippingPackagesEntity extends VendureEntity {
     super(input);
   }
 
-  @OneToOne(() => Order)
+  @OneToOne((type) => Order)
   @JoinColumn()
   order: Order;
 
   @Column('simple-json')
   packages: Array<
-    Omit<Package, 'volume'> & {
+    Omit<PackageEntity, 'volume'> & {
       productsWeight: number;
       totalWeight: number;
     }
   >;
 }
-
-export default ShippingPackagesEntity;
