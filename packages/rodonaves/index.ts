@@ -13,7 +13,7 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
       value: 'Rodonaves Shipping Calculator'
     },
     {
-      languageCode: LanguageCode.en,
+      languageCode: LanguageCode.pt_BR,
       value: 'Calculadora da Rodonaves'
     }
   ],

@@ -6,14 +6,14 @@ import ups from 'ups-brazil-js';
 
 let shippingPackagesService: ShippingPackagesService;
 export const UPSBrazilShippingCalculator = new ShippingCalculator({
-  code: 'rodonaves',
+  code: 'ups-brazil',
   description: [
     {
       languageCode: LanguageCode.en,
       value: 'UPS Brasil Shipping Calculator'
     },
     {
-      languageCode: LanguageCode.en,
+      languageCode: LanguageCode.pt_BR,
       value: 'Calculadora da UPS Brasil'
     }
   ],

@@ -6,14 +6,14 @@ import MelhorEnvio from 'menv-js';
 
 let shippingPackagesService: ShippingPackagesService;
 export const MelhorEnvioShippingCalculator = new ShippingCalculator({
-  code: 'rodonaves',
+  code: 'melhor-envio',
   description: [
     {
       languageCode: LanguageCode.en,
       value: 'Melhor Envio Shipping Calculator'
     },
     {
-      languageCode: LanguageCode.en,
+      languageCode: LanguageCode.pt_BR,
       value: 'Calculadora da Melhor Envio'
     }
   ],
@@ -63,7 +63,7 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
             .from(packageData.distanceUnit)
             .to('cm')
         },
-        null,
+        [],
         [service],
         receipt,
         ownHand,
