@@ -1,7 +1,7 @@
 {
   "name": "vendure-advanced-shipping",
   "description": "📦 A series of plugin for Vendure to add features to shipping using boxes, and shipping based on product dimensions.",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
     "lint:fix": "lerna run lint:fix",
     "dev-server:start": "cd packages/dev-server && npm start",
     "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen",
-    "publish": "lerna publish from-git --yes --conventional-commits --create-release github"
+    "publish": "lerna publish --yes --conventional-commits --create-release github"
   },
   "dependencies": {
     "@types/convert-units": "2.3.2",
