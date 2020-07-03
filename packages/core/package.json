@@ -1,6 +1,6 @@
 {
   "name": "@vendure-advanced-shipping/core",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "files": [
     "lib/**/*"
@@ -19,8 +19,8 @@
     "access": "public"
   },
   "dependencies": {
+    "@vendure/admin-ui": "0.13.0",
     "@vendure/core": "0.13.0",
-    "@vendure/ui-devkit": "0.13.0",
-    "@vendure/admin-ui": "0.13.0"
+    "@vendure/ui-devkit": "0.13.0"
   }
 }
