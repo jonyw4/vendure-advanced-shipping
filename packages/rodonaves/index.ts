@@ -1,5 +1,5 @@
 import { ShippingCalculator, LanguageCode } from '@vendure/core';
-import convertUnit from '@vendure-advanced-shipping/common/src/convertUnit';
+import convertUnit from '@vendure-advanced-shipping/common/lib/convertUnit';
 import { ShippingPackagesService } from '@vendure-advanced-shipping/core';
 // @ts-ignore
 import Rodonaves from 'rodonaves-js';

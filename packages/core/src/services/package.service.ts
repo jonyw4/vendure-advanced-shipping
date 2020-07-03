@@ -13,7 +13,7 @@ import Package from '../entities/package.entity';
 import {
   CreatePackageInput,
   UpdatePackageInput
-} from '@vendure-advanced-shipping/common/src/generated-admin-schema';
+} from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
 
 @Injectable()
 export class PackageService {
