@@ -1,5 +1,5 @@
 {
-  "name": "@vendure-advanced-shipping/rodonaves",
+  "name": "@vendure-advanced-shipping/ups-brazil",
   "version": "0.0.1",
   "license": "MIT",
   "main": "index.js",
@@ -11,9 +11,6 @@
     "build": "rimraf lib && tsc -p ./tsconfig.build.json",
     "lint": "eslint ./src --ext .ts,.tsx",
     "lint:fix": "eslint ./src --ext .ts,.tsx --fix"
-  },
-  "dependencies": {
-    "rodonaves-js": "1.0.4"
   },
   "peerDependencies": {
     "@vendure/core": "^0.13.0",

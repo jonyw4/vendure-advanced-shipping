@@ -9,5 +9,11 @@
     "run:server": "node -r ts-node/register index.ts",
     "run:worker": "node -r ts-node/register index-worker.ts",
     "start": "rimraf admin-ui && concurrently npm:run*"
+  },
+  "dependencies": {
+    "@vendure-advanced-shipping/common": "file:../common",
+    "@vendure-advanced-shipping/core": "file:../core",
+    "@vendure-advanced-shipping/rodonaves": "file:../rodonaves",
+    "@vendure-advanced-shipping/ups-brazil": "file:../ups-brazil"
   }
 }
