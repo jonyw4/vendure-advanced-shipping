@@ -18,11 +18,72 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
     }
   ],
   args: {
-    username: { type: 'string' },
-    password: { type: 'string' },
-    timeout: { type: 'int', value: 10000 },
-    postalCode: { type: 'string' },
-    taxId: { type: 'string' }
+    username: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Username'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Usuário'
+        }
+      ]
+    },
+    password: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Password'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Senha'
+        }
+      ]
+    },
+    timeout: {
+      type: 'int',
+      value: 10000,
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Timeout'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Tempo de resposta (ms)'
+        }
+      ]
+    },
+    postalCode: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Postal Code'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'CEP de origem'
+        }
+      ]
+    },
+    taxId: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Tax ID (Brazilian CNPJ)'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'CNPJ'
+        }
+      ]
+    }
   },
   init: (injector) => {
     shippingPackagesService = injector.get(ShippingPackagesService);

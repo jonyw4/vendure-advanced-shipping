@@ -18,13 +18,187 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
     }
   ],
   args: {
-    isSandbox: { type: 'boolean', value: false },
-    token: { type: 'string', value: 10000 },
-    postalCode: { type: 'string' },
-    timeout: { type: 'int', value: 10000 },
-    service: { type: 'string', value: '1' },
-    receipt: { type: 'boolean', value: true },
-    ownHand: { type: 'boolean', value: true }
+    isSandbox: {
+      type: 'boolean',
+      value: false,
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Use sandbox mode?'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Usar em modo sandbox/teste?'
+        }
+      ]
+    },
+    token: {
+      type: 'string',
+      value: 10000,
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Token'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Chave Token'
+        }
+      ]
+    },
+    postalCode: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Postal Code'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'CEP de origem'
+        }
+      ]
+    },
+    timeout: {
+      type: 'int',
+      value: 10000,
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Timeout (ms)'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Tempo máximo de resposta (ms)'
+        }
+      ]
+    },
+    service: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Service'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Serviço'
+        }
+      ],
+      config: {
+        options: [
+          {
+            label: [
+              {
+                languageCode: LanguageCode.en,
+                value: 'Correios - PAC'
+              }
+            ],
+            value: '1'
+          },
+          {
+            label: [
+              {
+                languageCode: LanguageCode.en,
+                value: 'Correios - SEDEX'
+              }
+            ],
+            value: '2'
+          },
+          {
+            label: [
+              {
+                languageCode: LanguageCode.en,
+                value: 'Correios - Mini Envios'
+              }
+            ],
+            value: '17'
+          },
+          {
+            label: [
+              {
+                languageCode: LanguageCode.en,
+                value: 'Jadlog - .Package'
+              }
+            ],
+            value: '3'
+          },
+          {
+            label: [
+              {
+                languageCode: LanguageCode.en,
+                value: 'Jadlog - .com'
+              }
+            ],
+            value: '4'
+          },
+          {
+            label: [
+              {
+                languageCode: LanguageCode.en,
+                value: 'Jadlog - .Package'
+              }
+            ],
+            value: '3'
+          },
+          {
+            label: [
+              {
+                languageCode: LanguageCode.en,
+                value: 'Via Brasil - Rodoviário'
+              }
+            ],
+            value: '9'
+          },
+          {
+            label: [
+              {
+                languageCode: LanguageCode.en,
+                value: 'Azul Cargo Express - Amanhã'
+              }
+            ],
+            value: '15'
+          },
+          {
+            label: [
+              {
+                languageCode: LanguageCode.en,
+                value: 'Azul Cargo Express - e-commerce'
+              }
+            ],
+            value: '16'
+          }
+        ]
+      }
+    },
+    receipt: {
+      type: 'boolean',
+      value: true,
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Receipt'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Receita'
+        }
+      ]
+    },
+    ownHand: {
+      type: 'boolean',
+      value: true,
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Own Hand Service'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Serviço de mão própria'
+        }
+      ]
+    }
   },
   init: (injector) => {
     shippingPackagesService = injector.get(ShippingPackagesService);
