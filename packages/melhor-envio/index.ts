@@ -136,15 +136,6 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
             label: [
               {
                 languageCode: LanguageCode.en,
-                value: 'Jadlog - .Package'
-              }
-            ],
-            value: '3'
-          },
-          {
-            label: [
-              {
-                languageCode: LanguageCode.en,
                 value: 'Via Brasil - Rodoviário'
               }
             ],
@@ -220,7 +211,7 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
 
     const melhorEnvio = new MelhorEnvio(token, isSandbox, timeout);
     try {
-      const { items } = melhorEnvio.calculateShipment(
+      const response = await melhorEnvio.calculateShipment(
         postalCode,
         order.shippingAddress.postalCode,
         {
@@ -243,12 +234,17 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
         ownHand,
         order.subTotal / 100
       );
-      const { price, delivery_time: deliveryTime } = items[0];
+      if (response.error) {
+        // TODO: Handle error
+        console.log(response.error);
+        throw new Error(response.error);
+      }
+      const price = Number(response.price) * 100;
       return {
-        price: price * 100,
-        priceWithTax: price * 100,
+        price: price,
+        priceWithTax: price,
         metadata: {
-          deliveryTime: deliveryTime
+          deliveryTime: Number(response.delivery_time)
         }
       };
     } catch (error) {
