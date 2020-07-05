@@ -1,7 +1,7 @@
 {
   "name": "@vendure-advanced-shipping/melhor-envio",
   "description": "A plugin using the Advanced Shipping for calculate shipping using Melhor Envio as provider",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "index.js",
   "files": [
@@ -14,8 +14,8 @@
     "lint:fix": "eslint ./src --ext .ts,.tsx --fix"
   },
   "peerDependencies": {
-    "@vendure/core": "^0.13.0",
-    "@vendure-advanced-shipping/core": "^0.0.1"
+    "@vendure-advanced-shipping/core": "^0.0.1",
+    "@vendure/core": "^0.13.0"
   },
   "publishConfig": {
     "access": "public"
