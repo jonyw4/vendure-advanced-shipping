@@ -3,9 +3,6 @@ on:
   push:
     branches:
     - master
-  pull_request:
-    branches:
-    - master
 env:
   CI: true
   node: 12.x
