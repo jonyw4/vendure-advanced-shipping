@@ -9,11 +9,11 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 
-import Package from '../entities/package.entity';
+import { PackageEntity as Package } from '../entities/package.entity';
 import {
   CreatePackageInput,
   UpdatePackageInput
-} from '@vendure-advanced-shipping/common/src/generated-admin-schema';
+} from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
 
 @Injectable()
 export class PackageService {

@@ -13,6 +13,13 @@
   "files": [
     "lib/**/*"
   ],
+  "peerDependencies": {
+    "@vendure/core": "^0.13.0"
+  },
+  "dependencies": {
+    "@types/convert-units": "2.3.2",
+    "convert-units": "2.3.4"
+  },
   "publishConfig": {
     "access": "public"
   }

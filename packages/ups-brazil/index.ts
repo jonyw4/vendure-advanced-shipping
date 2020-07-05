@@ -2,19 +2,19 @@ import { ShippingCalculator, LanguageCode } from '@vendure/core';
 import convertUnit from '@vendure-advanced-shipping/common/lib/convertUnit';
 import { ShippingPackagesService } from '@vendure-advanced-shipping/core';
 // @ts-ignore
-import Rodonaves from 'rodonaves-js';
+import ups from 'ups-brazil-js';
 
 let shippingPackagesService: ShippingPackagesService;
-export const RodonavesShippingCalculator = new ShippingCalculator({
-  code: 'rodonaves',
+export const UPSBrazilShippingCalculator = new ShippingCalculator({
+  code: 'ups-brazil',
   description: [
     {
       languageCode: LanguageCode.en,
-      value: 'Rodonaves Shipping Calculator'
+      value: 'UPS Brasil Shipping Calculator'
     },
     {
       languageCode: LanguageCode.pt_BR,
-      value: 'Calculadora da Rodonaves'
+      value: 'Calculadora da UPS Brasil'
     }
   ],
   args: {
@@ -70,38 +70,32 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
           value: 'CEP de origem'
         }
       ]
-    },
-    taxId: {
-      type: 'string',
-      label: [
-        {
-          languageCode: LanguageCode.en,
-          value: 'Tax ID (Brazilian CNPJ)'
-        },
-        {
-          languageCode: LanguageCode.pt_BR,
-          value: 'CNPJ'
-        }
-      ]
     }
   },
   init: (injector) => {
     shippingPackagesService = injector.get(ShippingPackagesService);
   },
-  calculate: async (
-    order,
-    { username, password, timeout, postalCode, taxId }
-  ) => {
+  calculate: async (order, { username, password, timeout, postalCode }) => {
     const { packages: shippingPackages } = await shippingPackagesService.create(
       order
     );
-    const rodonaves = new Rodonaves(username, password, 'prod', timeout);
+
+    // Returns empty when have more than one package
+    if (shippingPackages.length > 1) {
+      // TODO: Handle error
+      console.log('More than one package');
+      throw new Error();
+    }
+
+    const packageData = shippingPackages[0];
 
     try {
-      const { Value, DeliveryTime } = await rodonaves.simulateQuote(
+      const { FreteTotalReceber, ValorEA } = await ups(
+        username,
+        password,
         postalCode,
         order.shippingAddress.postalCode,
-        shippingPackages.map((packageData) => ({
+        {
           weight: convertUnit(packageData.totalWeight)
             .from(packageData.massUnit)
             .to('kg'),
@@ -114,15 +108,15 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
           width: convertUnit(packageData.width)
             .from(packageData.distanceUnit)
             .to('cm')
-        })),
+        },
         order.subTotal / 100,
-        taxId
+        timeout
       );
       return {
-        price: Value * 100,
-        priceWithTax: Value * 100,
+        price: FreteTotalReceber * 100,
+        priceWithTax: FreteTotalReceber * 100,
         metadata: {
-          deliveryTime: DeliveryTime
+          deliveryTime: ValorEA > 0 ? 5 : 2
         }
       };
     } catch (error) {

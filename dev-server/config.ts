@@ -8,6 +8,8 @@ import { AssetServerPlugin } from '@vendure/asset-server-plugin';
 import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
 import { AdvancedShippingCorePlugin } from '@vendure-advanced-shipping/core';
 import { RodonavesShippingCalculator } from '@vendure-advanced-shipping/rodonaves';
+import { MelhorEnvioShippingCalculator } from '@vendure-advanced-shipping/melhor-envio';
+import { UPSBrazilShippingCalculator } from '@vendure-advanced-shipping/ups-brazil';
 import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
 import path from 'path';
 
@@ -15,7 +17,11 @@ const PORT = Number(process.env.PORT) || 3000;
 
 export const config: VendureConfig = {
   shippingOptions: {
-    shippingCalculators: [RodonavesShippingCalculator]
+    shippingCalculators: [
+      MelhorEnvioShippingCalculator,
+      RodonavesShippingCalculator,
+      UPSBrazilShippingCalculator
+    ]
   },
   apiOptions: {
     hostname: '0.0.0.0',
@@ -61,6 +67,7 @@ export const config: VendureConfig = {
     }),
     DefaultJobQueuePlugin,
     DefaultSearchPlugin,
+    AdvancedShippingCorePlugin,
     AdminUiPlugin.init({
       port: 3002,
       app: compileUiExtensions({
@@ -68,8 +75,7 @@ export const config: VendureConfig = {
         extensions: [AdvancedShippingCorePlugin.uiExtensions],
         devMode: true
       })
-    }),
-    AdvancedShippingCorePlugin
+    })
   ]
 };
 

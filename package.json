@@ -12,16 +12,23 @@
     "test": "lerna run test",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
-    "dev-server:start": "cd packages/dev-server && npm start",
     "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen",
-    "publish": "lerna publish --yes --conventional-commits --create-release github"
+    "publish": "lerna publish --yes --conventional-commits --create-release github",
+    "dev-server:populate": "node -r ts-node/register dev-server/populate.ts",
+    "dev-server:start": "rimraf dev-server/admin-ui && concurrently npm:dev-server:run*",
+    "dev-server:run:server": "node -r ts-node/register dev-server/index.ts",
+    "dev-server:run:worker": "node -r ts-node/register dev-server/index-worker.ts"
+  },
+  "resolutions": {
+    "tslib": "2.0.0"
   },
   "dependencies": {
-    "@types/convert-units": "2.3.2",
-    "@vendure-advanced-shipping/common": "file:packages/common",
-    "@vendure-advanced-shipping/core": "file:packages/core",
-    "@vendure-advanced-shipping/rodonaves": "file:packages/rodonaves",
-    "convert-units": "2.3.4"
+    "@vendure/create": "0.13.0",
+    "@vendure/core": "0.13.0",
+    "@vendure/asset-server-plugin": "0.13.0",
+    "@vendure/admin-ui-plugin": "0.13.0",
+    "@vendure/ui-devkit": "0.13.0",
+    "@vendure/testing": "0.13.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "8.3.4",
@@ -36,13 +43,6 @@
     "@types/node": "12.12.0",
     "@typescript-eslint/eslint-plugin": "3.2.0",
     "@typescript-eslint/parser": "3.2.0",
-    "@vendure/admin-ui": "0.13.0",
-    "@vendure/admin-ui-plugin": "0.13.0",
-    "@vendure/asset-server-plugin": "0.13.0",
-    "@vendure/core": "0.13.0",
-    "@vendure/create": "0.13.0",
-    "@vendure/testing": "0.13.0",
-    "@vendure/ui-devkit": "0.13.0",
     "codecov": "3.7.0",
     "commitlint": "8.3.5",
     "concurrently": "5.2.0",
@@ -57,8 +57,14 @@
     "rimraf": "3.0.0",
     "sqlite3": "4.2.0",
     "ts-jest": "25.2.1",
-    "ts-node": "8.4.1",
-    "typescript": "3.8.3"
+    "ts-node": "8.10.2",
+    "typescript": "3.8.3",
+    "@vendure/admin-ui": "0.13.0",
+    "@vendure-advanced-shipping/common": "file:packages/common",
+    "@vendure-advanced-shipping/core": "file:packages/core",
+    "@vendure-advanced-shipping/rodonaves": "file:packages/rodonaves",
+    "@vendure-advanced-shipping/ups-brazil": "file:packages/ups-brazil",
+    "@vendure-advanced-shipping/melhor-envio": "file:packages/melhor-envio"
   },
   "husky": {
     "hooks": {

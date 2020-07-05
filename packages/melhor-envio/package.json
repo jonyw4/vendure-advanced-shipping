@@ -1,6 +1,6 @@
 {
-  "name": "@vendure-advanced-shipping/rodonaves",
-  "description": "A plugin using the Advanced Shipping for calculate shipping using Rodonaves as provider",
+  "name": "@vendure-advanced-shipping/melhor-envio",
+  "description": "A plugin using the Advanced Shipping for calculate shipping using Melhor Envio as provider",
   "version": "0.0.1",
   "license": "MIT",
   "main": "index.js",
@@ -13,9 +13,6 @@
     "lint": "eslint ./src --ext .ts,.tsx",
     "lint:fix": "eslint ./src --ext .ts,.tsx --fix"
   },
-  "dependencies": {
-    "rodonaves-js": "1.0.4"
-  },
   "peerDependencies": {
     "@vendure/core": "^0.13.0",
     "@vendure-advanced-shipping/core": "^0.0.1",
@@ -23,5 +20,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "menv-js": "1.3.3"
   }
 }

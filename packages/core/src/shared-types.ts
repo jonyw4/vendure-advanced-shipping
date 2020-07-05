@@ -1,1 +1,1 @@
-export * from '@vendure-advanced-shipping/common/src/generated-admin-schema';
+export * from '@vendure-advanced-shipping/common/lib/generated-admin-schema';

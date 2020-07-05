@@ -3,8 +3,8 @@ import { VendureEntity, DeepPartial } from '@vendure/core';
 import {
   MassUnit,
   DistanceUnit
-} from '@vendure-advanced-shipping/common/src/generated-admin-schema';
-import convertUnit from '@vendure-advanced-shipping/common/src/convertUnit';
+} from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
+import convertUnit from '@vendure-advanced-shipping/common/lib/convertUnit';
 
 @Entity()
 export class PackageEntity extends VendureEntity {
@@ -55,5 +55,3 @@ export class PackageEntity extends VendureEntity {
     return height * width * length;
   }
 }
-
-export default PackageEntity;

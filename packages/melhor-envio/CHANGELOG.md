@@ -5,4 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.0.1 (2020-07-03)
 
-**Note:** Version bump only for package @vendure-advanced-shipping/dev-server
+**Note:** Version bump only for package @vendure-advanced-shipping/rodonaves
