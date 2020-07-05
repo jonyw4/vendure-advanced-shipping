@@ -15,8 +15,7 @@
   },
   "peerDependencies": {
     "@vendure/core": "^0.13.0",
-    "@vendure-advanced-shipping/core": "^0.0.1",
-    "@vendure-advanced-shipping/common": "^0.0.1"
+    "@vendure-advanced-shipping/core": "^0.0.1"
   },
   "publishConfig": {
     "access": "public"
