@@ -58,7 +58,7 @@
     "sqlite3": "4.2.0",
     "ts-jest": "25.2.1",
     "ts-node": "8.10.2",
-    "typescript": "3.8.3",
+    "typescript": "3.9.6",
     "@vendure/admin-ui": "0.13.1",
     "@vendure-advanced-shipping/common": "file:packages/common",
     "@vendure-advanced-shipping/core": "file:packages/core",
