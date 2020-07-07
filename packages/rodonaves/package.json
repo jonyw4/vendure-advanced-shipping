@@ -3,7 +3,7 @@
   "description": "A plugin using the Advanced Shipping for calculate shipping using Rodonaves as provider",
   "version": "0.0.2",
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "files": [
     "lib/**/*"
   ],
