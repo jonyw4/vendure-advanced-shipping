@@ -6,8 +6,8 @@ import {
   MassUnit,
   DistanceUnit,
   ProductCustomFields
-} from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
-import convertUnit from '@vendure-advanced-shipping/common/lib/convertUnit';
+} from '../types/generated-admin-schema';
+import convertUnit from '../utils/convertUnit';
 import { ShippingPackagesEntity as ShippingPackages } from '../entities/shipping-packages.entity';
 import PackageService from './package.service';
 

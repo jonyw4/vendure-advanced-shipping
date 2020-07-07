@@ -1,4 +1,4 @@
-import * as Types from '../../src/shared-types';
+import * as Types from '../../src/types/generated-admin-schema';
 
 import { PackageTestFragment } from './fragment.graphql.types';
 export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };

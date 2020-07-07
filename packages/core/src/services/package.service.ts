@@ -8,12 +8,11 @@ import { ListQueryOptions } from '@vendure/core/dist/common/types/common-types';
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
-
 import { PackageEntity as Package } from '../entities/package.entity';
 import {
   CreatePackageInput,
   UpdatePackageInput
-} from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
+} from '../types/generated-admin-schema';
 
 @Injectable()
 export class PackageService {

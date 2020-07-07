@@ -22,7 +22,7 @@ import {
   UpdatePackageMutation,
   UpdatePackageMutationVariables
 } from './graphql/admin.graphql.types';
-import { MassUnit, DistanceUnit } from '../src/shared-types';
+import { MassUnit, DistanceUnit } from '../src/types/generated-admin-schema';
 
 registerInitializer(
   'sqljs',

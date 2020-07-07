@@ -69,9 +69,6 @@ It's done!
 ### 4. Done, enjoy!
 
 ## 📖 Packages
-### [![npm (scoped)](https://img.shields.io/npm/v/@vendure-advanced-shipping/common.svg)](https://www.npmjs.com/package/@vendure-advanced-shipping/common) @vendure-advanced-shipping/common 
-This package contains a set of common utility functions and TypeScript types used by multiple Vendure Advanced Shipping packages.
-
 ### [![npm (scoped)](https://img.shields.io/npm/v/@vendure-advanced-shipping/core.svg)](https://www.npmjs.com/package/@vendure-advanced-shipping/core) @vendure-advanced-shipping/core
 This package contains the core features of Advanced Shipping.
 

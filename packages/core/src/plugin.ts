@@ -1,12 +1,12 @@
+import path from 'path';
 import { PluginCommonModule, VendurePlugin } from '@vendure/core';
-import injectCustomFields from '@vendure-advanced-shipping/common/lib/injectCustomFields';
+import { AdminUiExtension } from '@vendure/ui-devkit/compiler';
+import injectCustomFields from './utils/injectCustomFields';
 import { PackageEntity, ShippingPackagesEntity } from './entities';
 import { PackageService, ShippingPackagesService } from './services';
 import { PackageResolver } from './resolvers';
 import { adminApiExtensions } from './api';
 import customFields from './config/customFields';
-import { AdminUiExtension } from '@vendure/ui-devkit/compiler';
-import path from 'path';
 
 @VendurePlugin({
   imports: [PluginCommonModule],

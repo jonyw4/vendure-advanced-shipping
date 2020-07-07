@@ -1,4 +1,4 @@
-import * as Types from '../../src/shared-types';
+import * as Types from '../../src/types/generated-admin-schema';
 
 export type PackageTestFragment = { __typename?: 'Package' } & Pick<
   Types.Package,

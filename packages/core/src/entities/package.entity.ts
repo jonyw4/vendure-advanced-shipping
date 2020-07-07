@@ -4,7 +4,7 @@ import {
   MassUnit,
   DistanceUnit
 } from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
-import convertUnit from '@vendure-advanced-shipping/common/lib/convertUnit';
+import convertUnit from '../utils/convertUnit';
 
 @Entity()
 export class PackageEntity extends VendureEntity {
