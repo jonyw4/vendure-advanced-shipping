@@ -21,6 +21,6 @@
     "access": "public"
   },
   "dependencies": {
-    "ups-brazil-js": "1.1.7"
+    "ups-brazil-js": "2.0.0"
   }
 }

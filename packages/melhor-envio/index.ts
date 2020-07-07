@@ -3,7 +3,6 @@ import {
   ShippingPackagesService,
   convertUnit
 } from '@vendure-advanced-shipping/core';
-// @ts-ignore
 import MelhorEnvio from 'menv-js';
 
 let shippingPackagesService: ShippingPackagesService;
@@ -230,8 +229,7 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
             .from(packageData.distanceUnit)
             .to('cm')
         },
-        [],
-        [service],
+        service,
         receipt,
         ownHand,
         order.subTotal / 100

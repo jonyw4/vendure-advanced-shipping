@@ -3,7 +3,6 @@ import {
   ShippingPackagesService,
   convertUnit
 } from '@vendure-advanced-shipping/core';
-// @ts-ignore
 import ups from 'ups-brazil-js';
 
 let shippingPackagesService: ShippingPackagesService;
