@@ -7,12 +7,10 @@
   "parallel": true,
   "npmClient": "npm",
   "command": {
-    "version": {
-      "message": "chore(release): publish %s [skip ci]"
-    },
     "publish": {
       "verifyAccess": false,
-      "message": "chore(release): publish %s [skip ci]"
+      "message": "chore(release): publish %s [skip ci]",
+      "conventionalCommits": true
     }
   }
 }
