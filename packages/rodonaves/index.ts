@@ -1,9 +1,13 @@
-import { ShippingCalculator, LanguageCode } from '@vendure/core';
+import {
+  ShippingCalculator,
+  LanguageCode,
+  UserInputError,
+  Logger
+} from '@vendure/core';
 import {
   ShippingPackagesService,
   convertUnit
 } from '@vendure-advanced-shipping/core';
-// @ts-ignore
 import Rodonaves from 'rodonaves-js';
 
 let shippingPackagesService: ShippingPackagesService;
@@ -94,6 +98,14 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
     order,
     { username, password, timeout, postalCode, taxId }
   ) => {
+    const customerPostalCode = order.shippingAddress.postalCode;
+
+    if (!customerPostalCode) {
+      throw new UserInputError(
+        'vdr-advanced-shipping-plugin.empty-postal-code'
+      );
+    }
+
     const { packages: shippingPackages } = await shippingPackagesService.create(
       order
     );
@@ -102,7 +114,7 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
     try {
       const { Value, DeliveryTime } = await rodonaves.simulateQuote(
         postalCode,
-        order.shippingAddress.postalCode,
+        customerPostalCode,
         shippingPackages.map((packageData) => ({
           weight: convertUnit(packageData.totalWeight)
             .from(packageData.massUnit)
@@ -128,9 +140,8 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
         }
       };
     } catch (error) {
-      // TODO: Handle error
-      console.log(error.message);
-      throw new Error(error);
+      Logger.error(error);
+      return undefined;
     }
   }
 });

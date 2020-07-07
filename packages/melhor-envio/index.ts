@@ -1,4 +1,9 @@
-import { ShippingCalculator, LanguageCode } from '@vendure/core';
+import {
+  ShippingCalculator,
+  LanguageCode,
+  Logger,
+  UserInputError
+} from '@vendure/core';
 import {
   ShippingPackagesService,
   convertUnit
@@ -199,22 +204,23 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
     order,
     { timeout, token, isSandbox, postalCode, service, receipt, ownHand }
   ) => {
+    const customerPostalCode = order.shippingAddress.postalCode;
+
+    if (!customerPostalCode) {
+      throw new UserInputError(
+        'vdr-advanced-shipping-plugin.empty-postal-code'
+      );
+    }
     const { packages: shippingPackages } = await shippingPackagesService.create(
       order
     );
-    // Returns empty when have more than one package
-    if (shippingPackages.length > 1) {
-      // TODO: Handle error
-      console.log('More than one package');
-      throw new Error();
-    }
     const packageData = shippingPackages[0];
 
     const melhorEnvio = new MelhorEnvio(token, isSandbox, timeout);
     try {
       const response = await melhorEnvio.calculateShipment(
         postalCode,
-        order.shippingAddress.postalCode,
+        customerPostalCode,
         {
           weight: convertUnit(packageData.totalWeight)
             .from(packageData.massUnit)
@@ -235,9 +241,8 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
         order.subTotal / 100
       );
       if (response.error) {
-        // TODO: Handle error
-        console.log(response.error);
-        throw new Error(response.error);
+        Logger.error(response.error);
+        return undefined;
       }
       const price = Number(response.price) * 100;
       return {
@@ -248,9 +253,8 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
         }
       };
     } catch (error) {
-      // TODO: Handle error
-      console.log(error.message);
-      throw new Error(error);
+      Logger.error(error);
+      return undefined;
     }
   }
 });

@@ -1,4 +1,9 @@
-import { ShippingCalculator, LanguageCode } from '@vendure/core';
+import {
+  ShippingCalculator,
+  LanguageCode,
+  Logger,
+  UserInputError
+} from '@vendure/core';
 import {
   ShippingPackagesService,
   convertUnit
@@ -77,6 +82,14 @@ export const UPSBrazilShippingCalculator = new ShippingCalculator({
     shippingPackagesService = injector.get(ShippingPackagesService);
   },
   calculate: async (order, { username, password, timeout, postalCode }) => {
+    const customerPostalCode = order.shippingAddress.postalCode;
+
+    if (!customerPostalCode) {
+      throw new UserInputError(
+        'vdr-advanced-shipping-plugin.empty-postal-code'
+      );
+    }
+
     const { packages: shippingPackages } = await shippingPackagesService.create(
       order
     );
@@ -95,7 +108,7 @@ export const UPSBrazilShippingCalculator = new ShippingCalculator({
         username,
         password,
         postalCode,
-        order.shippingAddress.postalCode,
+        customerPostalCode,
         {
           weight: convertUnit(packageData.totalWeight)
             .from(packageData.massUnit)
