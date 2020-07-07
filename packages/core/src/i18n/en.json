@@ -10,6 +10,7 @@
     "packages": "Packages",
     "package": "Package",
     "distance-unit": "Distance Unit",
-    "mass-unit": "Mass Unit"
+    "mass-unit": "Mass Unit",
+    "empty-postal-code": "Postal Code is necessary to calculate shipping"
   }
 }
