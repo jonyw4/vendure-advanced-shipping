@@ -1,16 +1,16 @@
 {
   "common": {
-    "width": "Width",
-    "height": "Height",
-    "length": "Length",
-    "weight": "Weight"
+    "width": "Largura",
+    "height": "Altura",
+    "length": "Comprimento",
+    "weight": "Peso"
   },
   "vdr-advanced-shipping-plugin": {
-    "create-new-package": "Create a new Package",
-    "packages": "Packages",
-    "package": "Package",
-    "distance-unit": "Distance Unit",
-    "mass-unit": "Mass Unit",
-    "empty-postal-code": "Postal Code is necessary to calculate shipping"
+    "create-new-package": "Criar um novo pacote",
+    "packages": "Caixas",
+    "package": "Caixa",
+    "distance-unit": "Unidade de Distância",
+    "mass-unit": "Unidade em massa",
+    "empty-postal-code": "CEP é necessário para calcular o envio"
   }
 }
