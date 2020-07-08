@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService, BaseEntityResolver } from '@vendure/admin-ui/core';
-import {
-  DistanceUnit,
-  MassUnit
-} from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
+import { DistanceUnit, MassUnit } from '../../../common/generated-admin-schema';
 import { GET_PACKAGE } from './package-detail.graphql';
 import { PackageFragment } from '../../../common/fragment.graphql.types';
 import {

@@ -8,6 +8,10 @@ generates:
     schema: "http://localhost:3000/admin-api"
     plugins:
       - typescript
+  ./packages/core/src/ui/common/generated-admin-schema.ts:
+    schema: "http://localhost:3000/admin-api"
+    plugins:
+      - typescript
   ./packages/core/src/types/generated-shop-introspectionResult.ts:
     schema: "http://localhost:3000/shop-api"
     plugins:
