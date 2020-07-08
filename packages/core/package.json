@@ -7,8 +7,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "watch": "tsc -p ./tsconfig.build.json --watch",
-    "build": "rimraf lib && tsc -p ./tsconfig.build.json",
+    "cp:ui": "ncp src/ui lib/src/ui",
+    "cp:i18n": "ncp src/i18n lib/src/i18n",
+    "cp": "npm run cp:ui && npm run cp:i18n",
+    "watch": "npm run cp && tsc -p ./tsconfig.build.json --watch",
+    "build": "rimraf lib && tsc -p ./tsconfig.build.json && npm run cp",
     "lint": "eslint ./src --ext .ts,.tsx",
     "lint:fix": "eslint ./src --ext .ts,.tsx --fix",
     "codegen": "graphql-codegen --config gql-codegen.yml",
@@ -23,7 +26,8 @@
     "@vendure/core": "^0.13.0"
   },
   "dependencies": {
-    "@vendure-advanced-shipping/common": "^0.0.2",
-    "@vendure/ui-devkit": "0.13.0"
+    "@types/convert-units": "2.3.2",
+    "@vendure/ui-devkit": "0.13.0",
+    "convert-units": "2.3.4"
   }
 }

@@ -6,5 +6,8 @@
     "noLib": false,
     "skipLibCheck": true,
     "sourceMap": true
-  }
+  },
+  "files": [
+    "./index.ts"
+  ]
 }
