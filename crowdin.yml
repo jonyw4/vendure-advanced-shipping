@@ -2,3 +2,4 @@ files:
   - source: /packages/core/src/i18n/en.json
     translation: /packages/core/src/i18n/%locale%.json
 commit_message: 'fix: new translations %original_file_name% from crowdin [ci skip]'
+append_commit_message: false
