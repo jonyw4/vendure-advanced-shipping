@@ -1,7 +1,7 @@
 {
   "name": "@vendure-advanced-shipping/ups-brazil",
   "description": "A plugin using the Advanced Shipping for calculate shipping using UPS Brazil as provider",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "main": "lib/index.js",
   "files": [
