@@ -2,6 +2,7 @@
 ![Publish](https://github.com/jonyw4/vendure-advanced-shipping/workflows/Publish/badge.svg?branch=master)
 ![Build & Test](https://github.com/jonyw4/vendure-advanced-shipping/workflows/Build%20&%20Test/badge.svg)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+[![Crowdin](https://badges.crowdin.net/vendure-advanced-shipping/localized.svg)](https://crowdin.com/project/vendure-advanced-shipping)
 
 📦 A series of plugins for [Vendure](https://github.com/vendure-ecommerce/vendure) to add features to shipping using boxes and shipping based on product dimensions.
 
@@ -104,6 +105,9 @@ e2e tests use the `@vendure/testing` package. For details of how the setup works
 
 ## 🔈 Release
 All packages in this repo are released at every version change (using [Lerna's fixed mode](https://github.com/lerna/lerna#fixedlocked-mode-default)). This simplifies both the development (tracking multiple disparate versions is tough) and also the developer experience for users of the framework (it is simple to see that all packages are up-to-date and compatible).
+
+## 🌐 Localization
+This project localization its hosted in [Crowdin](https://crowdin.com/project/vendure-advanced-shipping).
 
 ## ❗️ License
 MIT 
