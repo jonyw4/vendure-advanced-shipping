@@ -1,7 +1,7 @@
 {
   "name": "@vendure-advanced-shipping/rodonaves",
   "description": "A plugin using the Advanced Shipping for calculate shipping using Rodonaves as provider",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "license": "MIT",
   "main": "lib/index.js",
   "files": [

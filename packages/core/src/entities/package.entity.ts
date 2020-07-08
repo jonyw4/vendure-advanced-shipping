@@ -1,9 +1,6 @@
 import { Entity, Column } from 'typeorm';
 import { VendureEntity, DeepPartial } from '@vendure/core';
-import {
-  MassUnit,
-  DistanceUnit
-} from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
+import { MassUnit, DistanceUnit } from '../types/generated-admin-schema';
 import convertUnit from '../utils/convertUnit';
 
 @Entity()

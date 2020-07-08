@@ -1,4 +1,4 @@
-import * as Types from '../../types/generated-admin-schema';
+import * as Types from './generated-admin-schema';
 
 export type PackageFragment = { __typename?: 'Package' } & Pick<
   Types.Package,
