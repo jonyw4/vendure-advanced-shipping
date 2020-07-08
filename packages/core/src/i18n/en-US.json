@@ -2,11 +2,11 @@
   "common": {
     "width": "Width",
     "height": "Height",
-    "length": "Length",
+    "length": "Lengh",
     "weight": "Weight"
   },
   "vdr-advanced-shipping-plugin": {
-    "create-new-package": "Create a new Package",
+    "create-new-package": "Create a new package",
     "packages": "Packages",
     "package": "Package",
     "distance-unit": "Distance Unit",
