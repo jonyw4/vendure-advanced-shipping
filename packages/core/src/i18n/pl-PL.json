@@ -1,0 +1,16 @@
+{
+  "common": {
+    "width": "Width",
+    "height": "Height",
+    "length": "Length",
+    "weight": "Weight"
+  },
+  "vdr-advanced-shipping-plugin": {
+    "create-new-package": "Create a new Package",
+    "packages": "Packages",
+    "package": "Package",
+    "distance-unit": "Distance Unit",
+    "mass-unit": "Mass Unit",
+    "empty-postal-code": "Postal Code is necessary to calculate shipping"
+  }
+}
