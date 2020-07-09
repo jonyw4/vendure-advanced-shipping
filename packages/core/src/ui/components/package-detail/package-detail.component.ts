@@ -23,10 +23,7 @@ import {
   UpdatePackageMutation,
   UpdatePackageMutationVariables
 } from './package-detail.graphql.types';
-import {
-  DistanceUnit,
-  MassUnit
-} from '@vendure-advanced-shipping/common/lib/generated-admin-schema';
+import { DistanceUnit, MassUnit } from '../../../types/generated-admin-schema';
 import { mergeMap, take } from 'rxjs/operators';
 
 @Component({
