@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.11 (2020-07-09)
+
+
+### Bug Fixes
+
+* update generated schema file location ([e54241d](https://github.com/jonyw4/vendure-advanced-shipping/commit/e54241db22e0a1dd78beef0bb9d45883dd9cdac7))
+
+
+
+
+
 ## 1.0.10 (2020-07-08)
 
 **Note:** Version bump only for package @vendure-advanced-shipping/rodonaves
