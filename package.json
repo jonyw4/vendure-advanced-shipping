@@ -5,15 +5,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "lerna:bootstrap": "lerna link && lerna exec npm install",
-    "bootstrap": "lerna link && lerna exec npm install",
-    "watch": "lerna run watch --parallel",
-    "build": "lerna run build",
-    "test": "lerna run test",
-    "lint": "lerna run lint",
-    "lint:fix": "lerna run lint:fix",
-    "codegen": "graphql-codegen --config gql-codegen.yml && lerna run codegen",
-    "publish": "lerna publish --yes --create-release github",
+    "watch": "wsrun watch",
+    "build": "wsrun build",
+    "test": "wsrun test",
+    "lint": "wsrun lint",
+    "lint:fix": "wsrun lint:fix",
+    "codegen": "graphql-codegen --config gql-codegen.yml && wsrun codegen",
     "dev-server:populate": "node -r ts-node/register dev-server/populate.ts",
     "dev-server:start": "rimraf dev-server/admin-ui && concurrently npm:dev-server:run*",
     "dev-server:run:server": "node -r ts-node/register dev-server/index.ts",
@@ -23,12 +20,12 @@
     "tslib": "2.0.0"
   },
   "dependencies": {
-    "@vendure/create": "0.13.0",
-    "@vendure/core": "0.13.0",
-    "@vendure/asset-server-plugin": "0.13.0",
     "@vendure/admin-ui-plugin": "0.13.0",
-    "@vendure/ui-devkit": "0.13.0",
-    "@vendure/testing": "0.13.0"
+    "@vendure/asset-server-plugin": "0.13.0",
+    "@vendure/core": "0.13.0",
+    "@vendure/create": "0.13.0",
+    "@vendure/testing": "0.13.0",
+    "@vendure/ui-devkit": "0.13.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "8.3.4",
@@ -64,7 +61,8 @@
     "sqlite3": "5.0.0",
     "ts-jest": "25.2.1",
     "ts-node": "8.10.2",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "wsrun": "^5.2.1"
   },
   "husky": {
     "hooks": {
@@ -85,5 +83,8 @@
         ]
       ]
     }
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
