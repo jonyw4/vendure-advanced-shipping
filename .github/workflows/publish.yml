@@ -27,14 +27,8 @@ jobs:
         restore-keys: |
           ${{ runner.OS }}-node-
           ${{ runner.OS }}-
-    - name: Setup GIT
-      run: |
-        git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-        git config user.name "$GITHUB_ACTOR"
-        git remote set-url origin "https://$GITHUB_ACTOR:$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git"
     - name: Install & build
       run: |
-        npm install
-        npm run lerna:bootstrap
-        npm run build
-        npm run publish
+        yarn install
+        yarn build
+        yarn publish

@@ -16,9 +16,6 @@
     "dev-server:run:server": "node -r ts-node/register dev-server/index.ts",
     "dev-server:run:worker": "node -r ts-node/register dev-server/index-worker.ts"
   },
-  "resolutions": {
-    "tslib": "2.0.0"
-  },
   "dependencies": {
     "@vendure/admin-ui-plugin": "0.13.0",
     "@vendure/asset-server-plugin": "0.13.0",
