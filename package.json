@@ -1,6 +1,6 @@
 {
   "name": "vendure-advanced-shipping",
-  "description": "📦 A series of plugin for Vendure to add features to shipping using boxes, and shipping based on product dimensions.",
+  "description": "📦 A series of plugins for Vendure to add features to shipping using boxes, and shipping based on product dimensions.",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
