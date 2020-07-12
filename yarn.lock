@@ -3635,6 +3635,7 @@
 "@vendure-advanced-shipping/core@file:packages/core":
   version "0.0.0"
   dependencies:
+    "@nestjs/graphql" "7.0.14"
     "@types/convert-units" "2.3.2"
     "@vendure/ui-devkit" "0.13.0"
     convert-units "2.3.4"
@@ -12326,7 +12327,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-ncp@^2.0.0:
+ncp@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
   integrity sha1-GVoh1sRuNh0vsSgbo4uR6d9727M=
@@ -17873,7 +17874,7 @@ ws@^7.0.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.1.tgz#d0547bf67f7ce4f12a72dfe31262c68d7dc551c8"
   integrity sha512-D3RuNkynyHmEJIpD2qrgVkc9DQ23OrN/moAwZX4L8DfvszsJxpjQuUq3LMx6HoYji9fbIOBY18XWBsAux1ZZUA==
 
-wsrun@^5.2.1:
+wsrun@5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/wsrun/-/wsrun-5.2.1.tgz#c6b75947d7381100feeb111b32ab1b6ff532d624"
   integrity sha512-KDZLBE5fsmS/QnFDXDN8gowyFSe34gRQ4bnkfES7+9u8ZCutbwwd9feVa88AfuaSqzosKz7K3lC04vPLsTpb+A==
