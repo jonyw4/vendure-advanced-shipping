@@ -3763,12 +3763,12 @@
     rxjs "^6.3.3"
     typeorm "0.2.24"
 
-"@vendure/create@0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@vendure/create/-/create-0.13.0.tgz#2e0d579e7fcdf9eb507fbc59001d591553d8b846"
-  integrity sha512-7CoBNd+K3v2ch7bV4rQbPcciXowhaKuRRhVESd7DdFpv2NJFZwuGB26qJaB4DaoZrquPALYdl45M1cFWqnQE6g==
+"@vendure/create@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@vendure/create/-/create-0.13.1.tgz#b09287e21cf57e3e96a2cd0e4881047c8c9a5f39"
+  integrity sha512-wjK/P91mfE1YgCN34aIMg5dvtcHJUugaJWB+tjflozRyf/GcKYdu7XZmFhHK8g0f0OfHKW8ODbLhHYbWmyGsVQ==
   dependencies:
-    "@vendure/common" "^0.13.0"
+    "@vendure/common" "^0.13.1"
     chalk "^3.0.0"
     commander "^5.0.0"
     cross-spawn "^7.0.1"
