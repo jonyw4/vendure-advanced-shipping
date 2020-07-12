@@ -7,14 +7,15 @@
   "scripts": {
     "watch": "wsrun watch",
     "build": "wsrun build",
-    "test": "wsrun test",
-    "lint": "wsrun lint",
-    "lint:fix": "wsrun lint:fix",
-    "codegen": "graphql-codegen --config gql-codegen.yml && wsrun codegen",
+    "test": "wsrun -m test",
+    "lint": "wsrun -m lint",
+    "lint:fix": "wsrun -m lint:fix",
+    "codegen": "graphql-codegen --config gql-codegen.yml && wsrun -m codegen",
     "dev-server:populate": "node -r ts-node/register dev-server/populate.ts",
     "dev-server:start": "rimraf dev-server/admin-ui && concurrently npm:dev-server:run*",
     "dev-server:run:server": "node -r ts-node/register dev-server/index.ts",
-    "dev-server:run:worker": "node -r ts-node/register dev-server/index-worker.ts"
+    "dev-server:run:worker": "node -r ts-node/register dev-server/index-worker.ts",
+    "release": "multi-semantic-release"
   },
   "dependencies": {
     "@vendure/admin-ui-plugin": "0.13.0",
@@ -25,6 +26,7 @@
     "@vendure/ui-devkit": "0.13.0"
   },
   "devDependencies": {
+    "multi-semantic-release": "2.1.0",
     "@commitlint/config-conventional": "8.3.4",
     "@graphql-codegen/cli": "1.15.3",
     "@graphql-codegen/fragment-matcher": "1.15.3",
@@ -83,5 +85,10 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "release": {
+    "branches": [
+      "master"
+    ]
+  }
 }
