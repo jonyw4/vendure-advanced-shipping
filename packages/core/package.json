@@ -1,5 +1,6 @@
 {
   "name": "@vendure-advanced-shipping/core",
+  "description": "A plugin Vendure that contains the core features of Advanced Shipping that adds features to shipping using boxes, and shipping based on product dimensions.",
   "version": "0.0.0",
   "main": "lib/index.js",
   "files": [
