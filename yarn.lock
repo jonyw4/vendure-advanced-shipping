@@ -3648,7 +3648,7 @@
 "@vendure-advanced-shipping/rodonaves@file:packages/rodonaves":
   version "0.0.0"
   dependencies:
-    rodonaves-js "2.0.1"
+    rodonaves-js "2.0.2"
 
 "@vendure-advanced-shipping/ups-brazil@file:packages/ups-brazil":
   version "0.0.0"
@@ -14452,10 +14452,10 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
-qs@6.9.3:
-  version "6.9.3"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.3.tgz#bfadcd296c2d549f1dffa560619132c977f5008e"
-  integrity sha512-EbZYNarm6138UKKq46tdx08Yo/q9ZhFoAXAI1meAFd2GtbRDhbZY2WQSICskT0c5q99aFzLG1D4nvTk9tqfXIw==
+qs@6.9.4:
+  version "6.9.4"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.4.tgz#9090b290d1f91728d3c22e54843ca44aea5ab687"
+  integrity sha512-A1kFqHekCTM7cz0udomYUoYNWjBebHm/5wzU/XqrBRBNWectVH0QIiN+NEcZ0Dte5hvzHwbr8+XQmguPhJ6WdQ==
 
 qs@~6.5.2:
   version "6.5.2"
@@ -15197,14 +15197,14 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rodonaves-js@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/rodonaves-js/-/rodonaves-js-2.0.1.tgz#e4a2b37e4d0b606c47af4bc19cc789f6986fa18e"
-  integrity sha512-LdE9f/Kzplt0P1kU4SJ2pnsKVNaU6+HG0pCE6uQCtFyKbLRXStg2MerTBbIsEovaRMtLS99T+8TI8AMQ9vBxZQ==
+rodonaves-js@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/rodonaves-js/-/rodonaves-js-2.0.2.tgz#5d8131597abf3d9f5b20119965661cb5e1e3807f"
+  integrity sha512-WdVtMRpP+DpOQdgVaKYj+vg4Uq61J9rHITs5VOXLsc8g6N903Si58I1Xc6OqJzURc7hvZretrf6N4xIK5mSJ3w==
   dependencies:
     "@types/qs" "^6.9.3"
     axios "0.19.2"
-    qs "6.9.3"
+    qs "6.9.4"
 
 rollup@1.25.2:
   version "1.25.2"
