@@ -10,15 +10,15 @@
   "scripts": {
     "watch": "tsc -p ./tsconfig.build.json --watch",
     "build": "rimraf lib && tsc -p ./tsconfig.build.json",
-    "lint": "eslint ./src --ext .ts,.tsx",
-    "lint:fix": "eslint ./src --ext .ts,.tsx --fix"
+    "lint": "eslint --ext .ts,.tsx",
+    "lint:fix": "eslint --ext .ts,.tsx --fix"
   },
   "dependencies": {
     "rodonaves-js": "2.0.1"
   },
-  "peerDependencies": {
-    "@vendure-advanced-shipping/core": "^0.0.1",
-    "@vendure/core": "^0.13.0"
+  "devDependencies": {
+    "@vendure-advanced-shipping/core": "1.0.11",
+    "@vendure/core": "0.13.0"
   },
   "publishConfig": {
     "access": "public"

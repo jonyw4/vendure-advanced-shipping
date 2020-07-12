@@ -31,8 +31,7 @@ jobs:
             ${{ runner.OS }}-
       - name: Install & build
         run: |
-          npm install
-          npm run lerna:bootstrap
-          npm run build
+          yarn install
+          yarn build
       - name: Unit tests
-        run: npm run test
+        run: yarn test
