@@ -1,7 +1,7 @@
 # Vendure Advanced Shipping
 ![Publish](https://github.com/jonyw4/vendure-advanced-shipping/workflows/Publish/badge.svg?branch=master)
 ![Build & Test](https://github.com/jonyw4/vendure-advanced-shipping/workflows/Build%20&%20Test/badge.svg)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Crowdin](https://badges.crowdin.net/vendure-advanced-shipping/localized.svg)](https://crowdin.com/project/vendure-advanced-shipping)
 
 📦 A series of plugins for [Vendure](https://github.com/vendure-ecommerce/vendure) to add features to shipping using boxes and shipping based on product dimensions.
