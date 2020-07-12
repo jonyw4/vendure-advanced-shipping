@@ -3720,10 +3720,10 @@
   resolved "https://registry.yarnpkg.com/@vendure/common/-/common-0.13.1.tgz#a27cbcc59e3235842174842a36ec308be600c5e3"
   integrity sha512-q6mvdb+mh9TE0aGnDZoBybRmdcQgD1uRz94LUfowoiViI0IvF2ZJ/nTlYKjfDW4ykflZeQbl1Jg01LNGLx/4Xw==
 
-"@vendure/core@0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@vendure/core/-/core-0.13.0.tgz#5ef5c80dbc79805828d3b3bc235ac5430bbd1bc2"
-  integrity sha512-/Dqs0Y9zDQFTKHA7f1u4gEuvpLhy/feldLvpt78YHQe0lQdeB7xANoVGffcSb1QU6eZznhm9nMOvfsLhEFN0qg==
+"@vendure/core@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@vendure/core/-/core-0.13.1.tgz#659ebc191c928c461714a9f05d460352539e3e39"
+  integrity sha512-ajPLFaLDC4F3uhPu0n1AGLyieOWXljrTxC6ArV8DtqNA6los4V5MmC3pQdIbEI8WdG6bjl/Jko/CXLIQXKYjNg==
   dependencies:
     "@nestjs/common" "7.0.5"
     "@nestjs/core" "7.0.5"
@@ -3734,7 +3734,7 @@
     "@nestjs/testing" "7.0.5"
     "@nestjs/typeorm" "7.0.0"
     "@types/fs-extra" "^8.0.1"
-    "@vendure/common" "^0.13.0"
+    "@vendure/common" "^0.13.1"
     apollo-server-express "2.11.0"
     bcrypt "^4.0.1"
     body-parser "^1.19.0"
