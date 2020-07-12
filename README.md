@@ -102,10 +102,6 @@ Certain packages have e2e tests, which are located at `/packages/<name>/e2e/`. A
 
 e2e tests use the `@vendure/testing` package. For details of how the setup works, see the [Testing docs](https://www.vendure.io/docs/developer-guide/testing/)
 
-
-## 🔈 Release
-All packages in this repo are released at every version change (using [Lerna's fixed mode](https://github.com/lerna/lerna#fixedlocked-mode-default)). This simplifies both the development (tracking multiple disparate versions is tough) and also the developer experience for users of the framework (it is simple to see that all packages are up-to-date and compatible).
-
 ## 🌐 Localization
 This project localization its hosted in [Crowdin](https://crowdin.com/project/vendure-advanced-shipping).
 
