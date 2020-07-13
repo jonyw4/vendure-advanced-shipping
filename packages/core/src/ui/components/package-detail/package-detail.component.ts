@@ -23,7 +23,7 @@ import {
   UpdatePackageMutation,
   UpdatePackageMutationVariables
 } from './package-detail.graphql.types';
-import { DistanceUnit, MassUnit } from '../../../types/generated-admin-schema';
+import { DistanceUnit, MassUnit } from '../../common/generated-admin-schema';
 import { mergeMap, take } from 'rxjs/operators';
 
 @Component({
