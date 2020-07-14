@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "multi-semantic-release": "2.1.0",
-    "@commitlint/config-conventional": "8.3.4",
+    "@commitlint/config-conventional": "9.1.1",
     "@graphql-codegen/cli": "1.17.0",
     "@graphql-codegen/fragment-matcher": "1.17.0",
     "@graphql-codegen/introspection": "1.17.0",
@@ -45,7 +45,7 @@
     "@vendure-advanced-shipping/ups-brazil": "file:packages/ups-brazil",
     "@vendure/admin-ui": "0.13.1",
     "codecov": "3.7.0",
-    "commitlint": "8.3.5",
+    "commitlint": "9.1.0",
     "concurrently": "5.2.0",
     "eslint": "7.2.0",
     "eslint-config-prettier": "6.11.0",
