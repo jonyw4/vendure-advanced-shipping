@@ -1,4 +1,4 @@
-import { ID, Order, Product } from '@vendure/core';
+import { ID, Order, Product, EntityNotFoundError } from '@vendure/core';
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
@@ -12,7 +12,10 @@ import { ShippingPackagesEntity as ShippingPackages } from '../entities/shipping
 import PackageService from './package.service';
 
 type ProductWithCustomFields = Product & {
-  customFields: ProductCustomFields;
+  customFields: ProductCustomFields & {
+    distanceUnit: DistanceUnit;
+    massUnit: MassUnit;
+  };
 };
 
 @Injectable()
@@ -106,42 +109,58 @@ export class ShippingPackagesService {
     const productsIds = order.lines.map(
       (line) => line.productVariant.productId
     );
+    // @ts-ignore
     const products: ProductWithCustomFields[] = await this.connection.manager.findByIds(
       Product,
       productsIds
     );
-
-    order.lines.forEach((line) => {
+    for (const line of order.lines) {
       const product = products.find(
         (p) => p.id === line.productVariant.productId
       );
 
       if (!product) {
-        // TODO: Error
-        throw new Error('');
+        throw new EntityNotFoundError('Product', line.productVariant.productId);
       }
 
-      const height = convertUnit(product.customFields?.height || 0)
+      let { height, width, length, weight } = product.customFields;
+      const {
+        distanceUnit: productDistanceUnit,
+        massUnit: productMassUnit
+      } = product.customFields;
+
+      // Ignore the product if doesn't have data dimensions info
+      if (
+        !height ||
+        !width ||
+        !length ||
+        !weight ||
+        !productDistanceUnit ||
+        !productMassUnit
+      ) {
+        break;
+      }
+      height = convertUnit(height)
         // @ts-ignore
-        .from(product.customFields.distanceUnit || distanceUnit)
+        .from(productDistanceUnit)
         .to(distanceUnit);
-      const width = convertUnit(product.customFields?.width || 0)
+      width = convertUnit(width)
         // @ts-ignore
-        .from(product.customFields.distanceUnit || 0)
+        .from(productDistanceUnit)
         .to(distanceUnit);
-      const length = convertUnit(product.customFields?.length || 0)
+      length = convertUnit(length)
         // @ts-ignore
-        .from(product.customFields.distanceUnit || distanceUnit)
+        .from(productDistanceUnit)
         .to(distanceUnit);
-      const weight = convertUnit(product.customFields?.weight || 0)
+      weight = convertUnit(weight)
         // @ts-ignore
-        .from(product.customFields.massUnit || massUnit)
+        .from(productMassUnit)
         .to(massUnit);
 
       const itemVolume = height * width * length;
       totalVolume += itemVolume;
       totalWeight += weight;
-    });
+    }
     return {
       volume: totalVolume,
       weight: totalWeight,
