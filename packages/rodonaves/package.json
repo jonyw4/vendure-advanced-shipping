@@ -14,7 +14,7 @@
     "lint:fix": "eslint --ext .ts,.tsx --fix"
   },
   "dependencies": {
-    "rodonaves-js": "2.0.1"
+    "rodonaves-js": "2.0.2"
   },
   "peerDependencies": {
     "@vendure-advanced-shipping/core": "^2.0.0",
