@@ -133,11 +133,14 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
         order.subTotal / 100,
         taxId
       );
+      const price = Number(Value) * 100;
       return {
-        price: Value * 100,
-        priceWithTax: Value * 100,
+        price: price,
+        priceWithTax: price,
         metadata: {
-          deliveryTime: DeliveryTime
+          deliveryTime: DeliveryTime,
+          carrier: 'rodonaves',
+          service: 'default'
         }
       };
     } catch (error) {

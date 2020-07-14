@@ -127,11 +127,14 @@ export const UPSBrazilShippingCalculator = new ShippingCalculator({
         order.subTotal / 100,
         timeout
       );
+      const price = Number(FreteTotalReceber) * 100;
       return {
-        price: FreteTotalReceber * 100,
-        priceWithTax: FreteTotalReceber * 100,
+        price: price,
+        priceWithTax: price,
         metadata: {
-          deliveryTime: ValorEA > 0 ? 5 : 2
+          deliveryTime: ValorEA > 0 ? 5 : 2,
+          carrier: 'ups',
+          service: 'default'
         }
       };
     } catch (error) {

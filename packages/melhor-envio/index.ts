@@ -252,7 +252,9 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
         price: price,
         priceWithTax: price,
         metadata: {
-          deliveryTime: Number(response.delivery_time)
+          deliveryTime: Number(response.delivery_time),
+          carrier: `melhor-envio-${response.company.name}`,
+          service: null
         }
       };
     } catch (error) {
