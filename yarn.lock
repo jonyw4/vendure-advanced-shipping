@@ -3636,7 +3636,7 @@
 "@vendure-advanced-shipping/melhor-envio@file:packages/melhor-envio":
   version "0.0.0"
   dependencies:
-    menv-js "2.0.1"
+    menv-js "2.1.0"
 
 "@vendure-advanced-shipping/rodonaves@file:packages/rodonaves":
   version "0.0.0"
@@ -11778,10 +11778,10 @@ memory-fs@^0.5.0:
     errno "^0.1.3"
     readable-stream "^2.0.1"
 
-menv-js@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/menv-js/-/menv-js-2.0.1.tgz#3aba8289dbf83e91f84f8ad4112482fd06bd6ea1"
-  integrity sha512-A6swaost5js8YdsSIDmM5+X2aeRnOwnhD8s7GB/iCipPBy4FZQzgvepb9ajIA/cUsIkO4xrGAg3p9ImlAo4gGw==
+menv-js@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/menv-js/-/menv-js-2.1.0.tgz#10192bed7b4dd4e90c4d4a570dde1056f7a397ab"
+  integrity sha512-QGq/AXTtmX9wiTwpi8jciBk3xw0k6n3aGRxWuBAFOYyd8nHx6Ig0Ru5sjoH8LCMlfTrNLDqNFELbqlmWBF/bsQ==
   dependencies:
     axios "^0.19.2"
     universal-base64 "^2.1.0"

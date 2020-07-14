@@ -14,7 +14,7 @@
     "lint:fix": "eslint --ext .ts,.tsx --fix"
   },
   "dependencies": {
-    "menv-js": "2.0.1"
+    "menv-js": "2.1.0"
   },
   "peerDependencies": {
     "@vendure-advanced-shipping/core": "^2.0.0",
