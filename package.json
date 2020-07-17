@@ -18,7 +18,7 @@
     "release": "multi-semantic-release"
   },
   "dependencies": {
-    "@vendure/admin-ui-plugin": "0.13.0",
+    "@vendure/admin-ui-plugin": "0.13.1",
     "@vendure/asset-server-plugin": "0.13.1",
     "@vendure/core": "0.13.1",
     "@vendure/create": "0.13.1",

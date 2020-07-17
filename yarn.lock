@@ -3655,10 +3655,10 @@
   dependencies:
     ups-brazil-js "2.0.0"
 
-"@vendure/admin-ui-plugin@0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@vendure/admin-ui-plugin/-/admin-ui-plugin-0.13.0.tgz#597736a07654b00d3f733c5b1ce111416694504a"
-  integrity sha512-TlZGY6dmZrgeMrSSKDtSGq/4x0rl55sDGEGRX5ttDcTzX6UQPzJnNcbT50SOM59nPoQiSt9NkolJAiBeNNt1bA==
+"@vendure/admin-ui-plugin@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@vendure/admin-ui-plugin/-/admin-ui-plugin-0.13.1.tgz#ea37b94e8dd1aa5e69f71031632618695dbd17fb"
+  integrity sha512-NxM+3KyMhs3ybJLdf11GgDNyaLu1/Ma+J5It3SYkizQ4+bnPVaM0lc6i57IwonBYOE5iOVkFZ+M95+X+9AHUqg==
   dependencies:
     fs-extra "^9.0.0"
 
