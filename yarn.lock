@@ -3637,7 +3637,7 @@
   dependencies:
     "@nestjs/graphql" "7.0.14"
     "@types/convert-units" "2.3.2"
-    "@vendure/ui-devkit" "0.13.0"
+    "@vendure/ui-devkit" "0.13.1"
     convert-units "2.3.4"
 
 "@vendure-advanced-shipping/melhor-envio@file:packages/melhor-envio":
@@ -3662,7 +3662,7 @@
   dependencies:
     fs-extra "^9.0.0"
 
-"@vendure/admin-ui@0.13.1", "@vendure/admin-ui@^0.13.0":
+"@vendure/admin-ui@0.13.1", "@vendure/admin-ui@^0.13.1":
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/@vendure/admin-ui/-/admin-ui-0.13.1.tgz#d862b3c893b6191403eb75518baa99bdc3ab0fba"
   integrity sha512-p2F+tmRPqTEH68GPBeNMzNRHSUazEVt639vnIRAG0CABofrMI+KTuQaOZ3+UnWtctq9CZu/iWC+Lwev7gm2qlg==
@@ -3802,17 +3802,17 @@
     node-fetch "^2.6.0"
     sql.js "1.1.0"
 
-"@vendure/ui-devkit@0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@vendure/ui-devkit/-/ui-devkit-0.13.0.tgz#1f9b4dd400940ebead61981347f9a875cc47e324"
-  integrity sha512-rfE+ZJyj/LklzDRP8yCKwLM3KL+HP5uGBz27kEg5/m6VdGKViBNSYr6nOcVSTYH9mhbBYBVe7y9MKQCNjIWecA==
+"@vendure/ui-devkit@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@vendure/ui-devkit/-/ui-devkit-0.13.1.tgz#fc9a542734dbd38263dde5770e580e65204a3437"
+  integrity sha512-2xSPaFJskMncxv4F2uj9Eafid3a39HzQGD/Z/lZoj0iSlv2yLTgN0O7srv3MwmBexF8mb34wtldS5xCdTNtQbQ==
   dependencies:
     "@angular-devkit/build-angular" "~0.900.5"
     "@angular/cli" "^9.0.5"
     "@angular/compiler" "^9.0.6"
     "@angular/compiler-cli" "^9.0.6"
-    "@vendure/admin-ui" "^0.13.0"
-    "@vendure/common" "^0.13.0"
+    "@vendure/admin-ui" "^0.13.1"
+    "@vendure/common" "^0.13.1"
     chalk "^3.0.0"
     chokidar "^3.3.1"
     fs-extra "^9.0.0"

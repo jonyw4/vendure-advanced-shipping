@@ -23,7 +23,7 @@
     "@vendure/core": "0.13.1",
     "@vendure/create": "0.13.0",
     "@vendure/testing": "0.13.0",
-    "@vendure/ui-devkit": "0.13.0"
+    "@vendure/ui-devkit": "0.13.1"
   },
   "devDependencies": {
     "multi-semantic-release": "2.1.0",
