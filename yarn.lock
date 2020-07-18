@@ -7698,7 +7698,7 @@ execa@^3.2.0:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
-execa@^4.0.0, execa@^4.0.2:
+execa@^4.0.0, execa@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/execa/-/execa-4.0.3.tgz#0a34dabbad6d66100bd6f2c576c8669403f317f2"
   integrity sha512-WFDXGHckXPWZX19t1kCsXzOpqX9LWYNqn4C+HqZlk/V0imTkzJZqf87ZBhvpHaftERYknpk0fjSylnXVlVgI0A==
@@ -12194,18 +12194,18 @@ multer@1.4.2:
     type-is "^1.6.4"
     xtend "^4.0.0"
 
-multi-semantic-release@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/multi-semantic-release/-/multi-semantic-release-2.1.0.tgz#13b08fa9274c101b15e381dc00b136e67660ce4c"
-  integrity sha512-oAiUSEcE0UWCayYnFsS3hy19y8xvTCcmVz8RiHROCHEILS5A/O8ZJsEN29BU2JKahohbzpCzTUIKZk8M4SIAFQ==
+multi-semantic-release@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/multi-semantic-release/-/multi-semantic-release-2.2.0.tgz#22b5962881bf0d82e5ba60556f2569304c411733"
+  integrity sha512-hMpQD+uTu4z7Z4kq1ZWraD3jrlEg4d9YhylaXc1pCInpwMCQ71bUNWJx9hE9gdhCaUD4iGqKRz7zTu3sQYXNLA==
   dependencies:
     bash-glob "^2.0.0"
     blork "^9.2.2"
     cosmiconfig "^6.0.0"
-    execa "^4.0.2"
+    execa "^4.0.3"
     get-stream "^5.1.0"
     git-log-parser "^1.2.0"
-    lodash "^4.17.15"
+    lodash "^4.17.19"
     promise-events "^0.1.8"
     semantic-release "^17.1.1"
     semver "^7.3.2"
