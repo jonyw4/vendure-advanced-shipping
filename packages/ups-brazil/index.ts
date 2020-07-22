@@ -81,7 +81,6 @@ export const UPSBrazilShippingCalculator = new ShippingCalculator({
   init: (injector) => {
     shippingPackagesService = injector.get(ShippingPackagesService);
   },
-  // @ts-ignore
   calculate: async (order, { username, password, timeout, postalCode }) => {
     const customerPostalCode = order.shippingAddress.postalCode;
 
