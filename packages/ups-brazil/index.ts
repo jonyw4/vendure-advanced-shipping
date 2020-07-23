@@ -2,7 +2,7 @@ import {
   ShippingCalculator,
   LanguageCode,
   Logger,
-  UserInputError
+  CurrencyCode
 } from '@vendure/core';
 import {
   ShippingPackagesService,
@@ -85,9 +85,7 @@ export const UPSBrazilShippingCalculator = new ShippingCalculator({
     const customerPostalCode = order.shippingAddress.postalCode;
 
     if (!customerPostalCode) {
-      throw new UserInputError(
-        'vdr-advanced-shipping-plugin.empty-postal-code'
-      );
+      return undefined;
     }
 
     const { packages: shippingPackages } = await shippingPackagesService.create(
@@ -96,9 +94,7 @@ export const UPSBrazilShippingCalculator = new ShippingCalculator({
 
     // Returns empty when have more than one package
     if (shippingPackages.length > 1) {
-      // TODO: Handle error
-      console.log('More than one package');
-      throw new Error();
+      return undefined;
     }
 
     const packageData = shippingPackages[0];
@@ -133,7 +129,8 @@ export const UPSBrazilShippingCalculator = new ShippingCalculator({
         metadata: {
           deliveryTime: ValorEA > 0 ? 5 : 2,
           carrier: 'ups',
-          service: 'default'
+          service: 'default',
+          currency: CurrencyCode.BRL
         }
       };
     } catch (error) {

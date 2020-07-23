@@ -2,7 +2,7 @@ import {
   ShippingCalculator,
   LanguageCode,
   Logger,
-  UserInputError
+  CurrencyCode
 } from '@vendure/core';
 import {
   ShippingPackagesService,
@@ -207,9 +207,7 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
     const customerPostalCode = order.shippingAddress.postalCode;
 
     if (!customerPostalCode) {
-      throw new UserInputError(
-        'vdr-advanced-shipping-plugin.empty-postal-code'
-      );
+      return undefined;
     }
     const { packages: shippingPackages } = await shippingPackagesService.create(
       order
@@ -253,7 +251,8 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
         metadata: {
           deliveryTime: Number(response.delivery_time),
           carrier: `melhor-envio-${response.company.name}`,
-          service: null
+          service: null,
+          currency: CurrencyCode.BRL
         }
       };
     } catch (error) {

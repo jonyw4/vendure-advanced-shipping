@@ -1,8 +1,8 @@
 import {
   ShippingCalculator,
   LanguageCode,
-  UserInputError,
-  Logger
+  Logger,
+  CurrencyCode
 } from '@vendure/core';
 import {
   ShippingPackagesService,
@@ -101,9 +101,7 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
     const customerPostalCode = order.shippingAddress.postalCode;
 
     if (!customerPostalCode) {
-      throw new UserInputError(
-        'vdr-advanced-shipping-plugin.empty-postal-code'
-      );
+      return undefined;
     }
 
     const { packages: shippingPackages } = await shippingPackagesService.create(
@@ -139,7 +137,8 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
         metadata: {
           deliveryTime: DeliveryTime,
           carrier: 'rodonaves',
-          service: 'default'
+          service: 'default',
+          currency: CurrencyCode.BRL
         }
       };
     } catch (error) {
