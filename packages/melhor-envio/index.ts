@@ -212,6 +212,12 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
     const { packages: shippingPackages } = await shippingPackagesService.create(
       order
     );
+
+    // Returns empty when have more than one package
+    if (shippingPackages.length > 1) {
+      return undefined;
+    }
+
     const packageData = shippingPackages[0];
 
     const melhorEnvio = new MelhorEnvio(token, isSandbox, timeout);
