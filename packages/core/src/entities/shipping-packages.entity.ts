@@ -14,9 +14,10 @@ export class ShippingPackagesEntity extends VendureEntity {
 
   @Column('simple-json')
   packages: Array<
-    Omit<PackageEntity, 'volume'> & {
-      productsWeight: number;
-      totalWeight: number;
-    }
+    | (Omit<PackageEntity, 'volume'> & {
+        productsWeight: number;
+        totalWeight: number;
+      })
+    | null
   >;
 }
