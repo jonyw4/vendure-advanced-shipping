@@ -1,6 +1,6 @@
 {
-  "name": "@vendure-advanced-shipping/rodonaves",
-  "description": "A Vendure plugin using the Advanced Shipping for calculate shipping using Rodonaves as provider",
+  "name": "@vendure-advanced-shipping/pickup-in-store",
+  "description": "A Vendure plugin using the Advanced Shipping for calculate shipping to pickup in store",
   "version": "0.0.0",
   "license": "MIT",
   "main": "lib/index.js",
@@ -14,7 +14,7 @@
     "lint:fix": "eslint --ext .ts,.tsx --fix"
   },
   "dependencies": {
-    "rodonaves-js": "2.0.2"
+    "@nestjs/schedule": "0.4.0"
   },
   "peerDependencies": {
     "@vendure-advanced-shipping/core": "^2.0.0",

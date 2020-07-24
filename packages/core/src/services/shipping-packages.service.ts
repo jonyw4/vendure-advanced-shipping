@@ -7,9 +7,11 @@ import {
   DistanceUnit,
   ProductCustomFields
 } from '../types/generated-admin-schema';
+import { Unarray } from '../types/utils';
 import convertUnit from '../utils/convertUnit';
 import { ShippingPackagesEntity as ShippingPackages } from '../entities/shipping-packages.entity';
 import PackageService from './package.service';
+import { PackageEntity } from '../entities';
 
 type ProductWithCustomFields = Product & {
   customFields: ProductCustomFields & {
@@ -27,11 +29,11 @@ export class ShippingPackagesService {
   massUnit: MassUnit = MassUnit.Kg;
   distanceUnit: DistanceUnit = DistanceUnit.Cm;
 
-  getOrderShippingPackages(orderId: ID) {
+  getOrderShippingPackages(orderId: ID): Promise<ShippingPackages | undefined> {
     return this.connection.getRepository(ShippingPackages).findOne(orderId);
   }
 
-  async create(order: Order) {
+  async create(order: Order): Promise<ShippingPackages> {
     const shippingPackages = await this.getOrderShippingPackages(order.id);
 
     const newShippingPackages = new ShippingPackages({
@@ -46,6 +48,65 @@ export class ShippingPackagesService {
     return this.connection.manager.save(newShippingPackages);
   }
 
+  /**
+   * Return ONE package for shipping based on product dimension
+   *
+   * To choose the right package the function following algorithm:
+   * 1. Get items volume and weight
+   * 2. Get all packages from DB
+   * 3. Filter all packages that have volume bigger than the items
+   * 4. Sort the packages based on volume
+   * 5. Chose and check if have a package
+   * 6. Return the package
+   * */
+  async getPackageForShipping(
+    order: Order
+  ): Promise<Unarray<ShippingPackages['packages']> | null> {
+    const itemsVolumeAndWeight = await this.getItemsVolumeAndWeight(
+      order,
+      this.distanceUnit,
+      this.massUnit
+    );
+    const { volume: itemsVolume } = itemsVolumeAndWeight;
+    const { weight: itemsWeight } = itemsVolumeAndWeight;
+    const { items: packages } = await this.packageService.findAll();
+
+    const availablePackages = packages.filter(
+      (packageData) => packageData.volume(this.distanceUnit) > itemsVolume
+    );
+
+    if (!availablePackages || availablePackages.length === 0) {
+      return null;
+    }
+
+    const [chosenPackage] = availablePackages.sort(
+      (packageA, packageB) =>
+        packageA.volume(this.distanceUnit) - packageB.volume(this.distanceUnit)
+    );
+
+    return {
+      ...chosenPackage,
+      productsWeight: itemsWeight,
+      totalWeight:
+        chosenPackage.weight +
+        convertUnit(itemsWeight).from(this.massUnit).to(chosenPackage.massUnit)
+    };
+  }
+
+  /**
+   * Return MANY package for shipping based on product dimension
+   *
+   * To choose the right package the function following algorithm:
+   * 1. Get items volume and weight
+   * 2. Get all packages from DB
+   * 3. Run this loop until the items volume turns to 0
+   *    1. Check if the items volume is bigger than the packages.
+   *        - If is, get the bigger package from the db
+   *        - If isn't, get the bigger package based on the remain item volume
+   *    2. Add package in chosenPackageList and remove the package volume on items volume
+   * 4. Divide the items weight equally in all packages
+   * 5. Return the list of packages
+   * */
   async getPackagesForShipping(
     order: Order
   ): Promise<ShippingPackages['packages']> {
@@ -58,14 +119,14 @@ export class ShippingPackagesService {
     const { weight: itemsWeight } = itemsVolumeAndWeight;
     const { items: packages } = await this.packageService.findAll();
 
-    const chosenPackageList = [];
+    const chosenPackageList: PackageEntity[] = [];
     while (itemsVolume > 0) {
       // eslint-disable-next-line no-loop-func
       const availablePackages = packages.filter(
         (packageData) => packageData.volume(this.distanceUnit) > itemsVolume
       );
 
-      let chosenPackage;
+      let chosenPackage: PackageEntity;
       if (availablePackages.length > 0) {
         [chosenPackage] = availablePackages.sort(
           (packageA, packageB) =>
@@ -92,7 +153,6 @@ export class ShippingPackagesService {
         packageData.weight +
         convertUnit(packagesItemsWeight)
           .from(this.massUnit)
-          // @ts-ignore
           .to(packageData.massUnit)
     }));
   }
@@ -101,7 +161,12 @@ export class ShippingPackagesService {
     order: Order,
     distanceUnit: DistanceUnit,
     massUnit: MassUnit
-  ) {
+  ): Promise<{
+    volume: number;
+    weight: number;
+    massUnit: MassUnit;
+    distanceUnit: DistanceUnit;
+  }> {
     let totalVolume = 0;
     let totalWeight = 0;
 
@@ -140,22 +205,10 @@ export class ShippingPackagesService {
       ) {
         break;
       }
-      height = convertUnit(height)
-        // @ts-ignore
-        .from(productDistanceUnit)
-        .to(distanceUnit);
-      width = convertUnit(width)
-        // @ts-ignore
-        .from(productDistanceUnit)
-        .to(distanceUnit);
-      length = convertUnit(length)
-        // @ts-ignore
-        .from(productDistanceUnit)
-        .to(distanceUnit);
-      weight = convertUnit(weight)
-        // @ts-ignore
-        .from(productMassUnit)
-        .to(massUnit);
+      height = convertUnit(height).from(productDistanceUnit).to(distanceUnit);
+      width = convertUnit(width).from(productDistanceUnit).to(distanceUnit);
+      length = convertUnit(length).from(productDistanceUnit).to(distanceUnit);
+      weight = convertUnit(weight).from(productMassUnit).to(massUnit);
 
       const itemVolume = height * width * length;
       totalVolume += itemVolume;

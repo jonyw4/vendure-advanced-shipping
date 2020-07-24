@@ -18,5 +18,5 @@ export class ShippingPackagesEntity extends VendureEntity {
       productsWeight: number;
       totalWeight: number;
     }
-  >;
+  > | null;
 }

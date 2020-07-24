@@ -10,6 +10,7 @@ import { AdvancedShippingCorePlugin } from '@vendure-advanced-shipping/core';
 import { RodonavesShippingCalculator } from '@vendure-advanced-shipping/rodonaves';
 import { MelhorEnvioShippingCalculator } from '@vendure-advanced-shipping/melhor-envio';
 import { UPSBrazilShippingCalculator } from '@vendure-advanced-shipping/ups-brazil';
+import { PickupInStorePlugin } from '@vendure-advanced-shipping/pickup-in-store';
 import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
 import path from 'path';
 
@@ -68,6 +69,7 @@ export const config: VendureConfig = {
     DefaultJobQueuePlugin,
     DefaultSearchPlugin,
     AdvancedShippingCorePlugin,
+    PickupInStorePlugin,
     AdminUiPlugin.init({
       port: 3002,
       app: compileUiExtensions({
