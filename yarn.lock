@@ -11933,7 +11933,7 @@ meow@^4.0.0:
     redent "^2.0.0"
     trim-newlines "^2.0.0"
 
-meow@^7.0.0:
+meow@^7.0.0, meow@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/meow/-/meow-7.0.1.tgz#1ed4a0a50b3844b451369c48362eb0515f04c1dc"
   integrity sha512-tBKIQqVrAHqwit0vfuFPY3LlzJYkEOFyKa3bPgxzNl6q/RtN8KQ+ALYEASYuFayzSAsjlhXj/JZ10rH85Q6TUw==
@@ -12308,10 +12308,10 @@ multer@1.4.2:
     type-is "^1.6.4"
     xtend "^4.0.0"
 
-multi-semantic-release@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/multi-semantic-release/-/multi-semantic-release-2.2.0.tgz#22b5962881bf0d82e5ba60556f2569304c411733"
-  integrity sha512-hMpQD+uTu4z7Z4kq1ZWraD3jrlEg4d9YhylaXc1pCInpwMCQ71bUNWJx9hE9gdhCaUD4iGqKRz7zTu3sQYXNLA==
+multi-semantic-release@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/multi-semantic-release/-/multi-semantic-release-2.3.0.tgz#0ae8666b3272ab38e792590bcdbaa9b3e8c01399"
+  integrity sha512-faO604iK1/TEe2KG0UryXjSF3nVWlTWnt1xG1yfTbRqGwQA2IupR30XCBC9PBSh2e4pAloQMzK2T0y5dppEAiw==
   dependencies:
     bash-glob "^2.0.0"
     blork "^9.2.2"
@@ -12320,12 +12320,13 @@ multi-semantic-release@2.2.0:
     get-stream "^5.1.0"
     git-log-parser "^1.2.0"
     lodash "^4.17.19"
+    meow "^7.0.1"
     promise-events "^0.1.8"
     semantic-release "^17.1.1"
     semver "^7.3.2"
     signale "^1.4.0"
     stream-buffers "^3.0.2"
-    tempy "^0.5.0"
+    tempy "^0.6.0"
 
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
@@ -16628,6 +16629,16 @@ tempy@^0.5.0:
     type-fest "^0.12.0"
     unique-string "^2.0.0"
 
+tempy@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/tempy/-/tempy-0.6.0.tgz#65e2c35abc06f1124a97f387b08303442bde59f3"
+  integrity sha512-G13vtMYPT/J8A4X2SjdtBTphZlrp1gKv6hZiOjw14RCWg6GbHuQBGtjlx75xLbYV/wEc0D7G5K4rxKP/cXk8Bw==
+  dependencies:
+    is-stream "^2.0.0"
+    temp-dir "^2.0.0"
+    type-fest "^0.16.0"
+    unique-string "^2.0.0"
+
 term-size@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-1.2.0.tgz#458b83887f288fc56d6fffbfad262e26638efa69"
@@ -17048,6 +17059,11 @@ type-fest@^0.13.1:
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.13.1.tgz#0172cb5bce80b0bd542ea348db50c7e21834d934"
   integrity sha512-34R7HTnG0XIJcBSn5XhDd7nNFPRcXYRZrBB2O2jdKqYODldSzBAqzsWoZYYvduky73toYS/ESqxPvkDf/F0XMg==
+
+type-fest@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.16.0.tgz#3240b891a78b0deae910dbeb86553e552a148860"
+  integrity sha512-eaBzG6MxNzEn9kiwvtre90cXaNLkmadMWa1zQMs3XORCXNbsH/OewwbxC5ia9dCxIxnTAsSxXJaa/p5y8DlvJg==
 
 type-fest@^0.3.0:
   version "0.3.1"
