@@ -200,6 +200,7 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
   init: (injector) => {
     shippingPackagesService = injector.get(ShippingPackagesService);
   },
+  // @ts-ignore
   calculate: async (
     order,
     { timeout, token, isSandbox, postalCode, service, receipt, ownHand }
@@ -214,7 +215,11 @@ export const MelhorEnvioShippingCalculator = new ShippingCalculator({
     );
 
     // Returns empty when have more than one package
-    if (shippingPackages.length > 1) {
+    if (
+      !shippingPackages ||
+      shippingPackages.length === 0 ||
+      shippingPackages.length > 1
+    ) {
       return undefined;
     }
 

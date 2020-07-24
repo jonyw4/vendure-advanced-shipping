@@ -81,6 +81,7 @@ export const UPSBrazilShippingCalculator = new ShippingCalculator({
   init: (injector) => {
     shippingPackagesService = injector.get(ShippingPackagesService);
   },
+  // @ts-ignore
   calculate: async (order, { username, password, timeout, postalCode }) => {
     const customerPostalCode = order.shippingAddress.postalCode;
 
@@ -91,9 +92,12 @@ export const UPSBrazilShippingCalculator = new ShippingCalculator({
     const { packages: shippingPackages } = await shippingPackagesService.create(
       order
     );
-
     // Returns empty when have more than one package
-    if (shippingPackages.length > 1) {
+    if (
+      !shippingPackages ||
+      shippingPackages.length === 0 ||
+      shippingPackages.length > 1
+    ) {
       return undefined;
     }
 

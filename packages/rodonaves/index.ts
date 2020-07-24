@@ -94,6 +94,7 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
   init: (injector) => {
     shippingPackagesService = injector.get(ShippingPackagesService);
   },
+  // @ts-ignore
   calculate: async (
     order,
     { username, password, timeout, postalCode, taxId }
@@ -107,6 +108,9 @@ export const RodonavesShippingCalculator = new ShippingCalculator({
     const { packages: shippingPackages } = await shippingPackagesService.create(
       order
     );
+    if (!shippingPackages || shippingPackages.length === 0) {
+      return undefined;
+    }
     const rodonaves = new Rodonaves(username, password, 'prod', timeout);
 
     try {
