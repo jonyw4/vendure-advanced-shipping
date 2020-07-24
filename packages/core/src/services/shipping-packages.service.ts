@@ -29,11 +29,11 @@ export class ShippingPackagesService {
   massUnit: MassUnit = MassUnit.Kg;
   distanceUnit: DistanceUnit = DistanceUnit.Cm;
 
-  getOrderShippingPackages(orderId: ID) {
+  getOrderShippingPackages(orderId: ID): Promise<ShippingPackages | undefined> {
     return this.connection.getRepository(ShippingPackages).findOne(orderId);
   }
 
-  async create(order: Order) {
+  async create(order: Order): Promise<ShippingPackages> {
     const shippingPackages = await this.getOrderShippingPackages(order.id);
 
     const newShippingPackages = new ShippingPackages({
@@ -161,7 +161,12 @@ export class ShippingPackagesService {
     order: Order,
     distanceUnit: DistanceUnit,
     massUnit: MassUnit
-  ) {
+  ): Promise<{
+    volume: number;
+    weight: number;
+    massUnit: MassUnit;
+    distanceUnit: DistanceUnit;
+  }> {
     let totalVolume = 0;
     let totalWeight = 0;
 
