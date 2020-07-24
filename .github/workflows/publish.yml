@@ -31,4 +31,4 @@ jobs:
       run: |
         yarn install
         yarn build
-        npm run release
+        yarn release

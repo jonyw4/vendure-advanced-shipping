@@ -26,7 +26,7 @@
     "@vendure/ui-devkit": "0.14.0"
   },
   "devDependencies": {
-    "multi-semantic-release": "2.3.0",
+    "multi-semantic-release": "2.4.1",
     "@commitlint/config-conventional": "9.1.1",
     "@graphql-codegen/cli": "1.17.0",
     "@graphql-codegen/fragment-matcher": "1.17.0",

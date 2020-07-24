@@ -12308,10 +12308,10 @@ multer@1.4.2:
     type-is "^1.6.4"
     xtend "^4.0.0"
 
-multi-semantic-release@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/multi-semantic-release/-/multi-semantic-release-2.3.0.tgz#0ae8666b3272ab38e792590bcdbaa9b3e8c01399"
-  integrity sha512-faO604iK1/TEe2KG0UryXjSF3nVWlTWnt1xG1yfTbRqGwQA2IupR30XCBC9PBSh2e4pAloQMzK2T0y5dppEAiw==
+multi-semantic-release@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/multi-semantic-release/-/multi-semantic-release-2.4.1.tgz#8c63c33881f2789f42408a96169cc355ef8a0abd"
+  integrity sha512-9KLpFrJORf1XLS8PSnDaoSsOjoTp74qwjrq5CAfNhVZsI1WmR4NuYEaB237PY3kjWQ0EhNQQj4DYJDyeyGhLkQ==
   dependencies:
     bash-glob "^2.0.0"
     blork "^9.2.2"
