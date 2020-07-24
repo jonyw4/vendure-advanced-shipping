@@ -11,6 +11,8 @@
 - Ability to add dimensions in Product (Using [Custom Fields](https://www.vendure.io/docs/typescript-api/custom-fields/))
 - A table in the database to register all packages of an order.
 - A `ShippingPackages` service helper to calculate which box to use in Order and update the order in the database
+- New order states: `Delivered`, `Shipped` and `Packed`
+
 
 ## ⚙️ Install
 ### 1. Install and configure Vendure
@@ -82,8 +84,35 @@ A plugin using the Advanced Shipping for calculate shipping using [Rodonaves](ht
 ### [![npm (scoped)](https://img.shields.io/npm/v/@vendure-advanced-shipping/ups-brazil.svg)](https://www.npmjs.com/package/@vendure-advanced-shipping/ups-brazil) @vendure-advanced-shipping/ups-brazil
 A plugin using the Advanced Shipping for calculate shipping using [UPS Brazil](https://www.ups.com/br/pt/Home.page) as provider
 
+### [![npm (scoped)](https://img.shields.io/npm/v/@vendure-advanced-shipping/pickup-in-store.svg)](https://www.npmjs.com/package/@vendure-advanced-shipping/pickup-in-store) @vendure-advanced-shipping/pickup-in-store
+A plugin to pickup order in store.
+
+- A `ShippingCalculator` to create multiple stores to customer pickup the order based on Postal Code.
+- A `PickupInStoreCronService` that adds a cronjob that checks every day at  mid night orders that its in the state of `Packed` in the interval of 7 days and that the shipping method its `pickup-in-store` (the same from the `ShippingCalculator`) after get, the service will cancel all of then.
+- A `PickupInStoreCancelOrder` event that fired whenever an Order is cancelled by  Cron Job
+
 ## 👨🏻‍💻 Creating a shipping calculator / plugin
 It's really easy to [create a `ShippingCalculator` in Vendure](https://www.vendure.io/docs/typescript-api/shipping/shipping-calculator/) and this project takes advantage of it. You just need to create a new `ShippingCalculator` class that will inject in his init function, your `ShippingPackagesService` so that you can get which packages boxes to use in this order. You can get [here an example to how to do it](https://github.com/jonyw4/vendure-advanced-shipping/blob/master/packages/rodonaves/index.ts).
+
+
+## New States
+This plugin add new states in Vendure order to work properly with the carriers:
+
+### Fulfilled and PartiallyFulfilled (already in Vendure)
+Can go to: _Packed_
+
+### 📦 Packed
+When order it's ready to be shipped. **You can use the transition state from _Fulfilled_ and _PartiallyFulfilled_ to this state to emit a Brazilian _NFe_.**
+
+Can go to:  _Shipped_, _Delivered  (in case the order is picked up at the store)_ or _Cancel_
+
+### 🚚 Shipped
+When carrier is in the process of shipping of the order.
+Can go to: _Cancel (when user wants to cancel the order)_, _Delivered_  or _Packed (when the carrier returns the order)_
+
+### 📥 Delivered
+Can go to: _Cancel  (when user wants to cancel the order)_
+
 
 ## 🏢 Structure
 This project is a monorepo managed with [Lerna](https://github.com/lerna/lerna). Several npm packages are published from this repo, which can be found in the `packages/` directory.

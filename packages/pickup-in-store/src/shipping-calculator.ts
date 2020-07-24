@@ -93,7 +93,7 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
     }
   },
   // @ts-ignore
-  calculate: async (
+  calculate: (
     order,
     {
       address,
