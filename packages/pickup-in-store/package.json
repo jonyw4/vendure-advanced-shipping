@@ -1,0 +1,26 @@
+{
+  "name": "@vendure-advanced-shipping/pickup-in-store",
+  "description": "A Vendure plugin using the Advanced Shipping for calculate shipping to pickup in store",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "watch": "tsc -p ./tsconfig.build.json --watch",
+    "build": "rimraf lib && tsc -p ./tsconfig.build.json",
+    "lint": "eslint --ext .ts,.tsx",
+    "lint:fix": "eslint --ext .ts,.tsx --fix"
+  },
+  "dependencies": {
+    "@nestjs/schedule": "0.4.0"
+  },
+  "peerDependencies": {
+    "@vendure-advanced-shipping/core": "^2.0.0",
+    "@vendure/core": "^0.14.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

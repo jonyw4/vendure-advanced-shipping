@@ -2731,6 +2731,14 @@
     multer "1.4.2"
     tslib "1.11.1"
 
+"@nestjs/schedule@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/schedule/-/schedule-0.4.0.tgz#03dfd38b6699bcf7dd467278ffd7c05dfd41a5e7"
+  integrity sha512-+Ko9dhSO+DrtX2cEX+avd4GvSfBNa3O+ZzRKEWCyAhjuxLqqr1GO7XUY07DnDji7MJQgMb8ToRGq8HxiJGIBTw==
+  dependencies:
+    cron "1.7.2"
+    uuid "8.0.0"
+
 "@nestjs/terminus@7.0.1":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@nestjs/terminus/-/terminus-7.0.1.tgz#7d748f8c18973d60023a8ab16760d0adab145b8b"
@@ -3649,6 +3657,11 @@
   version "0.0.0"
   dependencies:
     menv-js "2.1.0"
+
+"@vendure-advanced-shipping/pickup-in-store@file:packages/pickup-in-store":
+  version "0.0.0"
+  dependencies:
+    "@nestjs/schedule" "0.4.0"
 
 "@vendure-advanced-shipping/rodonaves@file:packages/rodonaves":
   version "0.0.0"
@@ -6523,6 +6536,13 @@ crelt@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/crelt/-/crelt-1.0.4.tgz#9a05d7829aedf79538f2b26f7de319cf45a25b47"
   integrity sha512-l1cwMUOssGLEj5zgbut4lxJq95ZabOXVZnDybNqQRUtXh1lvUK7e7kJNm8SfvTQzYpE3AVJhIVUJKf382lMA7A==
+
+cron@1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/cron/-/cron-1.7.2.tgz#2ea1f35c138a07edac2ac5af5084ed6fee5723db"
+  integrity sha512-+SaJ2OfeRvfQqwXQ2kgr0Y5pzBR/lijf5OpnnaruwWnmI799JfWr2jN2ItOV9s3A/+TFOt6mxvKzQq5F0Jp6VQ==
+  dependencies:
+    moment-timezone "^0.5.x"
 
 cross-fetch@2.2.2:
   version "2.2.2"
@@ -12230,6 +12250,18 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
+moment-timezone@^0.5.x:
+  version "0.5.31"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.31.tgz#9c40d8c5026f0c7ab46eda3d63e49c155148de05"
+  integrity sha512-+GgHNg8xRhMXfEbv81iDtrVeTcWt0kWmTEY1XQK14dICTXnWJnT0dxdlPspwqF3keKMVPXwayEsk1DI0AA/jdA==
+  dependencies:
+    moment ">= 2.9.0"
+
+"moment@>= 2.9.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.27.0.tgz#8bff4e3e26a236220dfe3e36de756b6ebaa0105d"
+  integrity sha512-al0MUK7cpIcglMv3YF13qSgdAIqxHTO7brRtaz3DlSULbqfazqkc5kEjNrLDOM7fsjshoFIihnU8snrP7zUvhQ==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -17409,6 +17441,11 @@ uuid@7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.2.tgz#7ff5c203467e91f5e0d85cfcbaaf7d2ebbca9be6"
   integrity sha512-vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw==
+
+uuid@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.0.0.tgz#bc6ccf91b5ff0ac07bbcdbf1c7c4e150db4dbb6c"
+  integrity sha512-jOXGuXZAWdsTH7eZLtyXMqUb9EcWMGZNbL9YcGBJl4MH4nrxHmZJhEHvyLFrkxo+28uLb/NYRcStH48fnD0Vzw==
 
 uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2, uuid@^3.3.3:
   version "3.4.0"
