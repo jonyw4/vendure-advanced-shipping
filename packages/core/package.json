@@ -22,7 +22,7 @@
   "dependencies": {
     "@nestjs/graphql": "7.0.14",
     "@types/convert-units": "2.3.2",
-    "@vendure/ui-devkit": "0.13.1",
+    "@vendure/ui-devkit": "0.14.0",
     "convert-units": "2.3.4"
   },
   "peerDependencies": {
