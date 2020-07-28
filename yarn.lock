@@ -3642,7 +3642,7 @@
 "@vendure-advanced-shipping/melhor-envio@file:packages/melhor-envio":
   version "0.0.0"
   dependencies:
-    menv-js "2.1.0"
+    menv-js "2.2.0"
 
 "@vendure-advanced-shipping/pickup-in-store@file:packages/pickup-in-store":
   version "0.0.0"
@@ -3652,12 +3652,12 @@
 "@vendure-advanced-shipping/rodonaves@file:packages/rodonaves":
   version "0.0.0"
   dependencies:
-    rodonaves-js "2.0.2"
+    rodonaves-js "2.1.0"
 
 "@vendure-advanced-shipping/ups-brazil@file:packages/ups-brazil":
   version "0.0.0"
   dependencies:
-    ups-brazil-js "2.0.0"
+    ups-brazil-js "2.1.0"
 
 "@vendure/admin-ui-plugin@0.14.0":
   version "0.14.0"
@@ -11784,10 +11784,10 @@ memory-fs@^0.5.0:
     errno "^0.1.3"
     readable-stream "^2.0.1"
 
-menv-js@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/menv-js/-/menv-js-2.1.0.tgz#10192bed7b4dd4e90c4d4a570dde1056f7a397ab"
-  integrity sha512-QGq/AXTtmX9wiTwpi8jciBk3xw0k6n3aGRxWuBAFOYyd8nHx6Ig0Ru5sjoH8LCMlfTrNLDqNFELbqlmWBF/bsQ==
+menv-js@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/menv-js/-/menv-js-2.2.0.tgz#4b4d96ae97bb55d86e97f3de9083241349655d6a"
+  integrity sha512-8sQBPDVCLSjo16GIbxpnux69zxDPFZSSkfpmHgLYuS1XyK+ec7poW2pY/88uT4m5mU8sdQfeIZptZssGdkOT1A==
   dependencies:
     axios "^0.19.2"
     universal-base64 "^2.1.0"
@@ -15179,10 +15179,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rodonaves-js@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/rodonaves-js/-/rodonaves-js-2.0.2.tgz#5d8131597abf3d9f5b20119965661cb5e1e3807f"
-  integrity sha512-WdVtMRpP+DpOQdgVaKYj+vg4Uq61J9rHITs5VOXLsc8g6N903Si58I1Xc6OqJzURc7hvZretrf6N4xIK5mSJ3w==
+rodonaves-js@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/rodonaves-js/-/rodonaves-js-2.1.0.tgz#fce4eea15629d5ced36b1142abf38cff71f1cd6f"
+  integrity sha512-pcEFQhVSpK3MOTkfMRnjXSHJRZP/EwMgabVxp5SkcpphXaZy5z50vxQEMMOV2glT5xqQL4fCjD/Oy1aqd0iNnw==
   dependencies:
     "@types/qs" "^6.9.3"
     axios "0.19.2"
@@ -17243,10 +17243,10 @@ upper-case@2.0.1, upper-case@^2.0.1:
   dependencies:
     tslib "^1.10.0"
 
-ups-brazil-js@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ups-brazil-js/-/ups-brazil-js-2.0.0.tgz#2dee570593f851dea4ce1865b0dafdc61fdd88ab"
-  integrity sha512-nOB7j0aqeMjpfHehAhDAgiDdnu4imO1p+FD4k7jhE3fMX02Tj70DHs5FYyium5vIZ+4e+xDidsu8j3LUg8GfWQ==
+ups-brazil-js@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ups-brazil-js/-/ups-brazil-js-2.1.0.tgz#18f883c2daa7e299b94b4b0150d2c70127f402d0"
+  integrity sha512-IDa5PHapmgFWYv7qpMQNHoPR/DYcAuDPb/Fce+ib9V6JJLEpG8Po5cLb3yZSK/LLtKUR0q3ZTlfTnTnPoIl0ZA==
   dependencies:
     "@types/xml" "^1.0.5"
     "@types/xml2js" "^0.4.5"
