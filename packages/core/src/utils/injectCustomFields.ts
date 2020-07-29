@@ -1,8 +1,4 @@
-import {
-  RuntimeVendureConfig,
-  CustomFields,
-  CustomFieldConfig
-} from '@vendure/core';
+import { RuntimeVendureConfig, CustomFields } from '@vendure/core';
 
 /**
  * Inject custom fields in a Vendure Runtime Configure.
@@ -11,15 +7,17 @@ export default function injectCustomFields(
   config: RuntimeVendureConfig,
   customFields: CustomFields
 ) {
-  Object.keys(customFields).map((key) => {
-    // @ts-ignore
-    const fields: CustomFieldConfig[] = customFields[key];
+  const response: RuntimeVendureConfig = { ...config };
 
+  (Object.keys(customFields) as Array<keyof typeof customFields>).map((key) => {
+    const fields = customFields[key];
+    if (!fields) {
+      return;
+    }
     fields.map((field) => {
-      // @ts-ignore
-      config.customFields[key].push(field);
+      response.customFields[key].push(field);
     });
   });
 
-  return config;
+  return response;
 }
