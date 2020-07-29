@@ -13,16 +13,94 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
     }
   ],
   args: {
-    address: {
+    storeName: {
       type: 'string',
       label: [
         {
           languageCode: LanguageCode.en,
-          value: 'Address'
+          value: 'Store Name'
         },
         {
           languageCode: LanguageCode.pt_BR,
-          value: 'Endereço'
+          value: 'Nome da Loja'
+        }
+      ]
+    },
+    streetLine1: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Street Line 1'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Linha de Endereço 1'
+        }
+      ]
+    },
+    streetLine2: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Street Line 2'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Linha de Endereço 2'
+        }
+      ]
+    },
+    city: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'City'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Cidade'
+        }
+      ]
+    },
+    province: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Province'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Estado'
+        }
+      ]
+    },
+    provinceCode: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Province Code'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'UF'
+        }
+      ]
+    },
+    phoneNumber: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Phone Number'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Telefone'
         }
       ]
     },
@@ -95,14 +173,7 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
   // @ts-ignore
   calculate: (
     order,
-    {
-      address,
-      adjustment,
-      preparationDays,
-      openingHours,
-      postalCodeRangeStart,
-      postalCodeRangeEnd
-    }
+    { adjustment, postalCodeRangeStart, postalCodeRangeEnd, ...otherArgs }
   ) => {
     function sanitizePostalCode(postalCode: string) {
       return parseInt(postalCode.replace(/\D+/g, ''));
@@ -126,9 +197,7 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
         metadata: {
           carrier: 'pickup-in-store',
           service: 'default',
-          deliveryTime: preparationDays,
-          address: address,
-          openingHours: openingHours
+          ...otherArgs
         }
       };
     else {
