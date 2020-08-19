@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "multi-semantic-release": "2.4.1",
-    "@commitlint/config-conventional": "9.1.1",
+    "@commitlint/config-conventional": "9.1.2",
     "@graphql-codegen/cli": "1.17.4",
     "@graphql-codegen/fragment-matcher": "1.17.4",
     "@graphql-codegen/introspection": "1.17.4",
