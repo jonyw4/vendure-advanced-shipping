@@ -29,7 +29,7 @@
     "multi-semantic-release": "2.4.1",
     "@commitlint/config-conventional": "9.1.1",
     "@graphql-codegen/cli": "1.17.4",
-    "@graphql-codegen/fragment-matcher": "1.17.4",
+    "@graphql-codegen/fragment-matcher": "1.17.8",
     "@graphql-codegen/introspection": "1.17.4",
     "@graphql-codegen/near-operation-file-preset": "1.17.4",
     "@graphql-codegen/schema-ast": "1.17.4",
