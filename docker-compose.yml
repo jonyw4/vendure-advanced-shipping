@@ -1,14 +1,14 @@
 version: "3"
 services:
   database:
-    image: mysql:5.7
-    ports:
-      - "3306:3306"
+    image: postgres
     volumes:
-      - /var/lib/mysql
+      - /var/lib/postgresql/data
+    ports:
+      - 5432:5432
     environment:
-      MYSQL_DATABASE: vendure
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: vendure
   dev:
     image: mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
     command: /bin/sh -c "while sleep 1000; do :; done"
