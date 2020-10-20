@@ -1,0 +1,29 @@
+version: "3"
+services:
+  database:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - /var/lib/mysql
+    environment:
+      MYSQL_DATABASE: vendure
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  dev:
+    image: mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+    volumes:
+      - .:/workspace:cached
+      - node_modules:/workspace/node_modules
+      - admin-ui:/workspace/dev-server/admin-ui
+      - static:/workspace/dev-server/static
+    depends_on:
+      - database
+volumes:
+  node_modules:
+  admin-ui:
+  static:

@@ -50,11 +50,11 @@ export const config: VendureConfig = {
   dbConnectionOptions: {
     type: 'mysql',
     synchronize: true,
-    host: 'localhost',
+    host: 'host.docker.internal',
     port: 3306,
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
+    username: 'root',
+    password: '',
+    database: 'vendure',
     logging: false
   },
   paymentOptions: {
