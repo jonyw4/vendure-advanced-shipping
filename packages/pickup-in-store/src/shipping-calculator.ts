@@ -170,7 +170,6 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
       ]
     }
   },
-  // @ts-ignore
   calculate: (
     order,
     { adjustment, postalCodeRangeStart, postalCodeRangeEnd, ...otherArgs }

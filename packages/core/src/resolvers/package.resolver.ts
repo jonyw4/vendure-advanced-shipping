@@ -1,5 +1,11 @@
 import { Args, Query, Resolver, Mutation } from '@nestjs/graphql';
-import { RequestContext, Ctx, Allow, Permission } from '@vendure/core';
+import {
+  RequestContext,
+  Ctx,
+  Allow,
+  Permission,
+  Transaction
+} from '@vendure/core';
 import PackageService from '../services/package.service';
 import {
   MutationUpdatePackageArgs,
@@ -15,7 +21,7 @@ export class PackageResolver {
   @Query()
   @Allow(Permission.ReadSettings)
   async package(@Ctx() ctx: RequestContext, @Args() { id }: QueryPackageArgs) {
-    return this.packageService.findById(id);
+    return this.packageService.findById(ctx, id);
   }
 
   @Query()
@@ -27,22 +33,24 @@ export class PackageResolver {
     return this.packageService.findAll(options || undefined);
   }
 
+  @Transaction()
   @Mutation()
   @Allow(Permission.CreateSettings)
   async createPackage(
     @Ctx() ctx: RequestContext,
     @Args() { input }: MutationCreatePackageArgs
   ) {
-    return this.packageService.create(input);
+    return this.packageService.create(ctx, input);
   }
 
+  @Transaction()
   @Mutation()
   @Allow(Permission.UpdateSettings)
   async updatePackage(
     @Ctx() ctx: RequestContext,
     @Args() { input }: MutationUpdatePackageArgs
   ) {
-    return this.packageService.update(input);
+    return this.packageService.update(ctx, input);
   }
 }
 
