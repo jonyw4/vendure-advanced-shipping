@@ -11,7 +11,6 @@
 - Ability to add dimensions in Product (Using [Custom Fields](https://www.vendure.io/docs/typescript-api/custom-fields/))
 - A table in the database to register all packages of an order.
 - A `ShippingPackages` service helper to calculate which box to use in Order and update the order in the database
-- New order states: `Delivered`, `Shipped` and `Packed`
 
 
 ## ⚙️ Install
@@ -93,25 +92,6 @@ A plugin to pickup order in store.
 
 ## 👨🏻‍💻 Creating a shipping calculator / plugin
 It's really easy to [create a `ShippingCalculator` in Vendure](https://www.vendure.io/docs/typescript-api/shipping/shipping-calculator/) and this project takes advantage of it. You just need to create a new `ShippingCalculator` class that will inject in his init function, your `ShippingPackagesService` so that you can get which packages boxes to use in this order. You can get [here an example to how to do it](https://github.com/jonyw4/vendure-advanced-shipping/blob/master/packages/rodonaves/index.ts).
-
-
-## New States
-This plugin add new states in Vendure order to work properly with the carriers:
-
-### Fulfilled and PartiallyFulfilled (already in Vendure)
-Can go to: _Packed_
-
-### 📦 Packed
-When order it's ready to be shipped. **You can use the transition state from _Fulfilled_ and _PartiallyFulfilled_ to this state to emit a Brazilian _NFe_.**
-
-Can go to:  _Shipped_, _Delivered  (in case the order is picked up at the store)_ or _Cancel_
-
-### 🚚 Shipped
-When carrier is in the process of shipping of the order.
-Can go to: _Cancel (when user wants to cancel the order)_, _Delivered_  or _Packed (when the carrier returns the order)_
-
-### 📥 Delivered
-Can go to: _Cancel  (when user wants to cancel the order)_
 
 
 ## 🏢 Structure
