@@ -1,7 +1,7 @@
 import path from 'path';
 import { PluginCommonModule, VendurePlugin } from '@vendure/core';
 import { AdminUiExtension } from '@vendure/ui-devkit/compiler';
-import injectCustomFields from './utils/injectCustomFields';
+import { injectCustomFields } from './utils';
 import { PackageEntity, ShippingPackagesEntity } from './entities';
 import { PackageService, ShippingPackagesService } from './services';
 import { PackageResolver } from './resolvers';

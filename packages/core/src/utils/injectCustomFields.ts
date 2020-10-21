@@ -3,7 +3,7 @@ import { RuntimeVendureConfig, CustomFields } from '@vendure/core';
 /**
  * Inject custom fields in a Vendure Runtime Configure.
  */
-export default function injectCustomFields(
+export function injectCustomFields(
   config: RuntimeVendureConfig,
   customFields: CustomFields
 ) {

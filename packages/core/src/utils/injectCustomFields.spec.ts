@@ -1,5 +1,6 @@
 import { testConfig } from '@vendure/testing';
-import injectCustomFields from './injectCustomFields';
+import { injectCustomFields } from './injectCustomFields';
+
 describe('injectCustomFields', () => {
   it('inject custom fields in the configure', () => {
     const customFields = {
