@@ -1,14 +1,21 @@
 import { PluginCommonModule, VendurePlugin } from '@vendure/core';
 import { ScheduleModule } from '@nestjs/schedule';
-import { RodonavesShippingCalculator } from './shipping-calculator';
+import { createShippingCalculator } from './shipping-calculator';
+import { RodonavesPluginOptions } from './types';
 
 @VendurePlugin({
   imports: [PluginCommonModule, ScheduleModule.forRoot()],
   configuration: (config) => {
     config.shippingOptions.shippingCalculators?.push(
-      RodonavesShippingCalculator
+      createShippingCalculator(RodonavesPlugin.options)
     );
     return config;
   }
 })
-export class RodonavesPlugin {}
+export class RodonavesPlugin {
+  private static options: RodonavesPluginOptions;
+  static init(options: RodonavesPluginOptions): typeof RodonavesPlugin {
+    RodonavesPlugin.options = options;
+    return this;
+  }
+}
