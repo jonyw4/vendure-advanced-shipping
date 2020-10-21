@@ -4188,6 +4188,7 @@
   version "0.0.0"
   dependencies:
     ups-brazil-js "2.1.0"
+    ups-js "1.0.0"
 
 "@vendure/admin-ui-plugin@0.16.1":
   version "0.16.1"
@@ -17610,6 +17611,11 @@ ts-pnp@^1.1.6:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
 
+ts-toolbelt@^6.13.35:
+  version "6.15.5"
+  resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-6.15.5.tgz#cb3b43ed725cb63644782c64fbcad7d8f28c0a83"
+  integrity sha512-FZIXf1ksVyLcfr7M317jbB67XFJhOO1YqdTcuGaq9q5jLUoTikukZ+98TPjKiP2jC5CgmYdWWYs0s2nLSU0/1A==
+
 tslib@2.0.0, tslib@^2.0.0, tslib@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.0.tgz#18d13fc2dce04051e20f074cc8387fd8089ce4f3"
@@ -17992,6 +17998,15 @@ ups-brazil-js@2.1.0:
     axios "^0.19.2"
     xml "^1.0.1"
     xml2js "^0.4.23"
+
+ups-js@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ups-js/-/ups-js-1.0.0.tgz#b9c0af9f5392556aa4e510e09a898dcec386cdc8"
+  integrity sha512-Z9eqxQ2EVQWqDo6N1Rcvkqjqvj1UO6HqIRMauOJgiPWiSeUuK/1OHfhMWoEcJDa0jpheqYks+bHFld5VXv6ZQQ==
+  dependencies:
+    axios "^0.19.2"
+    ts-toolbelt "^6.13.35"
+    universal-base64 "^2.1.0"
 
 uri-js@^4.2.2:
   version "4.2.2"

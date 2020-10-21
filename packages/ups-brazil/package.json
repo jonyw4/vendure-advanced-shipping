@@ -14,7 +14,8 @@
     "lint:fix": "eslint --ext .ts,.tsx --fix"
   },
   "dependencies": {
-    "ups-brazil-js": "2.1.0"
+    "ups-brazil-js": "2.1.0",
+    "ups-js": "1.0.0"
   },
   "peerDependencies": {
     "@vendure-advanced-shipping/core": "~2.0.0",
