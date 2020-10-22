@@ -4283,6 +4283,11 @@
   resolved "https://registry.yarnpkg.com/@vendure/common/-/common-0.16.1.tgz#a33da6c061749bc71cbc028c5319991b26bcd48b"
   integrity sha512-7pRM/oJIBAZ7nMJomF/AzB2EQUu1vTpt562E2kkZepKmJ1mwUYzMi0aFFV/zvSTQPe4PkS+kSe+EOp+IajqKUQ==
 
+"@vendure/common@^0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@vendure/common/-/common-0.16.2.tgz#0639aac30db3e83ad77dcd54c85e919dfe6b7f26"
+  integrity sha512-xyJIuadB6iOMXui/8vnrjFOZulM2qtvm7Vz5IkYipYCJwL21xsuhfLjoMMOPrh66G5yXOg0o5yhHlNrWunP3Tw==
+
 "@vendure/core@0.16.1":
   version "0.16.1"
   resolved "https://registry.yarnpkg.com/@vendure/core/-/core-0.16.1.tgz#7bc726cbc560458bdb5086abe732bc353af9444d"
@@ -4326,12 +4331,12 @@
     rxjs "^6.6.3"
     typeorm "0.2.28"
 
-"@vendure/create@0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@vendure/create/-/create-0.16.1.tgz#f78ed68afc66e0511a0531c7d8ab61d862f4cae7"
-  integrity sha512-QKE8lu3l8cYC5doVVFGILmCMDeuPrahBYI1Oi2xyvHHk4d1PGSyB8xbu7SyfISlWFIqTc+8iMeVUSOCjfPzpeA==
+"@vendure/create@0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@vendure/create/-/create-0.16.2.tgz#496c218634f186cef475f22521a50989f4a93b15"
+  integrity sha512-jNy53ee9jYJMmdmt8b0wUIuvuzpITlI6UwfRYl6QzeiYAT+hy1TZYe1HhwJe0CmsXEgLLKw4b3szy/eYQdj6yQ==
   dependencies:
-    "@vendure/common" "^0.16.1"
+    "@vendure/common" "^0.16.2"
     chalk "^4.1.0"
     commander "^6.1.0"
     cross-spawn "^7.0.3"
