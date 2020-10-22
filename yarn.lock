@@ -4215,10 +4215,10 @@
     ups-brazil-js "2.1.0"
     ups-js "1.0.0"
 
-"@vendure/admin-ui-plugin@0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@vendure/admin-ui-plugin/-/admin-ui-plugin-0.16.1.tgz#4dfe67dfbf3be5d62646e540f7fd75ec616d883d"
-  integrity sha512-W2qJNa8AvUl/eun9k9B8T5zxBLa20XGsBsSP2DAA9TREf3mZ7AQRC7Lx0C3qEqdl4fveljJh6BwZmmzbFJPpJg==
+"@vendure/admin-ui-plugin@0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@vendure/admin-ui-plugin/-/admin-ui-plugin-0.16.2.tgz#18b7bb498a5d6c204d8170dfa0e7498940ee9147"
+  integrity sha512-pfDUtZxFeGcCul6Z+idsHZNg+CSoG2GTcqsNbXBFBZKwKIPlO8BU08HU2Dw8tmZDRWlL7CawDHSpqiPkR+c5NQ==
   dependencies:
     fs-extra "^9.0.1"
 
