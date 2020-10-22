@@ -22,7 +22,7 @@
     "@vendure/asset-server-plugin": "0.16.1",
     "@vendure/core": "0.16.1",
     "@vendure/create": "0.16.1",
-    "@vendure/testing": "0.16.1",
+    "@vendure/testing": "0.16.2",
     "@vendure/ui-devkit": "0.16.1"
   },
   "devDependencies": {
