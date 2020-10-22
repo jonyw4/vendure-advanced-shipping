@@ -6,10 +6,12 @@ import {
 } from '@vendure/core';
 import {
   ShippingPackagesService,
-  convertUnit
+  convertUnits
 } from '@vendure-advanced-shipping/core';
 import MelhorEnvio from 'menv-js';
 import { MelhorEnvioPluginOptions } from './types';
+
+export const SHIPPING_CALCULATOR_CODE = 'melhor-envio';
 
 export function createShippingCalculator({
   timeout,
@@ -21,7 +23,7 @@ export function createShippingCalculator({
   const melhorEnvio = new MelhorEnvio(token, isSandbox, timeout);
 
   return new ShippingCalculator({
-    code: 'melhor-envio',
+    code: SHIPPING_CALCULATOR_CODE,
     description: [
       {
         languageCode: LanguageCode.en,
@@ -176,28 +178,28 @@ export function createShippingCalculator({
       const packageData = shippingPackages[0];
 
       try {
-        const response = await melhorEnvio.calculateShipment(
-          postalCode,
-          customerPostalCode,
-          {
-            weight: convertUnit(packageData.totalWeight)
+        const response = await melhorEnvio.calculateShipment({
+          fromPostalCode: postalCode,
+          toPostalCode: customerPostalCode,
+          productsOrPackageData: {
+            weight: convertUnits(packageData.totalWeight)
               .from(packageData.massUnit)
               .to('kg'),
-            length: convertUnit(packageData.length)
+            length: convertUnits(packageData.length)
               .from(packageData.distanceUnit)
               .to('cm'),
-            height: convertUnit(packageData.height)
+            height: convertUnits(packageData.height)
               .from(packageData.distanceUnit)
               .to('cm'),
-            width: convertUnit(packageData.width)
+            width: convertUnits(packageData.width)
               .from(packageData.distanceUnit)
               .to('cm')
           },
-          service,
+          services: service,
           receipt,
           ownHand,
-          order.subTotal / 100
-        );
+          insuranceValue: order.subTotal / 100
+        });
         // @ts-ignore
         if (response.error) {
           // @ts-ignore
