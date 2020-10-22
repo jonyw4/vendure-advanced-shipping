@@ -4269,10 +4269,10 @@
     tslib "^2.0.0"
     zone.js "~0.10.2"
 
-"@vendure/asset-server-plugin@0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@vendure/asset-server-plugin/-/asset-server-plugin-0.16.1.tgz#08392b5e775a0abcd68679835270f0a5143885b2"
-  integrity sha512-Q7HDJes3jQPSoh7z+W6RjSomznfQ4dOGUU6aaT6BL1+GQFvYd4Aq7HHFdE3Lj95ObD5m0nABZQ3uEcOEU2LVWA==
+"@vendure/asset-server-plugin@0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@vendure/asset-server-plugin/-/asset-server-plugin-0.16.2.tgz#b600e2334d01ad1c52aec48c2ec766fe8ff6005d"
+  integrity sha512-TVSpsw1YGrw+h9cRm0QFH80yhR3IldsKLDtOX4iutmRVrmPpKdQJ7ukgzB9kpuDf+vORx3BPYjKycsY+HJ7rcg==
   dependencies:
     file-type "^15.0.1"
     fs-extra "^9.0.1"
