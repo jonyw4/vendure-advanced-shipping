@@ -6,12 +6,18 @@ import {
 } from '@vendure/core';
 import {
   ShippingPackagesService,
-  convertUnit
+  convertUnits,
+  ShippingCalculatorDefaultMetadata,
+  convertNumberForVdr,
+  convertVdrNumberToNormal
 } from '@vendure-advanced-shipping/core';
 import ups from 'ups-brazil-js';
 import { UPSBrazilPluginOptions } from './types';
 
 export const SHIPPING_CALCULATOR_CODE = 'ups-brazil';
+
+export const DAYS_TO_NORMAL_DELIVERY = 2;
+export const DAYS_TO_EXTENDED_DELIVERY = 5;
 
 export function createShippingCalculator({
   shippingCalculator: { username, password, timeout, postalCode }
@@ -33,7 +39,6 @@ export function createShippingCalculator({
     init: (injector) => {
       shippingPackagesService = injector.get(ShippingPackagesService);
     },
-    // @ts-ignore
     calculate: async (order) => {
       const customerPostalCode = order.shippingAddress.postalCode;
 
@@ -62,32 +67,35 @@ export function createShippingCalculator({
           postalCode,
           customerPostalCode,
           {
-            weight: convertUnit(packageData.totalWeight)
+            weight: convertUnits(packageData.totalWeight)
               .from(packageData.massUnit)
               .to('kg'),
-            length: convertUnit(packageData.length)
+            length: convertUnits(packageData.length)
               .from(packageData.distanceUnit)
               .to('cm'),
-            height: convertUnit(packageData.height)
+            height: convertUnits(packageData.height)
               .from(packageData.distanceUnit)
               .to('cm'),
-            width: convertUnit(packageData.width)
+            width: convertUnits(packageData.width)
               .from(packageData.distanceUnit)
               .to('cm')
           },
-          order.subTotal / 100,
+          convertVdrNumberToNormal(order.subTotal),
           timeout
         );
-        const price = Number(FreteTotalReceber) * 100;
+        const price = convertNumberForVdr(FreteTotalReceber);
+        const metadata: ShippingCalculatorDefaultMetadata = {
+          carrier: 'ups',
+          method: 'default',
+          daysToDelivery:
+            ValorEA > 0 ? DAYS_TO_EXTENDED_DELIVERY : DAYS_TO_NORMAL_DELIVERY,
+          currency: CurrencyCode.BRL
+        };
+
         return {
           price: price,
           priceWithTax: price,
-          metadata: {
-            deliveryTime: ValorEA > 0 ? 5 : 2,
-            carrier: 'ups',
-            service: 'default',
-            currency: CurrencyCode.BRL
-          }
+          metadata: metadata
         };
       } catch (error) {
         Logger.error(error);

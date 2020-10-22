@@ -6,7 +6,10 @@ import {
 } from '@vendure/core';
 import {
   ShippingPackagesService,
-  convertUnit
+  convertUnits,
+  ShippingCalculatorDefaultMetadata,
+  convertVdrNumberToNormal,
+  convertNumberForVdr
 } from '@vendure-advanced-shipping/core';
 import Rodonaves from 'rodonaves-js';
 import { RodonavesPluginOptions } from './types';
@@ -57,32 +60,33 @@ export function createShippingCalculator({
           postalCode,
           customerPostalCode,
           shippingPackages.map((packageData) => ({
-            weight: convertUnit(packageData.totalWeight)
+            weight: convertUnits(packageData.totalWeight)
               .from(packageData.massUnit)
               .to('kg'),
-            length: convertUnit(packageData.length)
+            length: convertUnits(packageData.length)
               .from(packageData.distanceUnit)
               .to('cm'),
-            height: convertUnit(packageData.height)
+            height: convertUnits(packageData.height)
               .from(packageData.distanceUnit)
               .to('cm'),
-            width: convertUnit(packageData.width)
+            width: convertUnits(packageData.width)
               .from(packageData.distanceUnit)
               .to('cm')
           })),
-          order.subTotal / 100,
+          convertVdrNumberToNormal(order.subTotal),
           taxId
         );
-        const price = Number(Value) * 100;
+        const price = convertNumberForVdr(Value);
+        const metadata: ShippingCalculatorDefaultMetadata = {
+          daysToDelivery: DeliveryTime,
+          carrier: 'rodonaves',
+          method: 'default',
+          currency: CurrencyCode.BRL
+        };
         return {
           price: price,
           priceWithTax: price,
-          metadata: {
-            deliveryTime: DeliveryTime,
-            carrier: 'rodonaves',
-            service: 'default',
-            currency: CurrencyCode.BRL
-          }
+          metadata: metadata
         };
       } catch (error) {
         Logger.error(error);

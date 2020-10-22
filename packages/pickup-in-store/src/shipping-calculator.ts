@@ -1,4 +1,8 @@
 import { ShippingCalculator, LanguageCode } from '@vendure/core';
+import {
+  convertNumberForVdr,
+  ShippingCalculatorDefaultMetadata
+} from '@vendure-advanced-shipping/core';
 
 export const PickupInStoreShippingCalculator = new ShippingCalculator({
   code: 'pickup-in-store',
@@ -156,7 +160,7 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
         }
       ]
     },
-    deliveryTime: {
+    daysToDelivery: {
       type: 'int',
       label: [
         {
@@ -189,17 +193,19 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
     if (
       customerPostalCode >= sanitizePostalCode(postalCodeRangeStart) &&
       customerPostalCode <= sanitizePostalCode(postalCodeRangeEnd)
-    )
-      return {
-        price: adjustment,
-        priceWithTax: adjustment,
-        metadata: {
-          carrier: 'pickup-in-store',
-          service: 'default',
-          ...otherArgs
-        }
+    ) {
+      const metadata: ShippingCalculatorDefaultMetadata = {
+        carrier: 'pickup-in-store',
+        method: 'default',
+        ...otherArgs
       };
-    else {
+      const price = convertNumberForVdr(adjustment);
+      return {
+        price: price,
+        priceWithTax: price,
+        metadata
+      };
+    } else {
       return undefined;
     }
   }

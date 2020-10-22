@@ -6,7 +6,10 @@ import {
 } from '@vendure/core';
 import {
   ShippingPackagesService,
-  convertUnits
+  convertUnits,
+  convertNumberForVdr,
+  ShippingCalculatorDefaultMetadata,
+  convertVdrNumberToNormal
 } from '@vendure-advanced-shipping/core';
 import MelhorEnvio from 'menv-js';
 import { MelhorEnvioPluginOptions } from './types';
@@ -20,7 +23,7 @@ export function createShippingCalculator({
   postalCode
 }: MelhorEnvioPluginOptions): ShippingCalculator {
   let shippingPackagesService: ShippingPackagesService;
-  const melhorEnvio = new MelhorEnvio(token, isSandbox, timeout);
+  const menv = new MelhorEnvio(token, isSandbox, timeout);
 
   return new ShippingCalculator({
     code: SHIPPING_CALCULATOR_CODE,
@@ -178,7 +181,7 @@ export function createShippingCalculator({
       const packageData = shippingPackages[0];
 
       try {
-        const response = await melhorEnvio.calculateShipment({
+        const response = await menv.calculateShipment({
           fromPostalCode: postalCode,
           toPostalCode: customerPostalCode,
           productsOrPackageData: {
@@ -198,7 +201,7 @@ export function createShippingCalculator({
           services: service,
           receipt,
           ownHand,
-          insuranceValue: order.subTotal / 100
+          insuranceValue: convertVdrNumberToNormal(order.subTotal)
         });
         // @ts-ignore
         if (response.error) {
@@ -206,16 +209,17 @@ export function createShippingCalculator({
           Logger.error(response.error);
           return undefined;
         }
-        const price = Number(response.price) * 100;
+        const price = convertNumberForVdr(response.price);
+        const metadata: ShippingCalculatorDefaultMetadata = {
+          daysToDelivery: Number(response.delivery_time),
+          carrier: `melhor-envio-${response.company.name}`,
+          method: service,
+          currency: CurrencyCode.BRL
+        };
         return {
           price: price,
           priceWithTax: price,
-          metadata: {
-            deliveryTime: Number(response.delivery_time),
-            carrier: `melhor-envio-${response.company.name}`,
-            service: null,
-            currency: CurrencyCode.BRL
-          }
+          metadata: metadata
         };
       } catch (error) {
         Logger.error(error);
