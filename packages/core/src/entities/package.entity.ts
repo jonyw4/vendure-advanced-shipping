@@ -1,7 +1,7 @@
 import { Entity, Column } from 'typeorm';
 import { VendureEntity, DeepPartial } from '@vendure/core';
 import { MassUnit, DistanceUnit } from '../types/generated-admin-schema';
-import convertUnit from '../utils/convertUnit';
+import { convertUnits } from '../utils';
 
 @Entity()
 export class PackageEntity extends VendureEntity {
@@ -39,13 +39,13 @@ export class PackageEntity extends VendureEntity {
       return this.height * this.width * this.length;
     }
     // Convert all fields
-    const height = convertUnit(this.height)
+    const height = convertUnits(this.height)
       .from(this.distanceUnit)
       .to(distanceUnit);
-    const width = convertUnit(this.width)
+    const width = convertUnits(this.width)
       .from(this.distanceUnit)
       .to(distanceUnit);
-    const length = convertUnit(this.length)
+    const length = convertUnits(this.length)
       .from(this.distanceUnit)
       .to(distanceUnit);
 

@@ -17,5 +17,5 @@ export interface ShippingCalculatorDefaultMetadata {
   /**
    * The currency of the price
    */
-  currency: CurrencyCode;
+  currency?: CurrencyCode;
 }

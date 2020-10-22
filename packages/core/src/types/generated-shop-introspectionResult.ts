@@ -14,121 +14,13 @@ const result: IntrospectionResultData = {
     types: [
       {
         kind: 'INTERFACE',
-        name: 'Node',
-        possibleTypes: [
-          {
-            name: 'Channel'
-          },
-          {
-            name: 'Zone'
-          },
-          {
-            name: 'Country'
-          },
-          {
-            name: 'Customer'
-          },
-          {
-            name: 'Address'
-          },
-          {
-            name: 'Order'
-          },
-          {
-            name: 'OrderLine'
-          },
-          {
-            name: 'ProductVariant'
-          },
-          {
-            name: 'Asset'
-          },
-          {
-            name: 'TaxRate'
-          },
-          {
-            name: 'TaxCategory'
-          },
-          {
-            name: 'CustomerGroup'
-          },
-          {
-            name: 'ProductOption'
-          },
-          {
-            name: 'FacetValue'
-          },
-          {
-            name: 'Facet'
-          },
-          {
-            name: 'OrderItem'
-          },
-          {
-            name: 'Fulfillment'
-          },
-          {
-            name: 'Promotion'
-          },
-          {
-            name: 'Payment'
-          },
-          {
-            name: 'Refund'
-          },
-          {
-            name: 'ShippingMethod'
-          },
-          {
-            name: 'HistoryEntry'
-          },
-          {
-            name: 'Administrator'
-          },
-          {
-            name: 'User'
-          },
-          {
-            name: 'Role'
-          },
-          {
-            name: 'Collection'
-          },
-          {
-            name: 'Product'
-          },
-          {
-            name: 'ProductOptionGroup'
-          },
-          {
-            name: 'Cancellation'
-          },
-          {
-            name: 'PaymentMethod'
-          },
-          {
-            name: 'Return'
-          },
-          {
-            name: 'Sale'
-          },
-          {
-            name: 'StockAdjustment'
-          }
-        ]
-      },
-      {
-        kind: 'INTERFACE',
         name: 'PaginatedList',
         possibleTypes: [
           {
-            name: 'OrderList'
+            name: 'AdministratorList'
           },
           {
-            name: 'CustomerList'
-          },
-          {
-            name: 'HistoryEntryList'
+            name: 'AssetList'
           },
           {
             name: 'CollectionList'
@@ -137,19 +29,22 @@ const result: IntrospectionResultData = {
             name: 'ProductVariantList'
           },
           {
-            name: 'ProductList'
-          },
-          {
-            name: 'AdministratorList'
-          },
-          {
-            name: 'AssetList'
-          },
-          {
             name: 'CountryList'
           },
           {
+            name: 'CustomerList'
+          },
+          {
             name: 'FacetList'
+          },
+          {
+            name: 'HistoryEntryList'
+          },
+          {
+            name: 'OrderList'
+          },
+          {
+            name: 'ProductList'
           },
           {
             name: 'PromotionList'
@@ -166,14 +61,182 @@ const result: IntrospectionResultData = {
         ]
       },
       {
-        kind: 'UNION',
-        name: 'SearchResultPrice',
+        kind: 'INTERFACE',
+        name: 'Node',
         possibleTypes: [
           {
-            name: 'PriceRange'
+            name: 'Address'
           },
           {
-            name: 'SinglePrice'
+            name: 'Administrator'
+          },
+          {
+            name: 'Asset'
+          },
+          {
+            name: 'Channel'
+          },
+          {
+            name: 'Collection'
+          },
+          {
+            name: 'Country'
+          },
+          {
+            name: 'CustomerGroup'
+          },
+          {
+            name: 'Customer'
+          },
+          {
+            name: 'FacetValue'
+          },
+          {
+            name: 'Facet'
+          },
+          {
+            name: 'HistoryEntry'
+          },
+          {
+            name: 'Order'
+          },
+          {
+            name: 'OrderItem'
+          },
+          {
+            name: 'OrderLine'
+          },
+          {
+            name: 'Payment'
+          },
+          {
+            name: 'Refund'
+          },
+          {
+            name: 'Fulfillment'
+          },
+          {
+            name: 'PaymentMethod'
+          },
+          {
+            name: 'ProductOptionGroup'
+          },
+          {
+            name: 'ProductOption'
+          },
+          {
+            name: 'Product'
+          },
+          {
+            name: 'ProductVariant'
+          },
+          {
+            name: 'Promotion'
+          },
+          {
+            name: 'Role'
+          },
+          {
+            name: 'ShippingMethod'
+          },
+          {
+            name: 'StockAdjustment'
+          },
+          {
+            name: 'Sale'
+          },
+          {
+            name: 'Cancellation'
+          },
+          {
+            name: 'Return'
+          },
+          {
+            name: 'TaxCategory'
+          },
+          {
+            name: 'TaxRate'
+          },
+          {
+            name: 'User'
+          },
+          {
+            name: 'AuthenticationMethod'
+          },
+          {
+            name: 'Zone'
+          }
+        ]
+      },
+      {
+        kind: 'INTERFACE',
+        name: 'ErrorResult',
+        possibleTypes: [
+          {
+            name: 'NativeAuthStrategyError'
+          },
+          {
+            name: 'InvalidCredentialsError'
+          },
+          {
+            name: 'OrderStateTransitionError'
+          },
+          {
+            name: 'EmailAddressConflictError'
+          },
+          {
+            name: 'OrderModificationError'
+          },
+          {
+            name: 'OrderLimitError'
+          },
+          {
+            name: 'NegativeQuantityError'
+          },
+          {
+            name: 'OrderPaymentStateError'
+          },
+          {
+            name: 'PaymentFailedError'
+          },
+          {
+            name: 'PaymentDeclinedError'
+          },
+          {
+            name: 'CouponCodeInvalidError'
+          },
+          {
+            name: 'CouponCodeExpiredError'
+          },
+          {
+            name: 'CouponCodeLimitError'
+          },
+          {
+            name: 'AlreadyLoggedInError'
+          },
+          {
+            name: 'MissingPasswordError'
+          },
+          {
+            name: 'PasswordAlreadySetError'
+          },
+          {
+            name: 'VerificationTokenInvalidError'
+          },
+          {
+            name: 'VerificationTokenExpiredError'
+          },
+          {
+            name: 'IdentifierChangeTokenInvalidError'
+          },
+          {
+            name: 'IdentifierChangeTokenExpiredError'
+          },
+          {
+            name: 'PasswordResetTokenInvalidError'
+          },
+          {
+            name: 'PasswordResetTokenExpiredError'
           }
         ]
       },
@@ -181,9 +244,6 @@ const result: IntrospectionResultData = {
         kind: 'INTERFACE',
         name: 'CustomField',
         possibleTypes: [
-          {
-            name: 'BooleanCustomFieldConfig'
-          },
           {
             name: 'StringCustomFieldConfig'
           },
@@ -197,25 +257,10 @@ const result: IntrospectionResultData = {
             name: 'FloatCustomFieldConfig'
           },
           {
+            name: 'BooleanCustomFieldConfig'
+          },
+          {
             name: 'DateTimeCustomFieldConfig'
-          }
-        ]
-      },
-      {
-        kind: 'INTERFACE',
-        name: 'StockMovement',
-        possibleTypes: [
-          {
-            name: 'Cancellation'
-          },
-          {
-            name: 'Return'
-          },
-          {
-            name: 'Sale'
-          },
-          {
-            name: 'StockAdjustment'
           }
         ]
       },
@@ -240,6 +285,303 @@ const result: IntrospectionResultData = {
           },
           {
             name: 'DateTimeCustomFieldConfig'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'UpdateOrderItemsResult',
+        possibleTypes: [
+          {
+            name: 'Order'
+          },
+          {
+            name: 'OrderModificationError'
+          },
+          {
+            name: 'OrderLimitError'
+          },
+          {
+            name: 'NegativeQuantityError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'RemoveOrderItemsResult',
+        possibleTypes: [
+          {
+            name: 'Order'
+          },
+          {
+            name: 'OrderModificationError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'SetOrderShippingMethodResult',
+        possibleTypes: [
+          {
+            name: 'Order'
+          },
+          {
+            name: 'OrderModificationError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'ApplyCouponCodeResult',
+        possibleTypes: [
+          {
+            name: 'Order'
+          },
+          {
+            name: 'CouponCodeExpiredError'
+          },
+          {
+            name: 'CouponCodeInvalidError'
+          },
+          {
+            name: 'CouponCodeLimitError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'AddPaymentToOrderResult',
+        possibleTypes: [
+          {
+            name: 'Order'
+          },
+          {
+            name: 'OrderPaymentStateError'
+          },
+          {
+            name: 'PaymentFailedError'
+          },
+          {
+            name: 'PaymentDeclinedError'
+          },
+          {
+            name: 'OrderStateTransitionError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'TransitionOrderToStateResult',
+        possibleTypes: [
+          {
+            name: 'Order'
+          },
+          {
+            name: 'OrderStateTransitionError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'SetCustomerForOrderResult',
+        possibleTypes: [
+          {
+            name: 'Order'
+          },
+          {
+            name: 'AlreadyLoggedInError'
+          },
+          {
+            name: 'EmailAddressConflictError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'RegisterCustomerAccountResult',
+        possibleTypes: [
+          {
+            name: 'Success'
+          },
+          {
+            name: 'MissingPasswordError'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'RefreshCustomerVerificationResult',
+        possibleTypes: [
+          {
+            name: 'Success'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'VerifyCustomerAccountResult',
+        possibleTypes: [
+          {
+            name: 'CurrentUser'
+          },
+          {
+            name: 'VerificationTokenInvalidError'
+          },
+          {
+            name: 'VerificationTokenExpiredError'
+          },
+          {
+            name: 'MissingPasswordError'
+          },
+          {
+            name: 'PasswordAlreadySetError'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'UpdateCustomerPasswordResult',
+        possibleTypes: [
+          {
+            name: 'Success'
+          },
+          {
+            name: 'InvalidCredentialsError'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'RequestUpdateCustomerEmailAddressResult',
+        possibleTypes: [
+          {
+            name: 'Success'
+          },
+          {
+            name: 'InvalidCredentialsError'
+          },
+          {
+            name: 'EmailAddressConflictError'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'UpdateCustomerEmailAddressResult',
+        possibleTypes: [
+          {
+            name: 'Success'
+          },
+          {
+            name: 'IdentifierChangeTokenInvalidError'
+          },
+          {
+            name: 'IdentifierChangeTokenExpiredError'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'RequestPasswordResetResult',
+        possibleTypes: [
+          {
+            name: 'Success'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'ResetPasswordResult',
+        possibleTypes: [
+          {
+            name: 'CurrentUser'
+          },
+          {
+            name: 'PasswordResetTokenInvalidError'
+          },
+          {
+            name: 'PasswordResetTokenExpiredError'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'NativeAuthenticationResult',
+        possibleTypes: [
+          {
+            name: 'CurrentUser'
+          },
+          {
+            name: 'InvalidCredentialsError'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'AuthenticationResult',
+        possibleTypes: [
+          {
+            name: 'CurrentUser'
+          },
+          {
+            name: 'InvalidCredentialsError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'SearchResultPrice',
+        possibleTypes: [
+          {
+            name: 'PriceRange'
+          },
+          {
+            name: 'SinglePrice'
+          }
+        ]
+      },
+      {
+        kind: 'INTERFACE',
+        name: 'StockMovement',
+        possibleTypes: [
+          {
+            name: 'StockAdjustment'
+          },
+          {
+            name: 'Sale'
+          },
+          {
+            name: 'Cancellation'
+          },
+          {
+            name: 'Return'
           }
         ]
       },

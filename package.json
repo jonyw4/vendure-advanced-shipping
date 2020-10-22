@@ -11,10 +11,10 @@
     "lint": "wsrun -m lint",
     "lint:fix": "wsrun -m lint:fix",
     "codegen": "graphql-codegen --config gql-codegen.yml && wsrun -m codegen",
-    "dev-server:populate": "node -r ts-node/register dev-server/populate.ts",
+    "dev-server:populate": "ts-node dev-server/populate.ts",
     "dev-server:start": "rimraf dev-server/admin-ui && concurrently npm:dev-server:run*",
-    "dev-server:run:server": "node -r ts-node/register dev-server/index.ts",
-    "dev-server:run:worker": "node -r ts-node/register dev-server/index-worker.ts",
+    "dev-server:run:server": "ts-node dev-server/index.ts",
+    "dev-server:run:worker": "ts-node dev-server/index-worker.ts",
     "release": "multi-semantic-release"
   },
   "dependencies": {

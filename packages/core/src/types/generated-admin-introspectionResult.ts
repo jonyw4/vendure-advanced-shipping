@@ -13,9 +13,279 @@ const result: IntrospectionResultData = {
   __schema: {
     types: [
       {
+        kind: 'UNION',
+        name: 'CreateAssetResult',
+        possibleTypes: [
+          {
+            name: 'Asset'
+          },
+          {
+            name: 'MimeTypeError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'NativeAuthenticationResult',
+        possibleTypes: [
+          {
+            name: 'CurrentUser'
+          },
+          {
+            name: 'InvalidCredentialsError'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'AuthenticationResult',
+        possibleTypes: [
+          {
+            name: 'CurrentUser'
+          },
+          {
+            name: 'InvalidCredentialsError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'CreateChannelResult',
+        possibleTypes: [
+          {
+            name: 'Channel'
+          },
+          {
+            name: 'LanguageNotAvailableError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'UpdateChannelResult',
+        possibleTypes: [
+          {
+            name: 'Channel'
+          },
+          {
+            name: 'LanguageNotAvailableError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'CreateCustomerResult',
+        possibleTypes: [
+          {
+            name: 'Customer'
+          },
+          {
+            name: 'EmailAddressConflictError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'UpdateCustomerResult',
+        possibleTypes: [
+          {
+            name: 'Customer'
+          },
+          {
+            name: 'EmailAddressConflictError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'UpdateGlobalSettingsResult',
+        possibleTypes: [
+          {
+            name: 'GlobalSettings'
+          },
+          {
+            name: 'ChannelDefaultLanguageError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'TransitionOrderToStateResult',
+        possibleTypes: [
+          {
+            name: 'Order'
+          },
+          {
+            name: 'OrderStateTransitionError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'SettlePaymentResult',
+        possibleTypes: [
+          {
+            name: 'Payment'
+          },
+          {
+            name: 'SettlePaymentError'
+          },
+          {
+            name: 'PaymentStateTransitionError'
+          },
+          {
+            name: 'OrderStateTransitionError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'AddFulfillmentToOrderResult',
+        possibleTypes: [
+          {
+            name: 'Fulfillment'
+          },
+          {
+            name: 'EmptyOrderLineSelectionError'
+          },
+          {
+            name: 'ItemsAlreadyFulfilledError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'CancelOrderResult',
+        possibleTypes: [
+          {
+            name: 'Order'
+          },
+          {
+            name: 'EmptyOrderLineSelectionError'
+          },
+          {
+            name: 'QuantityTooGreatError'
+          },
+          {
+            name: 'MultipleOrderError'
+          },
+          {
+            name: 'CancelActiveOrderError'
+          },
+          {
+            name: 'OrderStateTransitionError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'RefundOrderResult',
+        possibleTypes: [
+          {
+            name: 'Refund'
+          },
+          {
+            name: 'QuantityTooGreatError'
+          },
+          {
+            name: 'NothingToRefundError'
+          },
+          {
+            name: 'OrderStateTransitionError'
+          },
+          {
+            name: 'MultipleOrderError'
+          },
+          {
+            name: 'PaymentOrderMismatchError'
+          },
+          {
+            name: 'RefundOrderStateError'
+          },
+          {
+            name: 'AlreadyRefundedError'
+          },
+          {
+            name: 'RefundStateTransitionError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'SettleRefundResult',
+        possibleTypes: [
+          {
+            name: 'Refund'
+          },
+          {
+            name: 'RefundStateTransitionError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'TransitionFulfillmentToStateResult',
+        possibleTypes: [
+          {
+            name: 'Fulfillment'
+          },
+          {
+            name: 'FulfillmentStateTransitionError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'RemoveOptionGroupFromProductResult',
+        possibleTypes: [
+          {
+            name: 'Product'
+          },
+          {
+            name: 'ProductOptionInUseError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'CreatePromotionResult',
+        possibleTypes: [
+          {
+            name: 'Promotion'
+          },
+          {
+            name: 'MissingConditionsError'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'UpdatePromotionResult',
+        possibleTypes: [
+          {
+            name: 'Promotion'
+          },
+          {
+            name: 'MissingConditionsError'
+          }
+        ]
+      },
+      {
         kind: 'INTERFACE',
         name: 'PaginatedList',
         possibleTypes: [
+          {
+            name: 'CustomerGroupList'
+          },
+          {
+            name: 'JobList'
+          },
+          {
+            name: 'PaymentMethodList'
+          },
           {
             name: 'AdministratorList'
           },
@@ -29,28 +299,19 @@ const result: IntrospectionResultData = {
             name: 'ProductVariantList'
           },
           {
+            name: 'CountryList'
+          },
+          {
             name: 'CustomerList'
+          },
+          {
+            name: 'FacetList'
           },
           {
             name: 'HistoryEntryList'
           },
           {
             name: 'OrderList'
-          },
-          {
-            name: 'CountryList'
-          },
-          {
-            name: 'CustomerGroupList'
-          },
-          {
-            name: 'FacetList'
-          },
-          {
-            name: 'JobList'
-          },
-          {
-            name: 'PaymentMethodList'
           },
           {
             name: 'ProductList'
@@ -77,64 +338,58 @@ const result: IntrospectionResultData = {
         name: 'Node',
         possibleTypes: [
           {
-            name: 'Administrator'
-          },
-          {
-            name: 'User'
-          },
-          {
-            name: 'Role'
-          },
-          {
-            name: 'Channel'
-          },
-          {
-            name: 'Zone'
-          },
-          {
-            name: 'Country'
-          },
-          {
-            name: 'Asset'
-          },
-          {
             name: 'Collection'
-          },
-          {
-            name: 'ProductVariant'
-          },
-          {
-            name: 'StockAdjustment'
-          },
-          {
-            name: 'Sale'
-          },
-          {
-            name: 'OrderLine'
-          },
-          {
-            name: 'OrderItem'
-          },
-          {
-            name: 'Fulfillment'
-          },
-          {
-            name: 'Order'
           },
           {
             name: 'Customer'
           },
           {
-            name: 'CustomerGroup'
+            name: 'Facet'
           },
           {
-            name: 'HistoryEntry'
+            name: 'Fulfillment'
+          },
+          {
+            name: 'Job'
+          },
+          {
+            name: 'Order'
+          },
+          {
+            name: 'Product'
+          },
+          {
+            name: 'ProductVariant'
           },
           {
             name: 'Address'
           },
           {
-            name: 'Promotion'
+            name: 'Administrator'
+          },
+          {
+            name: 'Asset'
+          },
+          {
+            name: 'Channel'
+          },
+          {
+            name: 'Country'
+          },
+          {
+            name: 'CustomerGroup'
+          },
+          {
+            name: 'FacetValue'
+          },
+          {
+            name: 'HistoryEntry'
+          },
+          {
+            name: 'OrderItem'
+          },
+          {
+            name: 'OrderLine'
           },
           {
             name: 'Payment'
@@ -143,7 +398,28 @@ const result: IntrospectionResultData = {
             name: 'Refund'
           },
           {
+            name: 'PaymentMethod'
+          },
+          {
+            name: 'ProductOptionGroup'
+          },
+          {
+            name: 'ProductOption'
+          },
+          {
+            name: 'Promotion'
+          },
+          {
+            name: 'Role'
+          },
+          {
             name: 'ShippingMethod'
+          },
+          {
+            name: 'StockAdjustment'
+          },
+          {
+            name: 'Sale'
           },
           {
             name: 'Cancellation'
@@ -152,31 +428,19 @@ const result: IntrospectionResultData = {
             name: 'Return'
           },
           {
-            name: 'TaxRate'
-          },
-          {
             name: 'TaxCategory'
           },
           {
-            name: 'ProductOption'
+            name: 'TaxRate'
           },
           {
-            name: 'FacetValue'
+            name: 'User'
           },
           {
-            name: 'Facet'
+            name: 'AuthenticationMethod'
           },
           {
-            name: 'Job'
-          },
-          {
-            name: 'PaymentMethod'
-          },
-          {
-            name: 'ProductOptionGroup'
-          },
-          {
-            name: 'Product'
+            name: 'Zone'
           },
           {
             name: 'Package'
@@ -184,44 +448,80 @@ const result: IntrospectionResultData = {
         ]
       },
       {
-        kind: 'UNION',
-        name: 'StockMovementItem',
+        kind: 'INTERFACE',
+        name: 'ErrorResult',
         possibleTypes: [
           {
-            name: 'StockAdjustment'
+            name: 'MimeTypeError'
           },
           {
-            name: 'Sale'
+            name: 'LanguageNotAvailableError'
           },
           {
-            name: 'Cancellation'
+            name: 'ChannelDefaultLanguageError'
           },
           {
-            name: 'Return'
+            name: 'SettlePaymentError'
+          },
+          {
+            name: 'EmptyOrderLineSelectionError'
+          },
+          {
+            name: 'ItemsAlreadyFulfilledError'
+          },
+          {
+            name: 'MultipleOrderError'
+          },
+          {
+            name: 'CancelActiveOrderError'
+          },
+          {
+            name: 'PaymentOrderMismatchError'
+          },
+          {
+            name: 'RefundOrderStateError'
+          },
+          {
+            name: 'NothingToRefundError'
+          },
+          {
+            name: 'AlreadyRefundedError'
+          },
+          {
+            name: 'QuantityTooGreatError'
+          },
+          {
+            name: 'RefundStateTransitionError'
+          },
+          {
+            name: 'PaymentStateTransitionError'
+          },
+          {
+            name: 'FulfillmentStateTransitionError'
+          },
+          {
+            name: 'ProductOptionInUseError'
+          },
+          {
+            name: 'MissingConditionsError'
+          },
+          {
+            name: 'NativeAuthStrategyError'
+          },
+          {
+            name: 'InvalidCredentialsError'
+          },
+          {
+            name: 'OrderStateTransitionError'
+          },
+          {
+            name: 'EmailAddressConflictError'
           }
         ]
       },
       {
         kind: 'INTERFACE',
-        name: 'StockMovement',
-        possibleTypes: [
-          {
-            name: 'StockAdjustment'
-          },
-          {
-            name: 'Sale'
-          },
-          {
-            name: 'Cancellation'
-          },
-          {
-            name: 'Return'
-          }
-        ]
-      },
-      {
-        kind: 'UNION',
-        name: 'CustomFieldConfig',
+        name: 'CustomField',
         possibleTypes: [
           {
             name: 'StringCustomFieldConfig'
@@ -244,8 +544,8 @@ const result: IntrospectionResultData = {
         ]
       },
       {
-        kind: 'INTERFACE',
-        name: 'CustomField',
+        kind: 'UNION',
+        name: 'CustomFieldConfig',
         possibleTypes: [
           {
             name: 'StringCustomFieldConfig'
@@ -276,6 +576,42 @@ const result: IntrospectionResultData = {
           },
           {
             name: 'SinglePrice'
+          }
+        ]
+      },
+      {
+        kind: 'INTERFACE',
+        name: 'StockMovement',
+        possibleTypes: [
+          {
+            name: 'StockAdjustment'
+          },
+          {
+            name: 'Sale'
+          },
+          {
+            name: 'Cancellation'
+          },
+          {
+            name: 'Return'
+          }
+        ]
+      },
+      {
+        kind: 'UNION',
+        name: 'StockMovementItem',
+        possibleTypes: [
+          {
+            name: 'StockAdjustment'
+          },
+          {
+            name: 'Sale'
+          },
+          {
+            name: 'Cancellation'
+          },
+          {
+            name: 'Return'
           }
         ]
       }

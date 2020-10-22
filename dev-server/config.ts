@@ -66,9 +66,38 @@ export const config: VendureConfig = {
     DefaultSearchPlugin,
     AdvancedShippingCorePlugin,
     PickupInStorePlugin,
-    RodonavesPlugin,
-    MelhorEnvioPlugin,
-    UPSBrazilPlugin,
+    RodonavesPlugin.init({
+      username: '',
+      password: '',
+      taxId: '',
+      postalCode: '',
+      timeout: 20000
+    }),
+    MelhorEnvioPlugin.init({
+      token: process.env.MENV_API_TOKEN || '',
+      postalCode: '',
+      timeout: 20000,
+      isSandbox: true
+    }),
+    UPSBrazilPlugin.init({
+      shippingCalculator: {
+        username: '',
+        password: '',
+        timeout: 20000,
+        postalCode: ''
+      },
+      label: {
+        username: '',
+        password: '',
+        licenseNumber: '',
+        isSandbox: true,
+        timeout: 2000,
+        // @ts-ignore
+        map: (data) => null,
+        // @ts-ignore
+        save: (data, labeResponse) => null
+      }
+    }),
     AdminUiPlugin.init({
       port: 3002,
       app: compileUiExtensions({

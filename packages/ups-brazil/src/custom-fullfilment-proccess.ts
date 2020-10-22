@@ -1,8 +1,5 @@
 import { CustomFulfillmentProcess, FulfillmentState } from '@vendure/core';
-import {
-  checkIfFulfillmentByShippingCalculator,
-  checkFulfillmentTransitionForCreatingLabel
-} from '@vendure-advanced-shipping/core';
+import { checkFulfillmentTransitionForCreatingLabel } from '@vendure-advanced-shipping/core';
 import UPS from 'ups-js';
 import { SHIPPING_CALCULATOR_CODE } from './shipping-calculator';
 import { UPSBrazilPluginOptions } from './types';

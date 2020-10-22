@@ -19,7 +19,6 @@ services:
     volumes:
       - .:/workspace:cached
       - node_modules:/workspace/node_modules
-      - admin-ui:/workspace/dev-server/admin-ui
       - static:/workspace/dev-server/static
     depends_on:
       - database
