@@ -7,9 +7,9 @@ import {
 import { AssetServerPlugin } from '@vendure/asset-server-plugin';
 import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
 import { AdvancedShippingCorePlugin } from '@vendure-advanced-shipping/core';
-import { RodonavesShippingCalculator } from '@vendure-advanced-shipping/rodonaves';
-import { MelhorEnvioShippingCalculator } from '@vendure-advanced-shipping/melhor-envio';
-import { UPSBrazilShippingCalculator } from '@vendure-advanced-shipping/ups-brazil';
+import { RodonavesPlugin } from '@vendure-advanced-shipping/rodonaves';
+import { MelhorEnvioPlugin } from '@vendure-advanced-shipping/melhor-envio';
+import { UPSBrazilPlugin } from '@vendure-advanced-shipping/ups-brazil';
 import { PickupInStorePlugin } from '@vendure-advanced-shipping/pickup-in-store';
 import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
 import path from 'path';
@@ -18,11 +18,7 @@ const PORT = Number(process.env.PORT) || 3000;
 
 export const config: VendureConfig = {
   shippingOptions: {
-    shippingCalculators: [
-      MelhorEnvioShippingCalculator,
-      RodonavesShippingCalculator,
-      UPSBrazilShippingCalculator
-    ]
+    shippingCalculators: []
   },
   apiOptions: {
     hostname: '0.0.0.0',
@@ -48,14 +44,14 @@ export const config: VendureConfig = {
     requireVerification: true
   },
   dbConnectionOptions: {
-    type: 'mysql',
+    type: 'postgres',
     synchronize: true,
-    host: 'localhost',
-    port: 3306,
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-    logging: false
+    logging: false,
+    database: 'vendure',
+    host: 'host.docker.internal',
+    port: 5432,
+    username: 'postgres',
+    password: 'password'
   },
   paymentOptions: {
     paymentMethodHandlers: [examplePaymentHandler]
@@ -70,6 +66,38 @@ export const config: VendureConfig = {
     DefaultSearchPlugin,
     AdvancedShippingCorePlugin,
     PickupInStorePlugin,
+    RodonavesPlugin.init({
+      username: '',
+      password: '',
+      taxId: '',
+      postalCode: '',
+      timeout: 20000
+    }),
+    MelhorEnvioPlugin.init({
+      token: process.env.MENV_API_TOKEN || '',
+      postalCode: '',
+      timeout: 20000,
+      isSandbox: true
+    }),
+    UPSBrazilPlugin.init({
+      shippingCalculator: {
+        username: '',
+        password: '',
+        timeout: 20000,
+        postalCode: ''
+      },
+      label: {
+        username: '',
+        password: '',
+        licenseNumber: '',
+        isSandbox: true,
+        timeout: 2000,
+        // @ts-ignore
+        map: (data) => null,
+        // @ts-ignore
+        save: (data, labeResponse) => null
+      }
+    }),
     AdminUiPlugin.init({
       port: 3002,
       app: compileUiExtensions({

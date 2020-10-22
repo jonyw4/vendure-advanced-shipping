@@ -1,18 +1,16 @@
 import path from 'path';
 import { PluginCommonModule, VendurePlugin } from '@vendure/core';
 import { AdminUiExtension } from '@vendure/ui-devkit/compiler';
-import injectCustomFields from './utils/injectCustomFields';
+import { injectCustomFields } from './utils';
 import { PackageEntity, ShippingPackagesEntity } from './entities';
 import { PackageService, ShippingPackagesService } from './services';
 import { PackageResolver } from './resolvers';
 import { adminApiExtensions } from './api';
-import { customOrderProcess } from './custom-order-proccess';
 import customFields from './config/customFields';
 
 @VendurePlugin({
   imports: [PluginCommonModule],
   configuration: (config) => {
-    config.orderOptions.process.push(customOrderProcess);
     return injectCustomFields(config, customFields);
   },
   entities: [ShippingPackagesEntity, PackageEntity],

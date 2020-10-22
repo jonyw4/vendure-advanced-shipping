@@ -17,8 +17,8 @@
     "@nestjs/schedule": "0.4.0"
   },
   "peerDependencies": {
-    "@vendure-advanced-shipping/core": "^2.0.0",
-    "@vendure/core": "^0.14.0"
+    "@vendure-advanced-shipping/core": "~2.0.0",
+    "@vendure/core": "~0.16.0"
   },
   "publishConfig": {
     "access": "public"

@@ -1,13 +1,12 @@
 import {
   ListQueryBuilder,
-  getEntityOrThrow,
   patchEntity,
-  ID
+  ID,
+  TransactionalConnection,
+  RequestContext
 } from '@vendure/core';
 import { ListQueryOptions } from '@vendure/core/dist/common/types/common-types';
 import { Injectable } from '@nestjs/common';
-import { InjectConnection } from '@nestjs/typeorm';
-import { Connection } from 'typeorm';
 import { PackageEntity as Package } from '../entities/package.entity';
 import {
   CreatePackageInput,
@@ -17,7 +16,7 @@ import {
 @Injectable()
 export class PackageService {
   constructor(
-    @InjectConnection() private connection: Connection,
+    private connection: TransactionalConnection,
     private listQueryBuilder: ListQueryBuilder
   ) {}
 
@@ -33,21 +32,17 @@ export class PackageService {
       });
   }
 
-  findById(id: ID) {
-    return getEntityOrThrow(this.connection, Package, id);
+  findById(ctx: RequestContext, id: ID) {
+    return this.connection.getEntityOrThrow(ctx, Package, id);
   }
 
-  create(input: CreatePackageInput) {
+  create(ctx: RequestContext, input: CreatePackageInput) {
     const newPackage = new Package(input);
-    return this.connection.manager.save(newPackage);
+    return this.connection.getRepository(ctx, Package).save(newPackage);
   }
 
-  async update(input: UpdatePackageInput) {
-    const packageBox = await getEntityOrThrow(
-      this.connection,
-      Package,
-      input.id
-    );
+  async update(ctx: RequestContext, input: UpdatePackageInput) {
+    const packageBox = await this.findById(ctx, input.id);
     return this.connection
       .getRepository(Package)
       .save(patchEntity(packageBox, input));

@@ -1,0 +1,28 @@
+version: "3"
+services:
+  database:
+    image: postgres
+    volumes:
+      - /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: vendure
+  dev:
+    image: mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+    volumes:
+      - .:/workspace:cached
+      - node_modules:/workspace/node_modules
+      - static:/workspace/dev-server/static
+    depends_on:
+      - database
+volumes:
+  node_modules:
+  admin-ui:
+  static:

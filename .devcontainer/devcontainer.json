@@ -1,0 +1,27 @@
+{
+	"name": "Vendure Advanced Shipping Plugin",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "dev",
+	"workspaceFolder": "/workspace",
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+	"extensions": [
+		"christian-kohler.path-intellisense",
+    "christian-kohler.npm-intellisense",
+    "github.vscode-pull-request-github",
+    "mhutchie.git-graph",
+    "dbaeumer.vscode-eslint",
+    "joelday.docthis",
+    "naumovs.color-highlight",
+    "esbenp.prettier-vscode",
+    "mikehanson.auto-barrel",
+    "streetsidesoftware.code-spell-checker",
+    "steoates.autoimport"
+	],
+	"forwardPorts": [3000, 5432],
+	"postCreateCommand": "yarn install",
+	// "remoteUser": "node"
+}

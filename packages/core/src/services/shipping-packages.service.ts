@@ -8,7 +8,7 @@ import {
   ProductCustomFields
 } from '../types/generated-admin-schema';
 import { Unarray } from '../types/utils';
-import convertUnit from '../utils/convertUnit';
+import { convertUnits } from '../utils';
 import { ShippingPackagesEntity as ShippingPackages } from '../entities/shipping-packages.entity';
 import PackageService from './package.service';
 import { PackageEntity } from '../entities';
@@ -89,7 +89,7 @@ export class ShippingPackagesService {
       productsWeight: itemsWeight,
       totalWeight:
         chosenPackage.weight +
-        convertUnit(itemsWeight).from(this.massUnit).to(chosenPackage.massUnit)
+        convertUnits(itemsWeight).from(this.massUnit).to(chosenPackage.massUnit)
     };
   }
 
@@ -151,7 +151,7 @@ export class ShippingPackagesService {
       productsWeight: itemsWeight,
       totalWeight:
         packageData.weight +
-        convertUnit(packagesItemsWeight)
+        convertUnits(packagesItemsWeight)
           .from(this.massUnit)
           .to(packageData.massUnit)
     }));
@@ -205,10 +205,13 @@ export class ShippingPackagesService {
       ) {
         break;
       }
-      height = convertUnit(height).from(productDistanceUnit).to(distanceUnit);
-      width = convertUnit(width).from(productDistanceUnit).to(distanceUnit);
-      length = convertUnit(length).from(productDistanceUnit).to(distanceUnit);
-      weight = convertUnit(weight).from(productMassUnit).to(massUnit);
+      height = convertUnits(height).from(productDistanceUnit).to(distanceUnit);
+
+      width = convertUnits(width).from(productDistanceUnit).to(distanceUnit);
+
+      length = convertUnits(length).from(productDistanceUnit).to(distanceUnit);
+
+      weight = convertUnits(weight).from(productMassUnit).to(massUnit);
 
       const itemVolume = height * width * length;
       totalVolume += itemVolume;
