@@ -156,7 +156,7 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
         }
       ]
     },
-    preparationDays: {
+    deliveryTime: {
       type: 'int',
       label: [
         {
