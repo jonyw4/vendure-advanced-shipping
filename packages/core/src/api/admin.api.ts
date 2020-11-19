@@ -17,10 +17,10 @@ const adminApiExtensions = gql`
     name: String!
     massUnit: MassUnit!
     distanceUnit: DistanceUnit!
-    width: Int!
-    height: Int!
-    length: Int!
-    weight: Int!
+    width: Float!
+    height: Float!
+    length: Float!
+    weight: Float!
     enabled: Boolean!
   }
 
@@ -28,10 +28,10 @@ const adminApiExtensions = gql`
     name: String!
     massUnit: MassUnit!
     distanceUnit: DistanceUnit!
-    width: Int!
-    height: Int!
-    length: Int!
-    weight: Int!
+    width: Float!
+    height: Float!
+    length: Float!
+    weight: Float!
     enabled: Boolean!
   }
 
@@ -40,15 +40,15 @@ const adminApiExtensions = gql`
     name: String
     massUnit: MassUnit
     distanceUnit: DistanceUnit
-    width: Int
-    height: Int
-    length: Int
-    weight: Int
+    width: Float
+    height: Float
+    length: Float
+    weight: Float
     enabled: Boolean
   }
   type PackageList implements PaginatedList {
     items: [Package!]!
-    totalItems: Int!
+    totalItems: Float!
   }
   extend type Query {
     packages(options: PackageListOptions): PackageList!
