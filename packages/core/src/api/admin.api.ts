@@ -48,7 +48,7 @@ const adminApiExtensions = gql`
   }
   type PackageList implements PaginatedList {
     items: [Package!]!
-    totalItems: Float!
+    totalItems: Int!
   }
   extend type Query {
     packages(options: PackageListOptions): PackageList!
