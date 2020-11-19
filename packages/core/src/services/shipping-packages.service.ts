@@ -40,24 +40,29 @@ export class ShippingPackagesService {
   }
 
   async create(order: Order): Promise<ShippingPackages> {
-    const shippingPackagesInput = {
+    const packages = await this.getPackagesForShipping(order);
+    const newShippingPackages = new ShippingPackages({
       order: order,
-      packages: await this.getPackagesForShipping(order)
-    };
-
+      packages
+    });
+    
     if (!order.id) {
-      return new ShippingPackages(shippingPackagesInput);
+      return newShippingPackages;
     }
 
     const currentShippingPackages = await this.getOrderShippingPackages(
       order.id
     );
 
-    return this.connection.manager.save(
-      currentShippingPackages
-        ? patchEntity(currentShippingPackages, shippingPackagesInput)
-        : new ShippingPackages(shippingPackagesInput)
-    );
+    // UPDATE
+    if(currentShippingPackages){
+      this.connection.manager.merge(currentShippingPackages, { packages });
+      // Fix the update problem in postgres https://github.com/typeorm/typeorm/issues/4122
+      delete currentShippingPackages.order;
+      return this.connection.manager.save(currentShippingPackages);
+    }
+    // SAVE
+    return this.connection.manager.save(newShippingPackages);
   }
 
   /**
