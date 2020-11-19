@@ -1,4 +1,10 @@
-import { ID, Order, Product, EntityNotFoundError } from '@vendure/core';
+import {
+  ID,
+  Order,
+  Product,
+  EntityNotFoundError,
+  patchEntity
+} from '@vendure/core';
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
@@ -34,18 +40,24 @@ export class ShippingPackagesService {
   }
 
   async create(order: Order): Promise<ShippingPackages> {
-    const shippingPackages = await this.getOrderShippingPackages(order.id);
-
-    const newShippingPackages = new ShippingPackages({
-      id: shippingPackages?.id || undefined,
+    const shippingPackagesInput = {
       order: order,
       packages: await this.getPackagesForShipping(order)
-    });
+    };
 
     if (!order.id) {
-      return newShippingPackages;
+      return new ShippingPackages(shippingPackagesInput);
     }
-    return this.connection.manager.save(newShippingPackages);
+
+    const currentShippingPackages = await this.getOrderShippingPackages(
+      order.id
+    );
+
+    return this.connection.manager.save(
+      currentShippingPackages
+        ? patchEntity(currentShippingPackages, shippingPackagesInput)
+        : new ShippingPackages(shippingPackagesInput)
+    );
   }
 
   /**
