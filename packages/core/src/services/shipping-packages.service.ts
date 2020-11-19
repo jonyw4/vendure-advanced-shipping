@@ -1,10 +1,4 @@
-import {
-  ID,
-  Order,
-  Product,
-  EntityNotFoundError,
-  patchEntity
-} from '@vendure/core';
+import { ID, Order, Product, EntityNotFoundError } from '@vendure/core';
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
@@ -45,7 +39,7 @@ export class ShippingPackagesService {
       order: order,
       packages
     });
-    
+
     if (!order.id) {
       return newShippingPackages;
     }
@@ -55,9 +49,12 @@ export class ShippingPackagesService {
     );
 
     // UPDATE
-    if(currentShippingPackages){
-      this.connection.manager.merge(currentShippingPackages, { packages });
+    if (currentShippingPackages) {
+      this.connection.manager.merge(ShippingPackages, currentShippingPackages, {
+        packages
+      });
       // Fix the update problem in postgres https://github.com/typeorm/typeorm/issues/4122
+      // @ts-ignore
       delete currentShippingPackages.order;
       return this.connection.manager.save(currentShippingPackages);
     }
