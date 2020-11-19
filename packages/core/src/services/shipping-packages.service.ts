@@ -1,7 +1,10 @@
-import { ID, Order, Product, EntityNotFoundError } from '@vendure/core';
+import {
+  Order,
+  Product,
+  EntityNotFoundError,
+  TransactionalConnection
+} from '@vendure/core';
 import { Injectable } from '@nestjs/common';
-import { InjectConnection } from '@nestjs/typeorm';
-import { Connection } from 'typeorm';
 import {
   MassUnit,
   DistanceUnit,
@@ -23,17 +26,22 @@ type ProductWithCustomFields = Product & {
 @Injectable()
 export class ShippingPackagesService {
   constructor(
-    @InjectConnection() private connection: Connection,
-    private packageService: PackageService
+    private connection: TransactionalConnection,
+    private packageService: PackageService,
+    private shippingPackageRepository = connection.getRepository(
+      ShippingPackages
+    )
   ) {}
   massUnit: MassUnit = MassUnit.Kg;
   distanceUnit: DistanceUnit = DistanceUnit.Cm;
 
-  getOrderShippingPackages(orderId: ID): Promise<ShippingPackages | undefined> {
-    return this.connection.getRepository(ShippingPackages).findOne(orderId);
+  getOrderShippingPackages(
+    order: Order
+  ): Promise<ShippingPackages | undefined> {
+    return this.shippingPackageRepository.findOne({ where: { order } });
   }
 
-  async create(order: Order): Promise<ShippingPackages> {
+  async create(order: Order, secondTry?: true): Promise<ShippingPackages> {
     const packages = await this.getPackagesForShipping(order);
     const newShippingPackages = new ShippingPackages({
       order: order,
@@ -44,22 +52,24 @@ export class ShippingPackagesService {
       return newShippingPackages;
     }
 
-    const currentShippingPackages = await this.getOrderShippingPackages(
-      order.id
-    );
+    const currentShippingPackages = await this.getOrderShippingPackages(order);
 
     // UPDATE
     if (currentShippingPackages) {
-      this.connection.manager.merge(ShippingPackages, currentShippingPackages, {
-        packages
-      });
-      // Fix the update problem in postgres https://github.com/typeorm/typeorm/issues/4122
-      // @ts-ignore
-      delete currentShippingPackages.order;
-      return this.connection.manager.save(currentShippingPackages);
+      await this.shippingPackageRepository.update(
+        { id: currentShippingPackages.id },
+        { packages }
+      );
+      return newShippingPackages;
     }
-    // SAVE
-    return this.connection.manager.save(newShippingPackages);
+    try {
+      return this.shippingPackageRepository.save(newShippingPackages);
+    } catch (error) {
+      if (!secondTry) {
+        return this.create(order, true);
+      }
+      throw error;
+    }
   }
 
   /**
