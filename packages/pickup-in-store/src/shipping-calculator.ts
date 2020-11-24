@@ -95,6 +95,32 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
         }
       ]
     },
+    zipCode: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Zip Code'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'CEP'
+        }
+      ]
+    },
+    country: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.en,
+          value: 'Country'
+        },
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'País'
+        }
+      ]
+    },
     phoneNumber: {
       type: 'string',
       label: [
@@ -147,6 +173,24 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
         }
       ]
     },
+    lat: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Latitude'
+        }
+      ]
+    },
+    lng: {
+      type: 'string',
+      label: [
+        {
+          languageCode: LanguageCode.pt_BR,
+          value: 'Longitude'
+        }
+      ]
+    },
     adjustment: {
       type: 'int',
       label: [
@@ -175,6 +219,7 @@ export const PickupInStoreShippingCalculator = new ShippingCalculator({
     }
   },
   calculate: (
+    ctx,
     order,
     { adjustment, postalCodeRangeStart, postalCodeRangeEnd, ...otherArgs }
   ) => {
