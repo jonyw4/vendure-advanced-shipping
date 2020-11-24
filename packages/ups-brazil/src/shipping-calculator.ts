@@ -39,7 +39,7 @@ export function createShippingCalculator({
     init: (injector) => {
       shippingPackagesService = injector.get(ShippingPackagesService);
     },
-    calculate: async (order) => {
+    calculate: async (ctx, order) => {
       const customerPostalCode = order.shippingAddress.postalCode;
 
       if (!customerPostalCode) {
