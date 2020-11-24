@@ -212,7 +212,7 @@ export function createShippingCalculator({
         const price = convertNumberForVdr(response.price);
         const metadata: ShippingCalculatorDefaultMetadata = {
           daysToDelivery: Number(response.delivery_time),
-          carrier: `melhor-envio-${response.company.name}`,
+          carrier: 'melhor-envio',
           method: service,
           currency: CurrencyCode.BRL
         };
