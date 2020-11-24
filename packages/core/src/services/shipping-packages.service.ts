@@ -198,11 +198,9 @@ export class ShippingPackagesService {
     const productsIds = order.lines.map(
       (line) => line.productVariant.productId
     );
-    // @ts-ignore
-    const products: ProductWithCustomFields[] = await this.connection.manager.findByIds(
-      Product,
-      productsIds
-    );
+    const products = (await this.connection
+      .getRepository(Product)
+      .findByIds(productsIds)) as ProductWithCustomFields[];
     for (const line of order.lines) {
       const product = products.find(
         (p) => p.id === line.productVariant.productId
