@@ -68,7 +68,7 @@ export class ShippingPackagesService {
       if (!secondTry) {
         return this.create(order, true);
       }
-      throw error;
+      throw Error(error);
     }
   }
 
