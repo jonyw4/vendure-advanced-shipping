@@ -8,7 +8,11 @@ export class ShippingPackagesEntity extends VendureEntity {
     super(input);
   }
 
-  @OneToOne((type) => Order)
+  @OneToOne((type) => Order, (order) => order.id, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+    cascade: true
+  })
   @JoinColumn()
   order: Order;
 
