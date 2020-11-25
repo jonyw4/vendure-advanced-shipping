@@ -27,10 +27,7 @@ type ProductWithCustomFields = Product & {
 export class ShippingPackagesService {
   constructor(
     private connection: TransactionalConnection,
-    private packageService: PackageService,
-    private shippingPackageRepository = connection.getRepository(
-      ShippingPackages
-    )
+    private packageService: PackageService
   ) {}
   massUnit: MassUnit = MassUnit.Kg;
   distanceUnit: DistanceUnit = DistanceUnit.Cm;
@@ -38,7 +35,9 @@ export class ShippingPackagesService {
   getOrderShippingPackages(
     order: Order
   ): Promise<ShippingPackages | undefined> {
-    return this.shippingPackageRepository.findOne({ where: { order } });
+    return this.connection
+      .getRepository(ShippingPackages)
+      .findOne({ where: { order } });
   }
 
   async create(order: Order, secondTry?: true): Promise<ShippingPackages> {
@@ -56,14 +55,15 @@ export class ShippingPackagesService {
 
     // UPDATE
     if (currentShippingPackages) {
-      await this.shippingPackageRepository.update(
-        { id: currentShippingPackages.id },
-        { packages }
-      );
+      await this.connection
+        .getRepository(ShippingPackages)
+        .update({ id: currentShippingPackages.id }, { packages });
       return newShippingPackages;
     }
     try {
-      return this.shippingPackageRepository.save(newShippingPackages);
+      return this.connection
+        .getRepository(ShippingPackages)
+        .save(newShippingPackages);
     } catch (error) {
       if (!secondTry) {
         return this.create(order, true);
