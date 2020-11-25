@@ -8,7 +8,7 @@ module.exports = {
   testEnvironment: 'node',
   globals: {
     'ts-jest': {
-      tsConfig: '<rootDir>/config/tsconfig.e2e.json',
+      tsconfig: '<rootDir>/config/tsconfig.e2e.json',
       diagnostics: false
     }
   }
