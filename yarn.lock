@@ -1551,6 +1551,13 @@
   dependencies:
     tslib "^2.0.0"
 
+"@clr/angular@^4.0.8":
+  version "4.0.14"
+  resolved "https://registry.yarnpkg.com/@clr/angular/-/angular-4.0.14.tgz#0875fbad8b4d2c6459e97c005fa827ce3ab7c220"
+  integrity sha512-/0XtCo30y0c2vZSDtavOn/NbWjnSF4cARM+zOXFi3X3NRszXCQjoubK0vPOMq44KVuAlo6UJej/+Po6pc03NAA==
+  dependencies:
+    tslib "^2.0.0"
+
 "@clr/city@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@clr/city/-/city-1.1.0.tgz#4a444cd12c626d66ffadab27e9d09bb3c8eca352"
@@ -1574,15 +1581,43 @@
     css-vars-ponyfill "^2.3.2"
     normalize.css "^8.0.1"
 
+"@clr/core@^4.0.8":
+  version "4.0.12"
+  resolved "https://registry.yarnpkg.com/@clr/core/-/core-4.0.12.tgz#80e045aa295d17b9530724707ddef989335c380d"
+  integrity sha512-YZD2JOPv26MuRxqbUoyUERupsqw2i+GrWBeXvJ/zpvs0WG3Oi8Y59TVbkwz922IIvvslfAKBAiWQ7Iaf7ffJHQ==
+  dependencies:
+    "@types/resize-observer-browser" "^0.1.3"
+    lit-element "^2.3.1"
+    lit-html "^1.2.1"
+    ramda "^0.27.0"
+    tslib "^2.0.0"
+  optionalDependencies:
+    "@clr/city" "^1.1.0"
+    "@webcomponents/custom-elements" "^1.4.2"
+    "@webcomponents/shadycss" "^1.10.1"
+    "@webcomponents/webcomponentsjs" "^2.4.4"
+    css-vars-ponyfill "^2.3.2"
+    normalize.css "^8.0.1"
+
 "@clr/icons@^4.0.3":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@clr/icons/-/icons-4.0.4.tgz#36e447116940eed708a915e4f9a1d8ce3390dc06"
   integrity sha512-1snMF963n5CTWhE3FKbk/sLsGMGastLqzyRDT4YjNt4H/9b3sv+z9svkoptmUK8j+m52ByORcnKtf8711XDNHQ==
 
+"@clr/icons@^4.0.8":
+  version "4.0.14"
+  resolved "https://registry.yarnpkg.com/@clr/icons/-/icons-4.0.14.tgz#f8c380dd3a5a753c3c12e0cd57f9fdd66789d9d5"
+  integrity sha512-37M6wVEMl9K0Kd528Moz5Ee35sZTAMVVYaiTY0f9sWjXlEOtI+s/HD+/7UQxzDmAfdtzuHIS2b00LpjRB/imrA==
+
 "@clr/ui@^4.0.3":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@clr/ui/-/ui-4.0.4.tgz#dcdeb012abe99bd0873867ffb83a98d328b64dcf"
   integrity sha512-9lCtH/PkUZaZDKj2PsIxOC7he4PXrbpJCsUC8gcQZm7sYNLRcHPBEaUAPHAA7SBf+6+v4UxogAZ/N9/lnPndDg==
+
+"@clr/ui@^4.0.8":
+  version "4.0.14"
+  resolved "https://registry.yarnpkg.com/@clr/ui/-/ui-4.0.14.tgz#a74c0c56191a1e9d456b26e1796a607073f5c73e"
+  integrity sha512-iTS1ujFh8+qx/hZt1lRnj5CvsrCh5J+OCgdOS31OZL2fx9o3nO+TYIt8RtzoBO/6EQo7CY6DFltCtQDFV9sqWg==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
@@ -3407,7 +3442,7 @@
   dependencies:
     "@nestjs/graphql" "7.6.0"
     "@types/convert-units" "2.3.2"
-    "@vendure/ui-devkit" "0.16.1"
+    "@vendure/ui-devkit" "0.18.5"
     convert-units "2.3.4"
 
 "@vendure-advanced-shipping/melhor-envio@file:packages/melhor-envio":
@@ -3438,7 +3473,7 @@
   dependencies:
     fs-extra "^9.0.1"
 
-"@vendure/admin-ui@0.17.1", "@vendure/admin-ui@^0.17.1":
+"@vendure/admin-ui@0.17.1":
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/@vendure/admin-ui/-/admin-ui-0.17.1.tgz#6f4d56d9a9aad1f20648ea2df4e1ceca4d622bde"
   integrity sha512-zzTYroRcZ9Sac/LAhU+Mg+Oe5GNc8gpe2/aT+ZQSBabZbGokyVUL9TnG0XLhgXdqCpqGL9fj+382uPDn3z1Mxw==
@@ -3485,10 +3520,10 @@
     tslib "^2.0.0"
     zone.js "~0.10.2"
 
-"@vendure/admin-ui@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@vendure/admin-ui/-/admin-ui-0.16.1.tgz#0a3cacc25ac912a1eb6eb7ea2ac71d922a2da116"
-  integrity sha512-qlXQbNdY4vvW4IfcI1mFQME0aWmgAux7+pgnlTlGFKlDhYqrK5wmy5IdSmobsI8GYbv9QXdgicUyocOn0pRYug==
+"@vendure/admin-ui@^0.18.5":
+  version "0.18.5"
+  resolved "https://registry.yarnpkg.com/@vendure/admin-ui/-/admin-ui-0.18.5.tgz#c9d7d97a44b1e9ec5580d576a17673d865aa80ee"
+  integrity sha512-TgTZ+bvLe/VrkbPqHb+afHT2bRmgV+aabqz16T6n6Hm5lJY0c0OydZmcYp5r9I+OWt8bnOZJHKPLSrAaJeeaYw==
   dependencies:
     "@angular/animations" "10.1.4"
     "@angular/cdk" "10.2.4"
@@ -3501,14 +3536,14 @@
     "@angular/router" "10.1.4"
     "@apollo/client" "^3.0.0"
     "@biesbjerg/ngx-translate-extract-marker" "^1.0.0"
-    "@clr/angular" "^4.0.3"
-    "@clr/core" "^4.0.3"
-    "@clr/icons" "^4.0.3"
-    "@clr/ui" "^4.0.3"
+    "@clr/angular" "^4.0.8"
+    "@clr/core" "^4.0.8"
+    "@clr/icons" "^4.0.8"
+    "@clr/ui" "^4.0.8"
     "@ng-select/ng-select" "^5.0.3"
     "@ngx-translate/core" "^13.0.0"
     "@ngx-translate/http-loader" "^6.0.0"
-    "@vendure/common" "^0.16.1"
+    "@vendure/common" "^0.18.4"
     "@webcomponents/custom-elements" "^1.2.4"
     apollo-angular "^2.0.4"
     apollo-upload-client "^12.1.0"
@@ -3541,15 +3576,15 @@
     fs-extra "^9.0.1"
     sharp "0.25.2"
 
-"@vendure/common@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@vendure/common/-/common-0.16.1.tgz#a33da6c061749bc71cbc028c5319991b26bcd48b"
-  integrity sha512-7pRM/oJIBAZ7nMJomF/AzB2EQUu1vTpt562E2kkZepKmJ1mwUYzMi0aFFV/zvSTQPe4PkS+kSe+EOp+IajqKUQ==
-
 "@vendure/common@^0.17.1":
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/@vendure/common/-/common-0.17.1.tgz#84b8208139864e44af203ea07e33353fe6c22cb1"
   integrity sha512-kGOlsTMM0pOuD/hO3tc7iEOjj+8jumLn16qTV6yO5O/MMH8EHW3oMWcT/mAjy2jDsIqrMoNaDB24goHJFF6Dvg==
+
+"@vendure/common@^0.18.4":
+  version "0.18.4"
+  resolved "https://registry.yarnpkg.com/@vendure/common/-/common-0.18.4.tgz#f5ab3e2b7bcf35546c9fe42a6d22075ac871dd83"
+  integrity sha512-mCPBLkNnY8v9UOcKaWDWzuYo/GsLeexnm3wOI+qwaK0Q4tUOXrJ+BeatBI3HNfbHlpprbOkX5cfoS0ab1GbMhA==
 
 "@vendure/core@0.17.1":
   version "0.17.1"
@@ -3626,34 +3661,17 @@
     node-fetch "^2.6.0"
     sql.js "1.3.2"
 
-"@vendure/ui-devkit@0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@vendure/ui-devkit/-/ui-devkit-0.16.1.tgz#9b27899f04fdc62147ceaa6267d697f652d53529"
-  integrity sha512-Kk1jA75qu9msb4oVdOLQ4BdBEmCsD/fR+Z/Tbj1tfOue43/V/wjfbDtRpzo6r2NvcZQJKiX8rIlCgzIxNuwTCQ==
+"@vendure/ui-devkit@0.18.5":
+  version "0.18.5"
+  resolved "https://registry.yarnpkg.com/@vendure/ui-devkit/-/ui-devkit-0.18.5.tgz#34aee2087d7f4e6379758dbdfbdd568d9168731e"
+  integrity sha512-SGRJlfDc97Gu8deyh9MBfsaqvbSHi8TmwhZQrNivv/nrcT+hyNxPVmnLX+BeYr5SpFgCHbTNNQKG7MjCqDFZPA==
   dependencies:
     "@angular-devkit/build-angular" "~0.1001.4"
     "@angular/cli" "^10.1.4"
     "@angular/compiler" "^10.1.4"
     "@angular/compiler-cli" "^10.1.4"
-    "@vendure/admin-ui" "^0.16.1"
-    "@vendure/common" "^0.16.1"
-    chalk "^4.1.0"
-    chokidar "^3.4.2"
-    fs-extra "^9.0.1"
-    glob "^7.1.6"
-    rxjs "^6.6.3"
-
-"@vendure/ui-devkit@0.17.1":
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/@vendure/ui-devkit/-/ui-devkit-0.17.1.tgz#31aeea17030a5a47c18794faa890c6a46b44c038"
-  integrity sha512-I4CWBB3BK2cATVi/uJ05VrPUF/SwCk9phk1FZLilWb0sNQoQJ/01EW6S61ridnyPpdCt4U8Xm2vuraBnRjal2Q==
-  dependencies:
-    "@angular-devkit/build-angular" "~0.1001.4"
-    "@angular/cli" "^10.1.4"
-    "@angular/compiler" "^10.1.4"
-    "@angular/compiler-cli" "^10.1.4"
-    "@vendure/admin-ui" "^0.17.1"
-    "@vendure/common" "^0.17.1"
+    "@vendure/admin-ui" "^0.18.5"
+    "@vendure/common" "^0.18.4"
     chalk "^4.1.0"
     chokidar "^3.4.2"
     fs-extra "^9.0.1"
