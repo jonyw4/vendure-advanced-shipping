@@ -23,7 +23,7 @@
     "@vendure/core": "0.17.1",
     "@vendure/create": "0.17.1",
     "@vendure/testing": "0.17.1",
-    "@vendure/ui-devkit": "0.17.1"
+    "@vendure/ui-devkit": "0.18.5"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "9.1.1",
