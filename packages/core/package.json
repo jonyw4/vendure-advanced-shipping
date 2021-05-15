@@ -26,7 +26,7 @@
     "convert-units": "2.3.4"
   },
   "peerDependencies": {
-    "@vendure/admin-ui": "~0.16.0",
+    "@vendure/admin-ui": "~0.16.0 || ~0.18.0",
     "@vendure/core": "~0.17.0"
   },
   "publishConfig": {

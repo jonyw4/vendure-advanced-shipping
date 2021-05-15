@@ -1551,6 +1551,13 @@
   dependencies:
     tslib "^2.0.0"
 
+"@clr/angular@^4.0.8":
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/@clr/angular/-/angular-4.0.15.tgz#d10a7fe2b5cd8f3ca53011fc3de2b8fef2fdd57c"
+  integrity sha512-CrSDLAGQqG/6HA+qIuDzahrH2FcsjPlyYIJWxcWERVDT+DDbGRog5JePpekvVey7WLiyRWd0I8xggE85jFa0oA==
+  dependencies:
+    tslib "^2.0.0"
+
 "@clr/city@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@clr/city/-/city-1.1.0.tgz#4a444cd12c626d66ffadab27e9d09bb3c8eca352"
@@ -1574,15 +1581,43 @@
     css-vars-ponyfill "^2.3.2"
     normalize.css "^8.0.1"
 
+"@clr/core@^4.0.8":
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/@clr/core/-/core-4.0.15.tgz#8cb0d4adb108f657d6d5d3b2d66ae6f4659291e8"
+  integrity sha512-KnUxZGCMcfRu7GdSihHRQPbElYcGwfTey5HkZnIw3KM+o02Ru1cH0jJn7St5+dF9V3RVYryTEdZ66gHQrstFzw==
+  dependencies:
+    "@types/resize-observer-browser" "^0.1.3"
+    lit-element "^2.3.1"
+    lit-html "^1.2.1"
+    ramda "^0.27.0"
+    tslib "^2.0.0"
+  optionalDependencies:
+    "@clr/city" "^1.1.0"
+    "@webcomponents/custom-elements" "^1.4.2"
+    "@webcomponents/shadycss" "^1.10.1"
+    "@webcomponents/webcomponentsjs" "^2.4.4"
+    css-vars-ponyfill "^2.3.2"
+    normalize.css "^8.0.1"
+
 "@clr/icons@^4.0.3":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@clr/icons/-/icons-4.0.4.tgz#36e447116940eed708a915e4f9a1d8ce3390dc06"
   integrity sha512-1snMF963n5CTWhE3FKbk/sLsGMGastLqzyRDT4YjNt4H/9b3sv+z9svkoptmUK8j+m52ByORcnKtf8711XDNHQ==
 
+"@clr/icons@^4.0.8":
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/@clr/icons/-/icons-4.0.15.tgz#f36fe03d3daaf2bcbc9cbeffa0844dbb1d369e98"
+  integrity sha512-HwcuwSUsE/rgh7FsO4JTM2d1kXU9VKQRGNoODJXysvm1aOSElCuMVF7/vU5AH3uddNy90oty0Tku/GdJQxrpjA==
+
 "@clr/ui@^4.0.3":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@clr/ui/-/ui-4.0.4.tgz#dcdeb012abe99bd0873867ffb83a98d328b64dcf"
   integrity sha512-9lCtH/PkUZaZDKj2PsIxOC7he4PXrbpJCsUC8gcQZm7sYNLRcHPBEaUAPHAA7SBf+6+v4UxogAZ/N9/lnPndDg==
+
+"@clr/ui@^4.0.8":
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/@clr/ui/-/ui-4.0.15.tgz#a7979e9c426a61bfe6719c2270aa11a8041a6b7d"
+  integrity sha512-CUfWyNKGqTTuVXWLY3fnW8pA6ts2XiLPwPoTKBH5r7h3cFQJxTCaJ0u6tbMQZuDwaGX6k+kpdu8inMti7VQkMQ==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
@@ -3438,10 +3473,10 @@
   dependencies:
     fs-extra "^9.0.1"
 
-"@vendure/admin-ui@0.17.1", "@vendure/admin-ui@^0.17.1":
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/@vendure/admin-ui/-/admin-ui-0.17.1.tgz#6f4d56d9a9aad1f20648ea2df4e1ceca4d622bde"
-  integrity sha512-zzTYroRcZ9Sac/LAhU+Mg+Oe5GNc8gpe2/aT+ZQSBabZbGokyVUL9TnG0XLhgXdqCpqGL9fj+382uPDn3z1Mxw==
+"@vendure/admin-ui@0.18.5":
+  version "0.18.5"
+  resolved "https://registry.yarnpkg.com/@vendure/admin-ui/-/admin-ui-0.18.5.tgz#c9d7d97a44b1e9ec5580d576a17673d865aa80ee"
+  integrity sha512-TgTZ+bvLe/VrkbPqHb+afHT2bRmgV+aabqz16T6n6Hm5lJY0c0OydZmcYp5r9I+OWt8bnOZJHKPLSrAaJeeaYw==
   dependencies:
     "@angular/animations" "10.1.4"
     "@angular/cdk" "10.2.4"
@@ -3454,14 +3489,14 @@
     "@angular/router" "10.1.4"
     "@apollo/client" "^3.0.0"
     "@biesbjerg/ngx-translate-extract-marker" "^1.0.0"
-    "@clr/angular" "^4.0.3"
-    "@clr/core" "^4.0.3"
-    "@clr/icons" "^4.0.3"
-    "@clr/ui" "^4.0.3"
+    "@clr/angular" "^4.0.8"
+    "@clr/core" "^4.0.8"
+    "@clr/icons" "^4.0.8"
+    "@clr/ui" "^4.0.8"
     "@ng-select/ng-select" "^5.0.3"
     "@ngx-translate/core" "^13.0.0"
     "@ngx-translate/http-loader" "^6.0.0"
-    "@vendure/common" "^0.17.1"
+    "@vendure/common" "^0.18.4"
     "@webcomponents/custom-elements" "^1.2.4"
     apollo-angular "^2.0.4"
     apollo-upload-client "^12.1.0"
@@ -3532,6 +3567,53 @@
     tslib "^2.0.0"
     zone.js "~0.10.2"
 
+"@vendure/admin-ui@^0.17.1":
+  version "0.17.1"
+  resolved "https://registry.yarnpkg.com/@vendure/admin-ui/-/admin-ui-0.17.1.tgz#6f4d56d9a9aad1f20648ea2df4e1ceca4d622bde"
+  integrity sha512-zzTYroRcZ9Sac/LAhU+Mg+Oe5GNc8gpe2/aT+ZQSBabZbGokyVUL9TnG0XLhgXdqCpqGL9fj+382uPDn3z1Mxw==
+  dependencies:
+    "@angular/animations" "10.1.4"
+    "@angular/cdk" "10.2.4"
+    "@angular/common" "10.1.4"
+    "@angular/core" "10.1.4"
+    "@angular/forms" "10.1.4"
+    "@angular/language-service" "10.1.4"
+    "@angular/platform-browser" "10.1.4"
+    "@angular/platform-browser-dynamic" "10.1.4"
+    "@angular/router" "10.1.4"
+    "@apollo/client" "^3.0.0"
+    "@biesbjerg/ngx-translate-extract-marker" "^1.0.0"
+    "@clr/angular" "^4.0.3"
+    "@clr/core" "^4.0.3"
+    "@clr/icons" "^4.0.3"
+    "@clr/ui" "^4.0.3"
+    "@ng-select/ng-select" "^5.0.3"
+    "@ngx-translate/core" "^13.0.0"
+    "@ngx-translate/http-loader" "^6.0.0"
+    "@vendure/common" "^0.17.1"
+    "@webcomponents/custom-elements" "^1.2.4"
+    apollo-angular "^2.0.4"
+    apollo-upload-client "^12.1.0"
+    core-js "^3.1.3"
+    dayjs "^1.9.1"
+    graphql "15.3.0"
+    messageformat "2.3.0"
+    ngx-pagination "^5.0.0"
+    ngx-translate-messageformat-compiler "^4.8.0"
+    prosemirror-commands "^1.1.4"
+    prosemirror-dropcursor "^1.3.2"
+    prosemirror-gapcursor "^1.1.5"
+    prosemirror-history "^1.1.3"
+    prosemirror-inputrules "^1.1.3"
+    prosemirror-keymap "^1.1.4"
+    prosemirror-menu "^1.1.4"
+    prosemirror-schema-basic "^1.1.2"
+    prosemirror-schema-list "^1.1.4"
+    prosemirror-state "^1.3.3"
+    rxjs "^6.6.3"
+    tslib "^2.0.0"
+    zone.js "~0.10.2"
+
 "@vendure/asset-server-plugin@0.17.1":
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/@vendure/asset-server-plugin/-/asset-server-plugin-0.17.1.tgz#37dfa75440af4ff014344e57be6e4b80a05bd4ff"
@@ -3550,6 +3632,11 @@
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/@vendure/common/-/common-0.17.1.tgz#84b8208139864e44af203ea07e33353fe6c22cb1"
   integrity sha512-kGOlsTMM0pOuD/hO3tc7iEOjj+8jumLn16qTV6yO5O/MMH8EHW3oMWcT/mAjy2jDsIqrMoNaDB24goHJFF6Dvg==
+
+"@vendure/common@^0.18.4":
+  version "0.18.4"
+  resolved "https://registry.yarnpkg.com/@vendure/common/-/common-0.18.4.tgz#f5ab3e2b7bcf35546c9fe42a6d22075ac871dd83"
+  integrity sha512-mCPBLkNnY8v9UOcKaWDWzuYo/GsLeexnm3wOI+qwaK0Q4tUOXrJ+BeatBI3HNfbHlpprbOkX5cfoS0ab1GbMhA==
 
 "@vendure/core@0.17.1":
   version "0.17.1"
