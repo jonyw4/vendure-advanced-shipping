@@ -20,7 +20,7 @@
   "dependencies": {
     "@vendure/admin-ui-plugin": "0.17.1",
     "@vendure/asset-server-plugin": "0.17.1",
-    "@vendure/core": "0.17.1",
+    "@vendure/core": "0.18.5",
     "@vendure/create": "0.17.1",
     "@vendure/testing": "0.17.1",
     "@vendure/ui-devkit": "0.17.1"
