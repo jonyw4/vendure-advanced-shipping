@@ -55,7 +55,7 @@
     "multi-semantic-release": "2.4.1",
     "ncp": "2.0.0",
     "pg": "8.4.1",
-    "prettier": "2.0.5",
+    "prettier": "2.4.1",
     "rimraf": "3.0.2",
     "sqlite3": "5.0.0",
     "ts-jest": "26.4.4",
